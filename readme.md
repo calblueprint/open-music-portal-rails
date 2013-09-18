@@ -1,1 +1,1 @@
-### USOMC (United States Open Music Competition)
+### United States Open Music Competition - Rails App
