@@ -11,10 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20130927070907) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
+  create_table "books", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "composers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "levels", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nationalities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "periods", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pieces", force: true do |t|
+    t.integer  "composer_id"
+    t.integer  "nationality_id"
+    t.string   "title"
+    t.integer  "book_id"
+    t.integer  "publisher_id"
+    t.string   "affiliate_link"
+    t.integer  "length_minutes"
+    t.integer  "length_seconds"
+    t.integer  "period_id"
+    t.text     "pages"
+    t.integer  "level_id"
+    t.text     "other_a"
+    t.text     "other_b"
+    t.text     "other_c"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "publishers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
