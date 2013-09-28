@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20130928234517) do
   end
 
   create_table "users", force: true do |t|
+<<<<<<< HEAD
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "id_number"
