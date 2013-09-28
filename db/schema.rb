@@ -18,31 +18,31 @@ ActiveRecord::Schema.define(version: 20130927070907) do
   enable_extension "hstore"
 
   create_table "books", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "composers", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "levels", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "nationalities", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "periods", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 20130927070907) do
   create_table "pieces", force: true do |t|
     t.integer  "composer_id"
     t.integer  "nationality_id"
-    t.string   "title"
+    t.text     "title"
     t.integer  "book_id"
     t.integer  "publisher_id"
-    t.string   "affiliate_link"
+    t.text     "affiliate_link"
     t.integer  "length_minutes"
     t.integer  "length_seconds"
     t.integer  "period_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20130927070907) do
   end
 
   create_table "publishers", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
