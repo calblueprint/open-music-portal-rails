@@ -101,6 +101,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     multi_test (0.0.2)
+    newrelic_rpm (3.6.7.159)
     nokogiri (1.5.9)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -189,6 +190,7 @@ DEPENDENCIES
   faker (= 1.1.2)
   jbuilder (= 1.0.2)
   jquery-rails (= 2.2.1)
+  newrelic_rpm
   nokogiri (= 1.5.9)
   pg (= 0.17.0)
   rails (= 4.0.0)
