@@ -42,6 +42,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass-rails (3.0.0.3)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
@@ -196,17 +197,8 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-<<<<<<< HEAD
-<<<<<<< HEAD
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass-rails (= 3.0.0.3)
-=======
-  bcrypt-ruby!
-=======
-  bcrypt-ruby (= 3.0.1)
->>>>>>> Fix style, remove unecessary stuff in route.rb
-  bootstrap-sass (= 2.3.2.0)
->>>>>>> Add Password, bcrypt doesnt work well on windows need to check
   bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0)
   cucumber-rails (= 1.3.0)
