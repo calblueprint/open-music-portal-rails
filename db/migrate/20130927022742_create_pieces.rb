@@ -3,10 +3,10 @@ class CreatePieces < ActiveRecord::Migration
     create_table :pieces do |t|
       t.belongs_to :composer
       t.belongs_to :nationality
-      t.string :title
+      t.text :title
       t.belongs_to :book
       t.belongs_to :publisher
-      t.string :affiliate_link
+      t.text :affiliate_link
       t.integer :length_minutes
       t.integer :length_seconds
       t.belongs_to :period
