@@ -1,0 +1,147 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;} body, html { line-height: 0; margin: 0px; height: 100%;} blockquote:before,blockquote:after,q:before,q:after { content: ''; content: none;} table { border-collapse: collapse; border-spacing: 0;} article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block;} ol,ul { list-style: none;} blockquote,q { quotes: none;}
+
+#container {
+	width: 1024px;
+	height: 1360px;
+	margin: auto;
+}
+
+#bar {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 250px;
+	background-color: #7EA7D8;
+}
+
+#tabar {
+	position: absolute;
+	top: 250px;
+	width: 100%;
+	height: 50px;
+	background-color: #202020;
+}
+
+#tabs {
+	position: absolute;
+	top: 250px;
+	left: calc(50% - 500px);
+	width: 1000px;
+	height: 50px;
+	background-color: white;
+}
+
+.tab {
+	font-size: 15px;
+	font-family: 'Titillium Web', sans-serif;
+	height: 50px;
+	width: 200px;
+	float: left;
+	border-style:none;
+	color: white;
+	background-color: #202020;
+}
+
+.tab:hover {
+	color: #7EA7D8;
+}
+
+#logo {
+	position: absolute;
+	top: 50px;
+	left: calc(50% - 353px);
+	width: 706px;
+	height: 150px;
+	border-style:none;
+	background: url(img/logo.png);
+}
+
+#display {
+	margin-top: 350px;
+	width: 800px;
+	height: 480px;
+	font-size: 0px;
+	border-style:none;
+	animation: fade 12s infinite;
+	-webkit-animation: fade 12s infinite;
+}
+
+#side {
+	position: absolute;
+	top: 350px;
+	left: calc(50% + 303px);
+	width: 210px;
+	height: 480px;
+	font-size: 0px;
+	border-style:none;
+	background: #7EA7D8;
+}
+
+#paragraph {
+	margin-top: 20px;
+	padding: 25px;
+	font-size: 20px;
+	line-height: 24px;
+	background: #7EA7D8;
+}
+
+.note {
+	position: absolute;
+	padding: 25px;
+	border-style:none;
+	background: #EECBAD;
+	color: black;
+	size: 15px;
+	opacity: 0.8;
+}
+
+.note:hover{
+	opacity: 1;
+}
+
+#note1 {
+	top: 275px;
+	left: 20px;
+}
+
+#note2 {
+	top: 700px;
+	left: calc(50% - 600px);
+}
+
+#note3 {
+	top: 500px;
+	left: calc(50% + 400px);
+}
+
+#note4 {
+	top: 950px;
+	left: calc(50% + 450px);
+}
+
+#note5 {
+	top: 100px;
+	left: calc(100% - 500px);
+}
+
+@keyframes fade
+{
+	0% {background: url(img/stock1.jpg);}
+	20% {background: url(img/stock1.jpg);}
+	33% {background: url(img/stock2.jpg);}
+	53% {background: url(img/stock2.jpg);}
+	66% {background: url(img/stock3.jpg);}
+	86% {background: url(img/stock3.jpg);}
+	100% {background: url(img/stock1.jpg);}
+}
+
+@-webkit-keyframes fade
+{
+	0% {background: url(img/stock1.jpg);}
+	20% {background: url(img/stock1.jpg);}
+	33% {background: url(img/stock2.jpg);}
+	53% {background: url(img/stock2.jpg);}
+	66% {background: url(img/stock3.jpg);}
+	86% {background: url(img/stock3.jpg);}
+	100% {background: url(img/stock1.jpg);}
+}
