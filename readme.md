@@ -14,4 +14,8 @@ And if that goes well too, you can start the rails server!
 
     rails s
 
+### Seeding Data
 
+We have a csv file with a database of music piece entries. To load this into the database, run the following:
+
+    rake db:seed
