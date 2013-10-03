@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20130928234517) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
+
   create_table "books", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20130928234517) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "id_number"
+    t.date     "date_of_birth"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
