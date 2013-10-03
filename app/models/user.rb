@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   before_save { email.downcase! }
 
-  validates :first_name, presence: true, length: { minimum: 1 }
-  validates :last_name, presence: true, length: { minimum: 1 }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates_date :date_of_birth, :on_or_before => lambda { Date.current }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
