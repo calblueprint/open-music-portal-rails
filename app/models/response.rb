@@ -1,13 +1,5 @@
 class Response
 
-  def to_json
-    if success
-      {success: {code: code, message: message, status: status}}
-    else
-      {error: {code: code, message: message, status: status}}
-    end
-  end
-
   def self.ok(message='')
     {success: {code: 1, message: message, status: 200}}
   end
