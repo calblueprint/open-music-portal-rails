@@ -1,5 +1,5 @@
 class PiecesController < ApplicationController
   def index
-    @pieces = Piece.all
+    @pieces = Piece.paginate(:page => params[:page])
   end
 end
