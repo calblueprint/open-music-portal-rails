@@ -24,18 +24,12 @@ class User < ActiveRecord::Base
 
   before_save { email.downcase! }
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, :email, :country, :street_address,
+            :city, :state, :zip_code, :phone_number, presence: true
   validates_date :date_of_birth, :on_or_before => lambda { Date.current }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  validates :email, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
-  validates :country, presence: true
-  validates :street_address, presence: true
-  validates :city, presence:true
-  validates :state, presence:true
-  validates :zip_code, presence:true
-  validates :phone_number, presence:true
   validates :password, length: { minimum: 6 }
 
 end
