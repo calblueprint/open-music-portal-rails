@@ -1,0 +1,273 @@
+html {
+        overflow-x: hidden;
+}
+
+#container {
+        width: 800px;
+        height: 1300px;
+        margin: auto;
+        font-family: 'Open Sans', sans-serif;
+}
+
+#container {
+        margin-top: 200px;
+}
+
+#piano {
+        background: url(img/piano.png);
+        border-style: none;
+        width: 600px;
+        height: 600px;
+        position: absolute;
+        top: 175px;
+        left: calc(100% - 500px);
+}
+
+#piano:hover {
+        background: url(img/pianoalt.png);
+}
+
+#note1 {
+        position: absolute;
+        top: 275px;
+        left: calc(50% - 650px);
+        width: 85px;
+        height: 85px;
+}
+
+#note1:hover {
+        opacity: 0.3;
+}
+
+#note2 {
+        position: absolute;
+        top: 400px;
+        left: calc(100% - 570px);
+        width: 80px;
+        height: 80px;
+}
+
+#note2:hover {
+        opacity: 0.3;
+}
+
+#note3 {
+        position: absolute;
+        top: 300px;
+        left: calc(100% - 450px);
+        width: 65px;
+        height: 65px;
+}
+
+#note3:hover {
+        opacity: 0.3;
+}
+
+#note4 {
+        position: absolute;
+        top: 230px;
+        left: 58%;
+        width: 75px;
+        height: 75px;
+}
+
+#note4:hover {
+        opacity: 0.3;
+}
+
+#note5 {
+        position: absolute;
+        top: 470px;
+        left: calc(50% - 520px);
+        width: 65px;
+        height: 65px;
+}
+
+#note5:hover {
+        opacity: 0.3;
+}
+
+.square {
+        position:absolute;
+        font-family: 'Open Sans Condensed', sans-serif;
+        border-radius: 75px;
+        font-size: 20px;
+        padding: 5px;
+        height: 150px;
+        width: 150px;
+        border-style: none;
+        background: transparent;
+        color: #363636;
+}
+
+.square:hover {
+        background-color: #EBEBEB;
+}
+
+#announcements {
+        position:absolute;
+        top: 198px;
+        left: calc(50% - 401px);
+        width: 452px;
+        height: 227px;
+        padding: 25px;
+        background: transparent;
+}
+
+#announcements:hover {
+        opacity: 0.5;
+}
+
+#announcement {
+        font-size: 45px;
+        line-height: 46px;
+}
+
+#register {
+        top: 425px;
+        left: calc(50% - 400px);
+}
+
+#syllabus {
+        top: 425px;
+        left: calc(50% - 250px);
+}
+
+#rules {
+        top: 425px;
+        left: calc(50% - 100px);
+}
+
+#judges2 {
+        top: 575px;
+        left: calc(50% - 400px);
+}
+
+#location {
+        top: 575px;
+        left: calc(50% - 250px);
+}
+
+#donate {
+        top: 575px;
+        left: calc(50% - 100px);
+}
+
+/*THESE ARE ANIMATIONS*/
+@keyframes fade
+{
+        0% {background: url(img/stock1.jpg);}
+        20% {background: url(img/stock1.jpg);}
+        33% {background: url(img/stock2.jpg);}
+        53% {background: url(img/stock2.jpg);}
+        66% {background: url(img/stock3.jpg);}
+        86% {background: url(img/stock3.jpg);}
+        100% {background: url(img/stock1.jpg);}
+}
+
+@-webkit-keyframes fade
+{
+        0% {background: url(img/stock1.jpg);}
+        20% {background: url(img/stock1.jpg);}
+        33% {background: url(img/stock2.jpg);}
+        53% {background: url(img/stock2.jpg);}
+        66% {background: url(img/stock3.jpg);}
+        86% {background: url(img/stock3.jpg);}
+        100% {background: url(img/stock1.jpg);}
+}
+
+/*THIS IS THE CSS FOR THE NAVBAR. IT USES THE CALC() FUNC WHICH NOT EVERYTHING SUPPORTS. DAMNIT*/
+#logo {
+        position: fixed;
+        top: 0px;
+        left: calc(50% - 75px);
+        z-index: 2;
+}
+
+#logo:hover {
+        opacity: 0.5;
+}
+
+#navback {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background: url(img/back.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 150px;
+        z-index: 1;
+        box-shadow:0px 5px #B7B7B7;
+        opacity: 0.9;
+}
+
+.tab {
+        position: fixed;
+        font-family: 'Open Sans Condensed', sans-serif;
+        border-radius: 4px;
+        font-size: 15px;
+        padding: 5px;
+        height: 30px;
+        width: 100px;
+        border-style: none;
+        background-color: transparent;
+        color: black;
+        z-index: 1;
+        opacity: 0.5;
+}
+
+.tab:hover {
+        color: white;
+        background-color: #363636;
+}
+
+#about {
+        top: 60px;
+        left: calc(50% - 375px);
+}
+
+#competition {
+        top: 60px;
+        left: calc(50% - 275px);
+}
+
+#winners {
+        top: 60px;
+        left: calc(50% - 175px);
+}
+
+#judges {
+        top: 60px;
+        left: calc(50% + 75px);
+}
+
+#registration {
+        top: 60px;
+        left: calc(50% + 175px);
+}
+
+#support {
+        top: 60px;
+        left: calc(50% + 275px);
+}
+
+#subtitle {
+        position: fixed;
+        font-family: 'Quicksand', sans-serif;
+        top: 135px;
+        left: calc(50% - 200px);
+        font-size: 15px;
+        height: 30px;
+        width: 400px;
+        border: 1px solid #B7B7B7;
+        border-radius:4px;
+        background-color: #F6F6F6;
+        box-shadow:0px 3px #B7B7B7;
+        z-index: 1;
+        color: #363636;
+}
+
+#subtitle:hover {
+        background-color: #EBEBEB;
+}
