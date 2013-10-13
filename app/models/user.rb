@@ -42,7 +42,27 @@ class User < ActiveRecord::Base
       return {
         first_name: first_name,
         last_name: last_name,
+        country: country,
+        street_address: street_address,
+        city: city,
+        state: state,
+        zip_code: zip_code,
+        phone_number: phone_number,
         email: email
       }
+    end
+
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User.encrypt(token)
+      Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+
+    def create_remember_token
+      self.remember_token = User.encrypt(User.new_remember_token)
     end
 end
