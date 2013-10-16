@@ -54,8 +54,9 @@ class PiecesController < ApplicationController
     key = params[:key]
     if key_to_class.has_key?(key)
       query = params[:q].downcase
-      render json: key_to_class[key].where('lower(name) like ?', "%#{query}%").pluck(:name)
+      render json: key_to_class[key].where('lower(name) like ?', "%#{query}%").limit(100).pluck(:name)
     else
+      logger.info "Typeahead endpoint received invalid key '#{key}'. Either there is a bug in frontend typeahead code or a user is being nosy"
       render json: []
     end
   end
