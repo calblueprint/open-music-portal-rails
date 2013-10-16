@@ -11,6 +11,7 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'annotate', '>=2.5.0'
 gem 'twitter-typeahead-rails', '0.9.3'
+gem 'stripe', github: 'stripe/stripe-ruby'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '2.1.1'
