@@ -223,7 +223,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor
   rspec-rails (= 2.13.1)
-  sass-rails (= 4.0.0)
+  sass-rails (~> 4.0.0)
   sdoc (= 0.3.20)
   selenium-webdriver (= 2.0.0)
   spork-rails!
