@@ -28,4 +28,8 @@ class Piece < ActiveRecord::Base
   belongs_to :publisher
   belongs_to :period
   belongs_to :level
+
+  validates :title, presence: true
+  validates_associated :composer, :nationality, :book, :publisher, :period, :level
+
 end
