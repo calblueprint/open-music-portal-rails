@@ -13,6 +13,9 @@ USOMC::Application.routes.draw do
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
   resources :pieces
 
+  resources :rooms
+  match '/rooms', to: 'rooms#new', via: :get
+
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
