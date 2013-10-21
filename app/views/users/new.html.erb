@@ -1,26 +1,72 @@
-<% provide(:title, 'Sign Up') %>
-<h1>Sign Up !</h1>
+<!--NAVBAR THAT NOT IN CONVENTIONAL BOOTSTRAP-->
+<input type="button" id = "logo" value = ""/>
+<button type="button" id = "search">
+    <span id="icon" class="glyphicon glyphicon-search"></span>
+</button>
+<input id="text" type="text" />
+<div id="navback"></div>
+<div id="outerline"></div>
+<div id="innerline"></div>
+<input type="button" class="tab" id = "about" value = "ABOUT"/>
+<input type="button" class="tab" id = "competition" value = "COMPETITION"/>
+<input type="button" class="tab" id = "winners" value = "WINNERS"/>
+<input type="button" class="tab" id = "judges" value = "JUDGES"/>
+<input type="button" class="tab" id = "registration" value = "REGISTRATION"/>
+<input type="button" class="tab" id = "support" value = "SUPPORT"/>
+<input type="button" disabled="disabled"  id="subtitle" value= "UNITED STATES OPEN MUSIC COMPETITION"/>
+<!--END NAVBAR-->
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+<!--THE ACTUAL CONTENT-->
+<div id="container">
+    <div id = "sideouterline"></div>
+    <div id = "sideinnerline"></div>
+    <div id = "sideotherouterline"></div>
+    <input type="button" class = "stab" id = "part1" value="part 1"/>
+    <input type="button" class = "stab" id = "part2" value="part 2"/>
+    <input type="button" class = "stab" id = "part3" value="part 3"/>
+    <div id="infobox">
+    <p id = "stitle"> Personal Information </p>
+    <p id = "info">
+    Name: <br> 
+    Birth Date: <br> 
+    Parent Name: <br>
+    Country: <br>
+    Street Address: <br>
+    City: <br>
+    State: <br>
+    Zip/Postal Code: <br>
+    Phone: <br>
+    Email: <br>
+    Parent Email: <br>
+    Current teacher:
+    </p>                
+    </div>
+        <form id = "form">
+        <%= form_for(@user) do |f| %>
+            <input type="text" classyyyy="input" placeholder="First">
+            <input type="text" class="input" placeholder="Last"><br>
+            <input type="text" id="short" class="input" placeholder="Month">
+            <input type="text" id="short" class="input" placeholder="Day">
+            <input type="text" id="short" class="input" placeholder="Year"><br>
+            <input type="text" class="input" placeholder="First">
+            <input type="text" class="input" placeholder="Last"><br>
+            <select class="input">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select><br>
+            <input type="text" id = "long" class="input" placeholder="Street Address"><br>
+            <input type="text" id = "long" class="input" placeholder="City"><br>
+            <input type="text" id = "long" class="input" placeholder="State"><br>
+            <input type="text" class="input" placeholder="Zip/Postal Code"><br>
+            <input type="text" class="input" placeholder="Phone"><br>
+            <input type="text" id = "long" class="input" placeholder="Email"><br>
+            <input type="text" id = "long" class="input" placeholder="Email"><br>
+            <input type="text" class="input" placeholder="First">
+            <input type="text" class="input" placeholder="Last"><br>
+            <input type="submit" class="submit" value="continue"/>
+        <%end%>
+    </form>
 </div>
+<!--THE END OF ALL CONTENT EVER KNOWN TO MANKIND-->

@@ -38,18 +38,18 @@ class User < ActiveRecord::Base
       return users.collect {|user| user.to_json}
     end
 
-    def to_json
-      return {
-        first_name: first_name,
-        last_name: last_name,
-        country: country,
-        street_address: street_address,
-        city: city,
-        state: state,
-        zip_code: zip_code,
-        phone_number: phone_number,
-        email: email
-      }
+  def to_json
+    return {
+      first_name: first_name,
+      last_name: last_name,
+      country: country,
+      street_address: street_address,
+      city: city,
+      state: state,
+      zip_code: zip_code,
+      phone_number: phone_number,
+      email: email
+    }
     end
 
   def User.new_remember_token
