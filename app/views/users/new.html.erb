@@ -44,6 +44,7 @@
         <form id = "form">
         <%= form_for(@user) do |f| %>
             <input type="text" classyyyy="input" placeholder="First">
+            <%= f.text_field :first_name, :placeholder => "First"  %>
             <input type="text" class="input" placeholder="Last"><br>
             <input type="text" id="short" class="input" placeholder="Month">
             <input type="text" id="short" class="input" placeholder="Day">
