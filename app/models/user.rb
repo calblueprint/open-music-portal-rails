@@ -20,6 +20,9 @@
 #
 
 class User < ActiveRecord::Base
+  rolify :role_cname => 'Judge'
+  rolify :role_cname => 'Contestant'
+  rolify :role_cname => 'Admin'
   has_and_belongs_to_many :events
 
   has_secure_password

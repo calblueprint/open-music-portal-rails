@@ -21,6 +21,7 @@ gem 'jbuilder', '1.0.2'
 gem 'pg', '0.17.0'
 gem 'newrelic_rpm'
 gem 'rails_12factor', group: :production
+gem 'rolify'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

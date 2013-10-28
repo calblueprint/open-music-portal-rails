@@ -22,6 +22,7 @@
 #
 
 class Piece < ActiveRecord::Base
+  resourcify
   belongs_to :composer
   belongs_to :nationality
   belongs_to :book
