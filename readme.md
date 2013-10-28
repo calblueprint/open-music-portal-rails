@@ -6,7 +6,13 @@ You will need Ruby 2.0.0 and Rails 4.0. Once you have both of those installed, y
 
     bundle install
 
-If all goes well, you can set up your local database (first make a copy of config/sample/database.yml to config/database.yml and change the name to be a user on your computer):
+### Setting up your database
+
+Make a copy of the sample database.yml file:
+
+    cp config/sample/database.yml config/database.yml
+
+Open it up and change the username for the development and test environments. Then run:
 
     rake db:migrate
 
