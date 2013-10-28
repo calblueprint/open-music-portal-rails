@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   def self.to_json(users)
       return users.collect {|user| user.to_json}
-    end
+  end
 
   def to_json
     return {
@@ -50,14 +50,14 @@ class User < ActiveRecord::Base
       phone_number: phone_number,
       email: email
     }
-    end
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
 
   def User.encrypt(token)
-      Digest::SHA1.hexdigest(token.to_s)
+    Digest::SHA1.hexdigest(token.to_s)
   end
 
   private
