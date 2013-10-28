@@ -38,11 +38,13 @@
     Phone: <br>
     Email: <br>
     Parent Email: <br>
-    Current teacher:
+    Current teacher: <br>
+    Password: <br>
+    Confirmation:
     </p>
-    </div>
-        <form id = "form">
-        <%= form_for(@user) do |f| %>
+  </div>
+    <%= render partial: "shared/errors" %>
+    <%= form_for(@user, html: {id: "form"}) do |f| %>
           <%= f.text_field :first_name, :placeholder => "First", :size => 15 %>
             <%= f.text_field :last_name, :placeholder => "Last" %><br>
             <%= f.date_field :date_of_birth, :placeholder => "Date of Birth" %><br>
@@ -57,8 +59,10 @@
             <%= f.text_field :email, :placeholder => "Email"%><br>
             <input type="text" class="input" placeholder="First">
             <input type="text" class="input" placeholder="Last"><br>
-            <input type="submit" class="submit" value="continue"/>
-        <%end%>
+            <%= f.password_field :password, :placeholder => "Password" %><br>
+            <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+            <%= f.submit "continue", class: "submit" %>
+        <% end %>
     </form>
 </div>
 <!--THE END OF ALL CONTENT EVER KNOWN TO MANKIND-->

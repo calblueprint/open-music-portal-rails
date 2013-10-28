@@ -17,4 +17,12 @@ def create
   def show
     @user = User.find(params[:id])
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,
+                                   :date_of_birth, :country, :street_address, :city, :state, :zip_code,
+                                   :phone_number)
+    end
 end
