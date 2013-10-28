@@ -8,18 +8,22 @@
 #  id_number       :integer
 #  date_of_birth   :date
 #  email           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)
 #  country         :string(255)
 #  street_address  :string(255)
 #  city            :string(255)
 #  state           :string(255)
 #  zip_code        :string(255)
 #  phone_number    :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
-#  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
+  rolify :role_cname => 'Judge'
+  rolify :role_cname => 'Contestant'
+  rolify :role_cname => 'Admin'
   has_and_belongs_to_many :events
 
   has_secure_password

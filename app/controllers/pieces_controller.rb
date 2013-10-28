@@ -1,4 +1,5 @@
 class PiecesController < ApplicationController
+  before_action :admin_user,       only: :new
   def index
     @pieces = Piece.paginate(:page => params[:page])
   end
@@ -61,4 +62,8 @@ class PiecesController < ApplicationController
     end
   end
 
+  private
+    def admin_user
+      redirect_to(root_url) unless current_user.has_role? :admin
+    end
 end
