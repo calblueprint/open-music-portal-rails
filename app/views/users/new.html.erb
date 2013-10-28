@@ -38,7 +38,9 @@
     Phone: <br>
     Email: <br>
     Parent Email: <br>
-    Current teacher:
+    Current teacher: <br>
+    Password: <br>
+    Confirmation:
     </p>
   </div>
     <%= render partial: "shared/errors" %>
@@ -57,7 +59,7 @@
             <%= f.text_field :email, :placeholder => "Email"%><br>
             <input type="text" class="input" placeholder="First">
             <input type="text" class="input" placeholder="Last"><br>
-            <%= f.password_field :password, :placeholder => "Password" %>
+            <%= f.password_field :password, :placeholder => "Password" %><br>
             <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
             <%= f.submit "continue", class: "submit" %>
         <% end %>
