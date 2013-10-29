@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :admin_user,    only: :new
   def new
     @room = Room.new
   end
@@ -24,5 +25,9 @@ class RoomsController < ApplicationController
 
     def room_params
       params.require(:room).permit(:name)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user != nil and current_user.has_role? :admin
     end
 end
