@@ -1,5 +1,5 @@
 USOMC::Application.routes.draw do
-  root :to => 'static_pages#home'
+  root to: 'static_pages#home'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -10,8 +10,8 @@ USOMC::Application.routes.draw do
   match 'profile', to: 'static_pages#profile', via: :get
   match 'registration', to: 'static_pages#registration', via: :get
 
-  resources :pieces
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
+  resources :pieces
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do

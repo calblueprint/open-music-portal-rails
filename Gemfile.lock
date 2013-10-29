@@ -218,12 +218,12 @@ DEPENDENCIES
   faker (= 1.1.2)
   jbuilder (= 1.0.2)
   jquery-rails (= 2.2.1)
-  newrelic_rpm
+  newrelic_rpm (~> 3.6.8.168)
   nokogiri (= 1.5.9)
   pg (= 0.17.0)
   rails (= 4.0.0)
   rails_12factor
-  rolify
+  rolify (~> 3.2.0)
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0)
   sdoc (= 0.3.20)
