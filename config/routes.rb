@@ -14,7 +14,6 @@ USOMC::Application.routes.draw do
   resources :pieces
 
   resources :rooms
-  match '/rooms/new', to: 'rooms#new', via: :get
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
