@@ -1,0 +1,38 @@
+<header>
+  <div id="main_header">
+    <div class="container">
+      <div id="outline">
+        <div id="inner_outline">
+          <button type="button" id="search">
+            <span id="icon" class="glyphicon glyphicon-search"></span>
+          </button>
+          <input id="text" type="text"></input>
+
+          <div class="row" id="header_links">
+            <div class="col-md-2 slight_left">
+              <%= link_to "ABOUT", about_path, class: "tab" %>
+            </div>
+            <div class="col-md-2 slight_left">
+              <%= link_to "COMPETITION", competition_path, class: "tab" %>
+            </div>
+            <div class="col-md-2 slight_left">
+              <%= link_to "WINNERS", winners_path, class: "tab" %>
+            </div>
+            <%= link_to "", root_path, id: "logo" %>
+            <div class="col-md-2 slight_right">
+              <%= link_to "JUDGES", judges_path, class: "tab" %>
+            </div>
+            <div class="col-md-2 slight_right">
+              <%= link_to "REGISTRATION", registration_path, class: "tab" %>
+            </div>
+            <div class="col-md-2 slight_right">
+              <%= link_to "SUPPORT", support_path, class: "tab" %>
+            </div>
+
+            <%= link_to "UNITED STATES OPEN MUSIC COMPETITION", root_path, id: "subtitle", disabled: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

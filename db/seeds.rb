@@ -61,3 +61,17 @@ CSV.foreach(
 end
 
 puts "Entries created: #{num_created}. Total: #{num_total}."
+
+
+# Create announcements
+descriptions = {
+  Date.new(2013, 7, 11) => "2015 Registration has opened! Sign up now for a discounted entry fee.",
+  Date.new(2013, 6, 9)  => "2015 Judges Application Available. Apply here to get involved.",
+  Date.new(2013, 4, 20) => "Mark Miyashita is not pronounced the way you think it is.",
+  Date.new(2013, 1, 3)  => "Blah blah blahhhh blah blah blah blah blah blah",
+  Date.new(2012, 3, 7)  => "But what about blah blah blah?"
+}
+
+descriptions.each do |date, description|
+  Announcement.where(date: date, description: description).first_or_create
+end
