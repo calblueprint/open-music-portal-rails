@@ -1,3 +1,144 @@
+#stitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    margin-left: -3px;
+    padding-bottom: 30px;
+    width: 500px;
+    color: #1896d5;
+}
+
+#regbox {
+    position:absolute;
+    top: 213px;
+    left: calc(50% - 250px);
+    width: 650px;
+    height: 400px;
+    padding-left: 50px;
+    font-size: 15px;
+    line-height: 40px;
+    background: transparent;
+    z-index: -1;
+}
+
+#reg {
+    float: left;
+    color: #363636;
+    width: 150px;
+    margin-top: -13px;
+    background: transparent;
+}
+
+#form {
+    position:absolute;
+    top: 280px;
+    left: calc(50% - 100px);
+    width: 650px;
+    height: 560px;
+    padding-left: 50px;
+    font-size: 15px;
+    background: transparent;
+}
+
+.input {
+    margin: 5px;
+    height: 30px;
+    width: 140px;
+    text-indent: 5px;
+    border-radius: 4px;
+    border: 1px solid #B7B7B7;
+    opacity: 0.7;
+}
+
+.input:focus {
+    opacity: 1;
+}
+
+#long {
+    width: 200px;
+}
+
+#short {
+    width: 80px;
+}
+
+.submit {
+    position: relative;
+    top: 20px;
+    left: -201px;
+    height: 60px;
+    width: 651px;
+    color: black;
+    background: #EBEBEB;
+    border-style: none;
+}
+
+.submit:hover {
+    color: white;
+    background: #1896d5;
+}
+
+#part1 {
+    top: 217px;
+    color: white;
+    background: #1896d5;
+}
+
+#part2 {
+    top: 267px;
+}
+
+#part3 {
+    top: 317px;
+}
+
+#piano {
+  position: absolute;
+  top: 100px;
+  left: calc(100% - 600px);
+  width: 800px;
+  height: 800px;
+  background: url(<%= image_path "piano.svg" %>);
+  border-style: none;
+}
+
+#sideline {
+  position:absolute;
+  top: 217px;
+  left: calc(50% - 400px);
+  box-shadow: -2px 0px #EBEBEB;
+  width: 100px;
+  height: 538px;
+  background: transparent;
+}
+
+#scrollup {
+  position:absolute;
+  top: 400px;
+  left: calc(50% - 400px);
+  width: 500px;
+  height: 25px;
+  border-style: none;
+  background: black;
+  opacity: 0.1;
+}
+
+#scrolldown {
+  position:absolute;
+  top: 730px;
+  left: calc(50% - 400px);
+  width: 500px;
+  height: 25px;
+  border-style: none;
+  background: black;
+  opacity: 0.1;
+}
+
+#scrollup:hover, #scrolldown:hover {
+  opacity: 0;
+  transition: opacity 0.25s;
+  -webkit-transition: opacity 0.25s;
+}
+
 #sideouterline {
     position:absolute;
     top: 217px;
