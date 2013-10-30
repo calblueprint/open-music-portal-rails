@@ -1,0 +1,8 @@
+<% provide(:title, 'Room Creator') %>
+<h1>Room Creator</h1>
+
+<%= form_for(@room, html: {id: 'form'}) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "continue", class: "submit" %>
+<% end %>

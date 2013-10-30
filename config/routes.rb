@@ -5,13 +5,15 @@ USOMC::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#new', via: :get
   match '/login',  to: 'sessions#new', via: :get
-  match '/logout', to: 'sessions#destroy', via: :delete
+  match '/logout', to: 'sessions#destroy', via: [:get, :delete]
 
   match 'profile', to: 'static_pages#profile', via: :get
   match 'registration', to: 'static_pages#registration', via: :get
 
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
   resources :pieces
+
+  resources :rooms
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
