@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028224531) do
+ActiveRecord::Schema.define(version: 20131029094054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -26,6 +27,14 @@ ActiveRecord::Schema.define(version: 20131028224531) do
 
   add_index "admins", ["name", "resource_type", "resource_id"], name: "index_admins_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "admins", ["name"], name: "index_admins_on_name", using: :btree
+
+  create_table "announcements", force: true do |t|
+    t.text     "description"
+    t.integer  "admin_id"
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "books", force: true do |t|
     t.text     "name"
