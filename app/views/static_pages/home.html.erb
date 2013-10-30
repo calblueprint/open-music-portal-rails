@@ -1,6 +1,6 @@
 <div id="piano"></div>
 
-<div class="row">
+<div class="row left_border">
   <div class="col-md-5">
     <h1 class="title">USOMC</h1>
 
@@ -9,16 +9,18 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row left_border">
   <div class="col-md-5">
     <h1 class="title">Annoucements</h1>
     <div id="announcements">
+      <div class="gray_box"></div>
       <% @announcements.each do |announcement| %>
         <div class="announcement">
           <div class="date"><%= announcement.date.month %>/<%= announcement.date.day %></div>
           <p class="description"><%= announcement.description %></p>
         </div>
       <% end %>
+      <div class="gray_box"></div>
     </div>
   </div>
 </div>
