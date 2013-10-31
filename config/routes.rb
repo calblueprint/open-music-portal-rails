@@ -6,7 +6,7 @@ USOMC::Application.routes.draw do
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
 
-  match 'profile', to: 'static_pages#profile', via: :get
+  match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
   match 'about', to: 'static_pages#about', via: :get
   match 'competition', to: 'static_pages#competition', via: :get
