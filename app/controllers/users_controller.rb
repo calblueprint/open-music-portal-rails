@@ -1,4 +1,5 @@
 class UsersController < ApplicationController 
+
   def new
     @user = User.new
   end
@@ -16,6 +17,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def my_profile
+    if signed_in?
+      @user = current_user
+      render 'show'
+    else
+      redirect_to root_path
+    end
   end
 
   private
