@@ -1,0 +1,94 @@
+#outline {
+  border-top: 1px #B7B7B7 solid;
+  border-bottom: 1px #B7B7B7 solid;
+  height: 50px;
+  margin-top: 50px;
+}
+
+#inner_outline {
+  border-top: 1px #B7B7B7 solid;
+  border-bottom: 1px #B7B7B7 solid;
+  margin-top: 3px;
+  height: 42px;
+}
+
+#header_links {
+  text-align: center;
+  height: 100%;
+  padding-top: 9px;
+}
+
+#logo {
+  position: fixed;
+  left: calc(50% - 75px);
+  top: 0px;
+  height: 150px;
+  width: 150px;
+  border-style: none;
+  background-image: url(<%= image_path "logo.svg" %>);
+  background-color: transparent;
+  background-size: 200px 200px;
+  background-position: center;
+  z-index: 2;
+}
+
+.tab {
+  display: inline-block;
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 15px;
+  color: #7D7D7D;
+  background: transparent;
+  z-index: 1;
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+.tab:hover {
+  color: #1896d5;
+  transition: color 0.25s;
+  -webkit-transition: color 0.25s;
+}
+
+#search {
+  position: fixed;
+  top: 0px;
+  height: 40px;
+  width: 40px;
+  border-style: none;
+  background: #1896d5;
+  z-index: 3;
+}
+
+#collapse-button {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  border-style: none;
+  background: #1896d5;
+  z-index: 3;
+}
+
+#text {
+  position: fixed;
+  top: 0px;
+  height: 40px;
+  width: 40px;
+  border-style: none;
+  text-indent: 15px;
+  color: transparent;
+  background: transparent;
+  z-index: 3;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+
+#text:hover {
+  width: 150px;
+  color: white;
+  background: #1896d5;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}

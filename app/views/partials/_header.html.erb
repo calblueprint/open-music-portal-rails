@@ -1,0 +1,39 @@
+<header>
+  <div id="main_header">
+    <div class="container">
+      <div id="outline">
+        <div id="inner_outline">
+
+          <div class="navbar-header">
+            <button type="button" id="collapse-button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span id="icon" class="glyphicon glyphicon-align-justify"></span>
+            </button>
+          </div>
+
+          <%= link_to "", root_path, id: "logo" %>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav pull-left">
+              <li><%= link_to "ABOUT", about_path, class: "tab" %></li>
+              <li><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
+              <li><%= link_to "WINNERS", winners_path, class: "tab" %></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= link_to "JUDGES", judges_path, class: "tab" %></li>
+              <li><%= link_to "REGISTRATION", registration_path, class: "tab" %></li>
+              <li><%= link_to "SUPPORT", support_path, class: "tab" %></li>
+            </ul>
+          </div>
+
+          <button type="button" id="search">
+            <span id="icon" class="glyphicon glyphicon-search"></span>
+          </button>
+          <input id="text" type="text"></input>
+
+            <%= link_to "UNITED STATES OPEN MUSIC COMPETITION", root_path, id: "subtitle", disabled: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

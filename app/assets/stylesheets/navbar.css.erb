@@ -1,58 +1,10 @@
 /*THIS IS THE CSS FOR THE NAVBAR. IT USES THE CALC() FUNC WHICH NOT EVERYTHING SUPPORTS. DAMN IT*/
-#logo {
-    position: fixed;
-    top: 0px;
-    left: calc(50% - 75px);
-    height: 150px;
-    width: 150px;
-    border-style: none;
-    background-image: url(<%= image_path "logo.svg" %>);
-    background-color: transparent;
-    background-size: 200px 200px;
-    background-position: center;
-    z-index: 2;
-}
-
-#search {
-    position: fixed;
-    top: 0px;
-    left: calc(50% - 400px);
-    height: 40px;
-    width: 40px;
-    border-style: none;
-    background: #1896d5;
-    z-index: 3;
-}
-
 #icon {
     float: left;
     color: white;
     font-size: 16px;
     padding-left: 6px;
     padding-bottom: 6px;
-}
-
-#text {
-    position: fixed;
-    top: 0px;
-    left: calc(50% - 400px);
-    height: 40px;
-    width: 40px;
-    border-style: none;
-    text-indent: 15px;
-    color: transparent;
-    background: transparent;
-    z-index: 3;
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-}
-
-#text:hover {
-    width: 150px;
-    color: white;
-    background: #1896d5;
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
 }
 
 #navback {
@@ -87,28 +39,6 @@
     border-top: 1px #B7B7B7 solid;
     border-bottom: 1px #B7B7B7 solid;
     z-index: 1;
-}
-
-.tab {
-    position: fixed;
-    margin-top: -5px;
-    padding-top: 2px;
-    height: 40px;
-    width: 100px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 15px;
-    border-style: none;
-    color: #7D7D7D;
-    background: transparent;
-    z-index: 1;
-    transition: color 0.5s;
-    -webkit-transition: color 0.5s;
-}
-
-.tab:hover {
-    color: #1896d5;
-    transition: color 0.25s;
-    -webkit-transition: color 0.25s;
 }
 
 #about {
@@ -155,4 +85,6 @@
     background: #F6F6F6;
     color: #363636;
     z-index: 2;
+    text-align: center;
+    padding-top: 3px;
 }
