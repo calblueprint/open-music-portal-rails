@@ -1,14 +1,13 @@
 USOMC::Application.routes.draw do
   root to: 'static_pages#home'
 
-  resources :users
+  resources :users, only: [:create, :destroy, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  match '/signup', to: 'users#new', via: :get
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
 
   match 'profile', to: 'static_pages#profile', via: :get
-  match 'registration', to: 'static_pages#registration', via: :get
+  match 'registration', to: 'users#new', via: :get
   match 'about', to: 'static_pages#about', via: :get
   match 'competition', to: 'static_pages#competition', via: :get
   match 'winners', to: 'static_pages#winners', via: :get
