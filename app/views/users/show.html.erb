@@ -1,9 +1,8 @@
 <div class="row" id="user_profile">
-  <div class="col-md-3" id="user_sidebar">
-    <ul>
-      <li><%= link_to "competition", profile_path %></li>
-      <li><%= link_to "description", profile_path %></li>
-      <li><%= link_to "contact info", profile_path %></li>
+  <div class="col-md-3 no_padding" id="user_sidebar">
+    <ul class="profile_component_links">
+      <li class="highlighted"><%= link_to "profile", profile_path %></li>
+      <li><%= link_to "competitions", profile_path %></li>
       <li><%= link_to "pieces", profile_path %></li>
       <li><%= link_to "notes", profile_path %></li>
     </ul>

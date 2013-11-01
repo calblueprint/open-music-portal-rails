@@ -1,14 +1,14 @@
 html {
   overflow-x: hidden;
   font-family: 'Open Sans Condensed', sans-serif;
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
   font-size: 18px;
   line-height: 20px;
   font-family: 'Open Sans', sans-serif;
-  min-height: 100%;
+  height: 100%;
 }
 
 *:focus {
@@ -25,6 +25,10 @@ p {
   font-family: 'Open Sans', sans-serif;
 }
 
+.no_padding {
+  padding: 0;
+}
+
 #main_header {
   background: #F6F6F6;
   box-shadow: 0px 5px #B7B7B7;
@@ -33,6 +37,10 @@ p {
   width: 100%;
   z-index: 3;
   position: fixed;
+}
+
+#main_container {
+
 }
 
 #errors_container {
@@ -45,4 +53,13 @@ p {
 
 .slight_right {
   padding-left: 80px;
+}
+
+.highlighted {
+  color: white;
+  background: #1896d5;
+}
+
+.highlighted a {
+  color: white;
 }
