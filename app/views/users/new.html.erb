@@ -35,7 +35,7 @@
       <div class="col-md-6">
         <%= form_for(@user, html: {id: "form"}) do |f| %>
         <ul class="list_user_values">
-          <li><%= f.text_field :first_name, :placeholder => "First", :size => 15 %></li>
+          <li><%= f.text_field :first_name, :placeholder => "First" %></li>
           <li><%= f.text_field :last_name, :placeholder => "Last" %></li>
           <li><%= f.date_field :date_of_birth, :placeholder => "Date of Birth" %></li>
           <li><input type "text" id = "long" class "input" placeholder="First"></li>

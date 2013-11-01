@@ -9,7 +9,7 @@
               Welcome back, <%= current_user.first_name %>.
             <% else %>
               <%= link_to "Register", registration_path, class: "header_button" %>
-              <%= link_to "Sign In", new_session_path, class: "header_button" %>
+              <%= link_to "Sign In", login_path, class: "header_button" %>
             <% end %>
           </div>
         </div>
