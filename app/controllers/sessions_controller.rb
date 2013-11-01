@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome back to USOMC, #{user.first_name}!"
       redirect_to profile_path
     else
-      flash.now[:error] = 'Invalid email and password combination'
+      flash.now[:danger] = "Invalid email and password combination."
       render 'new'
     end
   end

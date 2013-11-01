@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-3">
+<div class="row" id="user_profile">
+  <div class="col-md-3" id="user_sidebar">
     <ul>
       <li><%= link_to "competition", profile_path %></li>
       <li><%= link_to "description", profile_path %></li>
@@ -9,7 +9,7 @@
     </ul>
   </div>
 
-  <div class="col-md-9">
+  <div class="col-md-9" id="main_user_info">
     <h1 class="title"><%= @user.first_name %> <%= @user.last_name %></h1>
 
     <div class="row">
