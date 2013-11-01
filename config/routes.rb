@@ -23,6 +23,7 @@ USOMC::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       match 'users/index', to: 'users#index', via: :get
+      match 'rooms/index', to: 'rooms#index', via: :get
     end
   end
 end

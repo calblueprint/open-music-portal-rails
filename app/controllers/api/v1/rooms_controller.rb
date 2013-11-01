@@ -5,7 +5,7 @@ module Api
 
       def index
         @rooms = Room.all
-        render json: {rooms: Room.to_json(@users)}
+        render json: {rooms: Room.to_json(@rooms)}
       end
     end
   end
