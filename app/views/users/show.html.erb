@@ -1,66 +1,33 @@
 <div class="row">
-  <div class="col-md-4">
-    <%= link_to "competition", profile_path %>
-    <%= link_to "description", profile_path %>
-    <%= link_to "contact info", profile_path %>
-    <%= link_to "pieces", profile_path %>
-    <%= link_to "notes", profile_path %>
+  <div class="col-md-3">
+    <ul>
+      <li><%= link_to "competition", profile_path %></li>
+      <li><%= link_to "description", profile_path %></li>
+      <li><%= link_to "contact info", profile_path %></li>
+      <li><%= link_to "pieces", profile_path %></li>
+      <li><%= link_to "notes", profile_path %></li>
+    </ul>
   </div>
 
-  <div class="col-md-8">
-    <h1 class="title"><%= @user.first_name %></h1>
-  </div>
-</div>
+  <div class="col-md-9">
+    <h1 class="title"><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<div>
-    <div id = "sideouterline"></div>
-    <div id = "sideinnerline"></div>
-    <div id = "sideotherouterline"></div>
-    <button type="button" id = "edit">
-        <span id="editcon" class="glyphicon glyphicon-pencil"></span>
-    </button>
-    <button type="button" id = "favorite">
-        <span id="favcon" class="glyphicon glyphicon-star"></span>
-    </button>
-    <button type="button" id = "message">
-        <span id="msgcon" class="glyphicon glyphicon-envelope"></span>
-    </button>
-    <button type="button" id = "print">
-        <span id="printcon" class="glyphicon glyphicon-print"></span>
-    </button>
-    <input type="button" class = "stab" id = "compete" value="competition"/>
-    <input type="button" class = "stab" id = "description" value="description"/>
-    <input type="button" class = "stab" id = "contact" value="contact info"/>
-    <input type="button" class = "stab" id = "pieces" value="pieces"/>
-    <input type="button" class = "stab" id = "notes" value="notes"/>
-    <div id="infobox">
-        <p id = "stitle"> Mark Miyashita </p>
-        <p id = "info">
-        Birth Date: <br> 
-        Parents: <br>
-        Country: <br>
-        Street Address: <br>
-        City: <br>
-        State: <br>
-        Zip/Postal Code: <br>
-        Phone: <br>
-        Email: <br>
-        Parent Email: <br>
-        Current teacher:
-        </p>
-        <p id = "details">
-        04/20/42 <br>
-        C.W. <br>
-        Cambodia <br>
-        1337 Leet Way <br>
-        Bakeley <br>
-        Calialiali <br>
-        36000 <br>
-        (911) 911-9111 <br>
-        markahaha@ahaha.com <br>
-        mommy@ahaha.com <br>
-        Voldemort
-        </p>                    
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="list_user_labels">
+          <li class="user_info_label">City:</li>
+          <li class="user_info_label">State:</li>
+          <li class="user_info_label">Country:</li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="list_user_values">
+          <li class="user_info_value"><%= @user.city %></li>
+          <li class="user_info_value"><%= @user.state %></li>
+          <li class="user_info_value"><%= @user.country %></li>
+        </ul>
+      </div>
     </div>
+
+  </div>
 </div>
-<!--THE END OF ALL CONTENT EVER KNOWN TO MANKIND-->
