@@ -1,49 +1,67 @@
-<!--THE ACTUAL CONTENT-->
-<div id="container">
-    <div id = "sideouterline"></div>
-    <div id = "sideinnerline"></div>
-    <div id = "sideotherouterline"></div>
-    <input type="button" class = "stab" id = "part1" value="part 1"/>
-    <input type="button" class = "stab" id = "part2" value="part 2"/>
-    <input type="button" class = "stab" id = "part3" value="part 3"/>
-    <div id="infobox">
-    <p id = "stitle"> Personal Information </p>
-    <p id = "info">
-    Name: <br> 
-    Birth Date: <br> 
-    Parent Name: <br>
-    Country: <br>
-    Street Address: <br>
-    City: <br>
-    State: <br>
-    Zip/Postal Code: <br>
-    Phone: <br>
-    Email: <br>
-    Parent Email: <br>
-    Current teacher: <br>
-    Password: <br>
-    Confirmation:
-    </p>
+<div class="row" id="user_registration">
+  <div class="col-md-3 no_padding" id="user_sidebar">
+    <ul class="profile_component_links">
+      <li class="highlighted"><%= link_to "part 1", registration_path %></li>
+      <li><%= link_to "part 2", registration_path %></li>
+      <li><%= link_to "part 3", registration_path %></li>
+    </ul>
   </div>
-    <%= form_for(@user, html: {id: "form"}) do |f| %>
-          <%= f.text_field :first_name, :placeholder => "First", :size => 15 %>
-            <%= f.text_field :last_name, :placeholder => "Last" %><br>
-            <%= f.date_field :date_of_birth, :placeholder => "Date of Birth" %><br>
-            <input type "text" id = "long" class "input" placeholder="First" >
-            <input type "text" id = "long" class "input" placeholder="Last"><br>
-            <%= f.text_field :country, :placeholder => "Country"%><br>
-            <%= f.text_field :street_address, :placeholder => "Address"%><br>
-            <%= f.text_field :city, :placeholder => "City"%><br>
-            <%= f.text_field :state, :placeholder => "State"%><br>
-            <%= f.text_field :zip_code, :placeholder => "Zip/Postal Code"%><br>
-            <%= f.text_field :phone_number, :placeholder => "Phone Number"%><br>
-            <%= f.text_field :email, :placeholder => "Email"%><br>
-            <input type="text" class="input" placeholder="First">
-            <input type="text" class="input" placeholder="Last"><br>
-            <%= f.password_field :password, :placeholder => "Password" %><br>
-            <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
-            <%= f.submit "continue", class: "submit" %>
-        <% end %>
-    </form>
+
+  <div class="col-md-9" id="main_user_info">
+    <h1 class="title">Personal Information</h1>
+
+    <div class="row">
+      <div class="col-md-4">
+        <ul class="list_user_labels">
+          <li class="user_input_label">First Name:</li>
+          <li class="user_input_label">Last Name:</li>
+          <li class="user_input_label">Date of Birth:</li>
+          <li class="user_input_label">Parent's First Name:</li>
+          <li class="user_input_label">Parent's Last Name:</li>
+          <li class="user_input_label">Country:</li>
+          <li class="user_input_label">Address:</li>
+          <li class="user_input_label">City:</li>
+          <li class="user_input_label">State:</li>
+          <li class="user_input_label">Postal Code:</li>
+          <li class="user_input_label">Phone Number:</li>
+          <li class="user_input_label">Email:</li>
+          <li class="user_input_label">Teacher's First Name:</li>
+          <li class="user_input_label">Teacher's Last Name:</li>
+          <li class="user_input_label">Password:</li>
+          <li class="user_input_label">Password Confirmation:</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <%= form_for(@user, html: {id: "form"}) do |f| %>
+        <ul class="list_user_values">
+          <li><%= f.text_field :first_name, :placeholder => "First", :size => 15 %></li>
+          <li><%= f.text_field :last_name, :placeholder => "Last" %></li>
+          <li><%= f.date_field :date_of_birth, :placeholder => "Date of Birth" %></li>
+          <li><input type "text" id = "long" class "input" placeholder="First"></li>
+          <li><input type "text" id = "long" class "input" placeholder="Last"></li>
+          <li><%= f.text_field :country, :placeholder => "Country"%></li>
+          <li><%= f.text_field :street_address, :placeholder => "Address"%></li>
+          <li><%= f.text_field :city, :placeholder => "City"%></li>
+          <li><%= f.text_field :state, :placeholder => "State"%></li>
+          <li><%= f.text_field :zip_code, :placeholder => "Zip/Postal Code"%></li>
+          <li><%= f.text_field :phone_number, :placeholder => "Phone Number"%></li>
+          <li><%= f.text_field :email, :placeholder => "Email"%></li>
+          <li><input type="text" class="input" placeholder="First"></li>
+          <li><input type="text" class="input" placeholder="Last"></li>
+          <li><%= f.password_field :password, :placeholder => "Password" %></li>
+          <li><%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.submit "continue", class: "submit" %>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
 </div>
-<!--THE END OF ALL CONTENT EVER KNOWN TO MANKIND-->
