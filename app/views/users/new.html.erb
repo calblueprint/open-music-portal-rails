@@ -25,7 +25,6 @@
     Confirmation:
     </p>
   </div>
-    <%= render partial: "shared/errors" %>
     <%= form_for(@user, html: {id: "form"}) do |f| %>
           <%= f.text_field :first_name, :placeholder => "First", :size => 15 %>
             <%= f.text_field :last_name, :placeholder => "Last" %><br>
