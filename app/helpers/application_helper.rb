@@ -9,4 +9,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def is_active?(options)
+    "highlighted" if params.merge(options) == params
+  end
+
 end
