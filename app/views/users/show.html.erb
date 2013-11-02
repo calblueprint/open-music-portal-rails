@@ -1,7 +1,32 @@
-<% provide(:title, @user.first_name) %>
+<div class="row" id="user_profile">
+  <div class="col-md-3 no_padding" id="user_sidebar">
+    <ul class="profile_component_links">
+      <li class="highlighted"><%= link_to "profile", profile_path %></li>
+      <li><%= link_to "competitions", profile_path %></li>
+      <li><%= link_to "pieces", profile_path %></li>
+      <li><%= link_to "notes", profile_path %></li>
+    </ul>
+  </div>
 
-<div class="row">
-  <div class="col-md-4">
-    <h1><%= @user.first_name %></h1>
+  <div class="col-md-9" id="main_user_info">
+    <h1 class="title"><%= @user.first_name %> <%= @user.last_name %></h1>
+
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="list_user_labels">
+          <li class="user_info_label">City:</li>
+          <li class="user_info_label">State:</li>
+          <li class="user_info_label">Country:</li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="list_user_values">
+          <li class="user_info_value"><%= @user.city %></li>
+          <li class="user_info_value"><%= @user.state %></li>
+          <li class="user_info_value"><%= @user.country %></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>

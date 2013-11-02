@@ -1,6 +1,14 @@
 html {
   overflow-x: hidden;
   font-family: 'Open Sans Condensed', sans-serif;
+  height: 100%;
+}
+
+body {
+  font-size: 18px;
+  line-height: 20px;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 
 *:focus {
@@ -17,6 +25,23 @@ p {
   font-family: 'Open Sans', sans-serif;
 }
 
+input[type=text], input[type=password] {
+  border-style: none;
+  border: 1px solid #cdcdcd;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  height: 30px;
+  padding-top: 3px;
+}
+
+.no_padding {
+  padding: 0;
+}
+
+.full_width {
+  width: 100%;
+}
+
 #main_header {
   background: #F6F6F6;
   box-shadow: 0px 5px #B7B7B7;
@@ -28,7 +53,11 @@ p {
 }
 
 #main_container {
-  padding-top: 170px;
+
+}
+
+#errors_container {
+  padding-top: 180px;
 }
 
 .slight_left {
@@ -37,4 +66,17 @@ p {
 
 .slight_right {
   padding-left: 80px;
+}
+
+.highlighted {
+  color: white;
+  background: #1896d5;
+}
+
+.highlighted a {
+  color: white;
+}
+
+.highlighted a:hover {
+  color: white;
 }

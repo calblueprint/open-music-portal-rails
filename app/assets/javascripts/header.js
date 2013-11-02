@@ -19,8 +19,8 @@ var ready = function() {
         height: "42px",
       }, 400);
 
-      $("#main_container").animate({
-        "padding-top": "170px",
+      $("#errors_container").animate({
+        "padding-top": "180px",
       }, 400);
 
     } else {
@@ -41,8 +41,8 @@ var ready = function() {
         height: "142px",
       }, 400);
 
-      $("#main_container").animate({
-        "padding-top": "250px",
+      $("#errors_container").animate({
+        "padding-top": "260px",
       }, 400);
     }
 
