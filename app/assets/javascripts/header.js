@@ -3,8 +3,8 @@ var ready = function() {
 
   $("#collapse-button").click(function() {
     if (open) {
-      $("#subtitle").animate({
-        top: "135px",
+      $(".subtitle_container").animate({
+        "padding-top": "85px",
       }, 400);
 
       $("#main_header").animate({
@@ -23,14 +23,18 @@ var ready = function() {
         "padding-top": "180px",
       }, 400);
 
+      $("#logo").animate({
+        top: "5px",
+      }, 400);
+
     } else {
 
       $("#main_header").animate({
         height: "240px",
       }, 400);
 
-      $("#subtitle").animate({
-        top: "225px",
+      $(".subtitle_container").animate({
+        "padding-top": "35px",
       }, 400);
 
       $("#outline").animate({
@@ -43,6 +47,10 @@ var ready = function() {
 
       $("#errors_container").animate({
         "padding-top": "260px",
+      }, 400);
+
+      $("#logo").animate({
+        top: "45px",
       }, 400);
     }
 
