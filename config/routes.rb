@@ -18,6 +18,7 @@ USOMC::Application.routes.draw do
   resources :pieces
 
   match 'admin/dashboard', to: 'admins#show', via: :get
+  match 'admin/users', to: 'admins#users' , via: :get
 
   resources :rooms
 
