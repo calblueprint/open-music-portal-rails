@@ -1,0 +1,25 @@
+You are paying for the following events:
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @transaction.events.each do |e| %>
+  <tr>
+    <td><%= e.name %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= form_tag charges_path do %>
+  <article>
+    <label class="amount">
+      <span>Total: <%= transaction_amount_string @transaction %></span>
+    </label>
+  </article>
+  <input type="hidden" name="transaction_id" value="<%= @transaction.id %>" />
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Event payment"
+          data-amount="<%= @transaction.amount %>"></script>
+<% end %>

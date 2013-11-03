@@ -12,6 +12,14 @@ GIT
       rails (>= 3.0.0, < 5)
       spork (>= 1.0rc0)
 
+GIT
+  remote: git://github.com/stripe/stripe-ruby.git
+  revision: 294d6c63b3aa5d63d03f58872622c732a54b73bc
+  specs:
+    stripe (1.8.8)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -138,6 +146,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rolify (3.2.0)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
@@ -223,12 +233,14 @@ DEPENDENCIES
   pg (= 0.17.0)
   rails (= 4.0.0)
   rails_12factor
+  rest-client (= 1.6.7)
   rolify (~> 3.2.0)
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0)
   sdoc (= 0.3.20)
   selenium-webdriver (= 2.0.0)
   spork-rails!
+  stripe!
   turbolinks (= 1.1.1)
   twitter-typeahead-rails (= 0.9.3)
   uglifier (= 2.1.1)

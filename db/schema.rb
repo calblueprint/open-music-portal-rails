@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029094054) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
+ActiveRecord::Schema.define(version: 20131102205104) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -65,14 +61,20 @@ ActiveRecord::Schema.define(version: 20131029094054) do
     t.datetime "updated_at"
   end
 
-  create_table "events_pieces", force: true do |t|
+  create_table "events_pieces", id: false, force: true do |t|
     t.integer "event_id", null: false
     t.integer "piece_id", null: false
   end
 
+  create_table "events_transactions", id: false, force: true do |t|
+    t.integer "event_id"
+    t.integer "transaction_id"
+  end
+
   create_table "events_users", force: true do |t|
-    t.integer "event_id", null: false
-    t.integer "user_id",  null: false
+    t.integer "event_id",                 null: false
+    t.integer "user_id",                  null: false
+    t.boolean "paid",     default: false
   end
 
   create_table "judges", force: true do |t|
@@ -131,6 +133,16 @@ ActiveRecord::Schema.define(version: 20131029094054) do
 
   create_table "rooms", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", force: true do |t|
+    t.integer  "user_id",                          null: false
+    t.integer  "amount",                           null: false
+    t.boolean  "charged",          default: false
+    t.datetime "charged_at"
+    t.text     "stripe_charge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
