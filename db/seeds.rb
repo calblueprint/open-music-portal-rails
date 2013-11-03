@@ -101,3 +101,52 @@ j = User.create(first_name: "How", last_name: "Word", email: "how@word.com",
                 password: "password", password_confirmation: "password")
 
 j.add_role :judge
+
+b  = User.create(first_name: "Mark", last_name: "Sama", email: "mark@mark.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+c  = User.create(first_name: "Marky", last_name: "Mark", email: "marky@marky.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+d  = User.create(first_name: "Mark", last_name: "Dono", email: "mark@dono.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+e  = User.create(first_name: "Mark", last_name: "Kun", email: "mark@kun.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+f  = User.create(first_name: "Mark", last_name: "Chan", email: "mark@Chan.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+g  = User.create(first_name: "Mighty", last_name: "Mark", email: "Mighty@Mark.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+h  = User.create(first_name: "Mark", last_name: "Miyashta", email: "mark@swag.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
+i  = User.create(first_name: "i", last_name: "j", email: "mark@yoloswag.com",
+                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
+                state: "CA", zip_code: "90909", phone_number: "6969696969",
+                date_of_birth: Date.today - 3.years,
+                password: "password", password_confirmation: "password")
+
