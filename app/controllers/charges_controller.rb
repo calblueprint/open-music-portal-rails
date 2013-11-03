@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
   def new
     user = current_user
-    events = user.events.where(paid: false)
+    events = user.events.where("events_users.paid" => false)
     @transaction = Transaction.create_for_user_and_events(user, events)
   end
 
@@ -13,8 +13,8 @@ class ChargesController < ApplicationController
     end
     user = current_user
     if user != @transaction.user
-      # failure
-      return
+      flash[:error] = "Wrong user"
+      redirect_to charges_path
     end
 
     customer = Stripe::Customer.create(
@@ -28,10 +28,19 @@ class ChargesController < ApplicationController
       :description => @transaction.id.to_s
     )
 
+    # if charge succeeds, mark the transaction as completed and
+    # mark the user's events as paid
     ActiveRecord::Base.transaction do
       @transaction.charged = true
       @transaction.charged_at = DateTime.now
       @transaction.stripe_charge_id = charge.id
+      @transaction.save
+
+      @transaction.events.each do |e|
+        eu = EventsUser.find_by(event: e, user: @transaction.user)
+        eu.paid = true
+        eu.save
+      end
     end
 
   rescue Stripe::CardError => e

@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
   rolify :role_cname => 'Admin'
   after_create :assign_default_role
 
-  has_and_belongs_to_many :events
+  has_many :events_users
+  has_many :events, :through => :events_users
 
   has_secure_password
 

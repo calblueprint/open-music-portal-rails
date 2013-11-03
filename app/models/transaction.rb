@@ -5,11 +5,11 @@ class Transaction < ActiveRecord::Base
   validates :user, :presence => true
   validates :amount, :presence => true, :numericality => {:greater_than => 0}
 
-  def calculate_charge_amount(events)
-    return 100 * events.length
+  def self.calculate_charge_amount(events)
+    return 100 * events.length # TODO: fill in real price
   end
 
-  def create_for_user_and_events(user, events)
+  def self.create_for_user_and_events(user, events)
     amount = calculate_charge_amount(events)
     t = Transaction.create(user: user, amount: amount)
     t.events.concat(events)
