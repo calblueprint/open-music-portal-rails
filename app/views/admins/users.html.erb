@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+  </tr>
+  <% @users.each do |u| %>
+  <tr>
+    <td><%= u.id %></td>
+    <td><%= u.last_name %></td>
+    <td><%= u.first_name %></td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate(@users, :renderer => WillPaginate::ActionView::LinkRender) %>
