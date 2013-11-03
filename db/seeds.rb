@@ -150,3 +150,8 @@ i  = User.create(first_name: "i", last_name: "j", email: "mark@yoloswag.com",
                 date_of_birth: Date.today - 3.years,
                 password: "password", password_confirmation: "password")
 
+# Create events
+e1 = Event.where(name: "Cool test event").first_or_create
+e1.pieces << Piece.find(1)
+e1.pieces << Piece.find(2)
+e1.users << u
