@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   rolify :role_cname => 'Judge'
   rolify :role_cname => 'Contestant'
   rolify :role_cname => 'Admin'
+  after_create :assign_default_role
+
   has_and_belongs_to_many :events
 
   has_secure_password
@@ -68,5 +70,9 @@ class User < ActiveRecord::Base
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def assign_default_role
+      self.add_role :contestant
     end
 end

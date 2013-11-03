@@ -17,6 +17,9 @@ USOMC::Application.routes.draw do
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
   resources :pieces
 
+  match 'admin/dashboard', to: 'admins#show', via: :get
+  match 'admin/users', to: 'admins#users' , via: :get
+
   resources :rooms
 
   # API for the iPad app.
