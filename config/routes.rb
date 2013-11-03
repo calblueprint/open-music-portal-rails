@@ -21,7 +21,7 @@ USOMC::Application.routes.draw do
   match 'admin/users', to: 'admins#users' , via: :get
 
   resources :rooms
-  resources :charges
+  resources :charges, only: [:new, :create]
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
