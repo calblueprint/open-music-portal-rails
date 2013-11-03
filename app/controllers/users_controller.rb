@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.add_role :judge
+    @user.add_role :contestant
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to the USOMC!"
