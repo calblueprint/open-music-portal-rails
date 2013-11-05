@@ -1,25 +1,30 @@
 class ChargesController < ApplicationController
   def new
-    user = current_user
-    events = user.events.where("events_users.paid" => false)
-    if events.empty?
-      flash[:error] = "Nothing to pay for!"
-      @transaction = nil
+    if not signed_in?
+      redirect_to root_path
     else
-      @transaction = Transaction.create_for_user_and_events(user, events)
+      @transaction = nil
+      user = current_user
+      events = user.events.where("events_users.paid" => false)
+      if events.empty?
+        flash.now[:error] = "Nothing to pay for!"
+      else
+        @transaction = Transaction.create_for_user_and_events(user, events)
+      end
     end
   end
 
   def create
+    @payment_succeeded = false
     @transaction = Transaction.find(params[:transaction_id])
     if @transaction.charged
-      flash[:error] = "This transaction has already been paid."
-      redirect_to charges_path
+      flash.now[:error] = "This transaction has already been paid."
+      return
     end
     user = current_user
     if user != @transaction.user
       flash[:error] = "Wrong user"
-      redirect_to charges_path
+      return
     end
 
     customer = Stripe::Customer.create(
@@ -47,10 +52,10 @@ class ChargesController < ApplicationController
         eu.save
       end
     end
+    @payment_succeeded = true
 
   rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to charges_path
+    flash.now[:error] = e.message
   end
 
 end
