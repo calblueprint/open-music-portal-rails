@@ -2,7 +2,12 @@ class ChargesController < ApplicationController
   def new
     user = current_user
     events = user.events.where("events_users.paid" => false)
-    @transaction = Transaction.create_for_user_and_events(user, events)
+    if events.empty?
+      flash[:error] = "Nothing to pay for!"
+      @transaction = nil
+    else
+      @transaction = Transaction.create_for_user_and_events(user, events)
+    end
   end
 
   def create
