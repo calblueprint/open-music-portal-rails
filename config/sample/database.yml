@@ -4,7 +4,7 @@ development:
   host: localhost
   database: usomc_development
   username: REPLACE_WITH_YOUR_USERNAME
-  password: 
+  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -30,4 +30,4 @@ test:
   host: localhost
   database: usomc_test<%= ENV['TEST_ENV_NUMBER'] %>
   username: REPLACE_WITH_YOUR_USERNAME
-  password: 
+  password:
