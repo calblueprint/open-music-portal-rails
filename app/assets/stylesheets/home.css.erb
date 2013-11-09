@@ -1,53 +1,90 @@
-.left_border {
-  border-left: 2px solid #EBEBEB;
-}
-
-#announcements {
-  height: 500px;
-  overflow-y: scroll;
-}
-
-.announcement {
-  padding-top: 10px;
-  min-height: 60px;
-}
-
-.description {
-  font-size: 14px;
-  line-height: 16px;
-  height: 50px;
-  display: inline-block;
-  width: 370px;
-  margin-left: 20px;
-  padding-top: 10px;
-}
-
-.date {
-  border-radius: 25px;
-  font-size: 15px;
-  height: 50px;
-  width: 50px;
-  padding-top: 13px;
-  display: inline-block;
-  text-align: center;
+.quick_link {
+  height:100px;
+  font-family: bebas-neue, sans-serif;
+  font-size: 100px;
+  color: black;
+  background: transparent;
   border-style: none;
+  margin-top: -16px;
+  margin-left: 10px;
+}
+
+.quick_link:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#display {
   color: white;
-  background: #1896d5;
+  font-size: 25px;
+  line-height: 25px;
+  padding: 25px;
+  height: 450px;
+  background: black;
 }
 
-#piano {
-  position: absolute;
-  top: 75px;
-  right: -125px;
-  width: 1000px;
-  height: 1000px;
-  background: url(<%= image_path "piano.svg" %>);
-  background-size: cover;
-  border-style: none;
+#blurb1 {
+  margin-top: 100px;
+  opacity: 0;
+  animation:opacity;
+  animation-duration:4s;
+  animation-delay:0s;
+  -webkit-animation:opacity infinite;
+  -webkit-animation-duration:32s;
+  -webkit-animation-delay:0s;
+}
+
+#announcement1 {
+  margin-top: -97px;
+  opacity: 0;
+  animation:opacity infinite;
+  animation-duration:4s;
+  animation-delay:1s;
+  -webkit-animation:opacity infinite;
+  -webkit-animation-duration:32s;
+  -webkit-animation-delay:8s;
+}
+
+#announcement2 {
+  margin-top: -50px;
+  opacity: 0;
+  animation:opacity infinite;
+  animation-duration:4s;
+  animation-delay:2s;
+  -webkit-animation:opacity infinite;
+  -webkit-animation-duration:32s;
+  -webkit-animation-delay:16s;
+}
+
+#announcement3 {
+  margin-top: -25px;
+  opacity: 0;
+  animation:opacity infinite;
+  animation-duration:4s;
+  animation-delay:3s;
+  -webkit-animation:opacity infinite;
+  -webkit-animation-duration:32s;
+  -webkit-animation-delay:24s;
 }
 
 @media (max-width: 1300px) {
-  #piano {
+  #display {
     display: none;
   }
+}
+
+@keyframes opacity
+{
+  0%   {opacity: 0;}
+  5%  {opacity: 1;}
+  22%  {opacity: 1;}
+  25%  {opacity: 0;}
+}
+
+@-webkit-keyframes opacity
+{
+  0%   {opacity: 0;}
+  5%  {opacity: 1;}
+  22%  {opacity: 1;}
+  25%  {opacity: 0;}
 }

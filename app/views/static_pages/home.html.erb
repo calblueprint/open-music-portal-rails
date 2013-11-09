@@ -1,24 +1,23 @@
-<div id="piano"></div>
-
-<div class="row left_border">
-  <div class="col-md-5">
-    <h1 class="title_alt">USOMC</h1>
-
-    <p class="page_blurb">was founded in 1992. A comprehensive piano competition that both challenges and rewards students of all ages, USOMC has grown to become a 1000 plus entry international level competition, seeking to create an environment where students can strive to achieve musical excellence.
+<div class="row">
+  <div class="col-md-7" id="display">
+    <p id="blurb1">
+      USOMC was founded in 1992. A comprehensive piano competition that both challenges and rewards students of all ages, USOMC has grown to become a 1000 plus entry international level competition, seeking to create an environment where students can strive to achieve musical excellence.
+    </p>
+    <p id="announcement1">
+      Mark Miyashita is OP
+    </p>
+    <p id="announcement2">
+      Mark gimme extra credit in 61a
+    </p>
+    <p id="announcement3">
+      I really need it
     </p>
   </div>
-</div>
-
-<div class="row left_border">
-  <div class="col-md-5">
-    <h1 class="title_alt">Announcements</h1>
-    <div id="announcements">
-      <% @announcements.each do |announcement| %>
-        <div class="announcement">
-          <div class="date"><%= announcement.date.month %>/<%= announcement.date.day %></div>
-          <p class="description"><%= announcement.description %></p>
-        </div>
-      <% end %>
-    </div>
+  <div class="col-md-5" id="link_box">
+    <h1 class="quick_link">RULES</h1>
+    <h1 class="quick_link">SYLLABUS</h1>
+    <h1 class="quick_link">REGISTRATION</h1>
+    <h1 class="quick_link">EVENT INFO</h1>
+    <h1 class="quick_link">CONTACT</h1>
   </div>
 </div>

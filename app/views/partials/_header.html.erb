@@ -1,8 +1,12 @@
 <header>
   <div id="main_header">
-    <div class="container">
-
+    <div class="container" id = "header_border">
       <div class="row">
+        <div class="col-md-4 no_padding" id="logo">
+          <button type="button" id="usomc">usomc</button>
+        </div>
+        <p class="col-md-4 no_padding" id="subtitle">united states open music competition</p>
+        <!--
         <div class="col-md-12 no_padding">
           <div class="user_greeting pull-right">
             <% if signed_in? %>
@@ -13,48 +17,34 @@
             <% end %>
           </div>
         </div>
+        -->
       </div>
 
       <div class="row">
         <div class="col-md-12 no_padding">
-          <div id="outline">
-            <div id="inner_outline">
-
-              <div class="navbar-header">
-                <button type="button" id="collapse-button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span id="icon" class="glyphicon glyphicon-align-justify"></span>
-                </button>
-              </div>
-
-              <ul class="logo_in_nav">
-                <li><%= link_to "", root_path, id: "logo" %></li>
-              </ul>
-
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav pull-left">
-                  <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "tab" %></li>
-                  <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
-                  <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "tab" %></li>
-                </ul>
-
-                <ul class="nav navbar-nav pull-right">
-                  <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "tab" %></li>
-                  <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "tab" %></li>
-                  <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "tab" %></li>
-                </ul>
-              </div>
-
-              <button type="button" id="search">
-                <span id="icon" class="glyphicon glyphicon-search"></span>
-              </button>
-              <input id="text" type="text"></input>
-
-              <div class="subtitle_container">
-                <%= link_to "UNITED STATES OPEN MUSIC COMPETITION", root_path, id: "subtitle", disabled: true %>
-              </div>
-            </div>
+          <div class="navbar-header">
+            <button type="button" id="collapse-button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span id="icon" class="glyphicon glyphicon-align-justify"></span>
+            </button>
           </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav pull-right">
+              <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "tab" %></li>
+              <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
+              <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "tab" %></li>
+              <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "tab" %></li>
+              <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "tab" %></li>
+              <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "tab" %></li>
+            </ul>
+          </div>
+          <!--
+          <button type="button" id="search">
+            <span id="icon" class="glyphicon glyphicon-search"></span>
+          </button>
+          <input id="text" type="text"></input>
+          -->
         </div>
       </div>
     </div>
