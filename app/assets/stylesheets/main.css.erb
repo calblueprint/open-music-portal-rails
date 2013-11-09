@@ -19,6 +19,36 @@ a:hover {
   text-decoration: none;
 }
 
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 45px;
+  color: #1896d5;
+  background: transparent;
+  border-style: none;
+  margin-top: -9px;
+  margin-left: -5px;
+  margin-bottom: 25px;
+}
+
+.title_alt {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 45px;
+  color: #1896d5;
+  background: transparent;
+  border-style: none;
+  margin-top: -9px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.page_blurb {
+  padding-bottom: 15px;
+  color: #959595;
+  background: transparent;
+  border-style: none;
+  margin-left: 10px;
+}
+
 p {
   font-size: 18px;
   line-height: 20px;
@@ -52,10 +82,6 @@ input[type=text], input[type=password] {
   position: fixed;
 }
 
-#main_container {
-
-}
-
 #errors_container {
   padding-top: 180px;
 }
@@ -75,8 +101,27 @@ input[type=text], input[type=password] {
 
 .highlighted a {
   color: white;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
 }
 
 .highlighted a:hover {
+  color: #B7B7B7;
+}
+
+.year_button {
+  width: 100%;
+  height: 290px;
+  background-color: #1896d5;
+  border-style: none;
+  margin-top: 25px;
   color: white;
+  font-size: 50px;
+  opacity: 0.5;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+}
+
+.year_button:hover {
+  opacity: 1;
 }
