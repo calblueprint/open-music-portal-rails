@@ -19,10 +19,23 @@ a:hover {
   text-decoration: none;
 }
 
+#main_container {
+  border-bottom: 1px black solid;
+}
+
+.copyright {
+  color: black;
+  margin-right: -13px;
+  font-size: 10px;
+  position: relative;
+  top: 33px;
+  text-align: right;
+}
+
 .title {
   font-family: 'Montserrat', sans-serif;
   font-size: 45px;
-  color: #1896d5;
+  color: black;
   background: transparent;
   border-style: none;
   margin-top: -9px;
@@ -33,7 +46,7 @@ a:hover {
 .title_alt {
   font-family: 'Montserrat', sans-serif;
   font-size: 45px;
-  color: #1896d5;
+  color: black;
   background: transparent;
   border-style: none;
   margin-top: -9px;
@@ -73,13 +86,11 @@ input[type=text], input[type=password] {
 }
 
 #main_header {
-  background: #F6F6F6;
-  box-shadow: 0px 5px #B7B7B7;
-  opacity: 0.9;
   height: 150px;
   width: 100%;
   z-index: 3;
   position: fixed;
+  text-align: center;
 }
 
 #errors_container {
@@ -94,34 +105,25 @@ input[type=text], input[type=password] {
   padding-left: 80px;
 }
 
+/*unfinished*/
 .highlighted {
-  color: white;
-  background: #1896d5;
 }
 
-.highlighted a {
-  color: white;
-  transition: 0.25s;
-  -webkit-transition: 0.25s;
-}
-
-.highlighted a:hover {
-  color: #B7B7B7;
-}
-
-.year_button {
-  width: 100%;
-  height: 290px;
-  background-color: #1896d5;
+/*
+.year_link {
+  float: left;
+  height:100px;
+  font-family: bebas-neue, sans-serif;
+  font-size: 100px;
+  color: black;
+  background: transparent;
   border-style: none;
-  margin-top: 25px;
-  color: white;
-  font-size: 50px;
-  opacity: 0.5;
-  transition: 0.25s;
-  -webkit-transition: 0.25s;
+  margin-top: -16px;
+  margin-left: 10px;
 }
 
-.year_button:hover {
-  opacity: 1;
+.year_link:hover {
+  cursor: pointer;
+  color: #d02200;
 }
+*/
