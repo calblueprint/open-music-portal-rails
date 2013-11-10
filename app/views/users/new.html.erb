@@ -1,39 +1,22 @@
 <div class="row" id="user_registration">
-  <div class="col-md-3 no_padding" id="user_sidebar">
-    <ul class="profile_component_links">
-      <li class="highlighted"><%= link_to "part 1", registration_path %></li>
-      <li><%= link_to "part 2", registration_path %></li>
-      <li><%= link_to "part 3", registration_path %></li>
-    </ul>
-  </div>
-
   <div class="col-md-9" id="main_user_info">
-    <h1 class="title" id="user_title">Personal Information</h1>
+    <h1 class="title" id="user_title">Registration</h1>
 
     <div class="row">
-      <div class="col-md-4">
-        <ul class="list_user_labels">
-          <li class="user_input_label">First Name:</li>
-          <li class="user_input_label">Last Name:</li>
-          <li class="user_input_label">Date of Birth:</li>
-          <li class="user_input_label">Parent's First Name:</li>
-          <li class="user_input_label">Parent's Last Name:</li>
-          <li class="user_input_label">Country:</li>
-          <li class="user_input_label">Address:</li>
-          <li class="user_input_label">City:</li>
-          <li class="user_input_label">State:</li>
-          <li class="user_input_label">Postal Code:</li>
-          <li class="user_input_label">Phone Number:</li>
-          <li class="user_input_label">Email:</li>
-          <li class="user_input_label">Teacher's First Name:</li>
-          <li class="user_input_label">Teacher's Last Name:</li>
-          <li class="user_input_label">Password:</li>
-          <li class="user_input_label">Password Confirmation:</li>
-        </ul>
+      <%= form_for(@user, html: {id: "form"}) do |f| %>
+      <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_input_label">First Name:</li>
+            <li class="user_input_label">Last Name:</li>
+            <li class="user_input_label">Date of Birth:</li>
+            <li class="user_input_label">Parent's First Name:</li>
+            <li class="user_input_label">Parent's Last Name:</li>
+            <li class="user_input_label">Country:</li>
+            <li class="user_input_label">Address:</li>
+            <li class="user_input_label">City:</li>
+          </ul>
       </div>
-
-      <div class="col-md-6">
-        <%= form_for(@user, html: {id: "form"}) do |f| %>
+      <div class="col-md-3">
         <ul class="list_user_values">
           <li class="user_input_value"><%= f.text_field :first_name, :placeholder => "First" %></li>
           <li class="user_input_value"><%= f.text_field :last_name, :placeholder => "Last" %></li>
@@ -43,6 +26,21 @@
           <li class="user_input_value"><%= f.text_field :country, :placeholder => "Country"%></li>
           <li class="user_input_value"><%= f.text_field :street_address, :placeholder => "Address"%></li>
           <li class="user_input_value"><%= f.text_field :city, :placeholder => "City"%></li>
+      </div>
+      <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_input_label">State:</li>
+            <li class="user_input_label">Postal Code:</li>
+            <li class="user_input_label">Phone Number:</li>
+            <li class="user_input_label">Email:</li>
+            <li class="user_input_label">Teacher's First Name:</li>
+            <li class="user_input_label">Teacher's Last Name:</li>
+            <li class="user_input_label">Password:</li>
+            <li class="user_input_label">Password Confirmation:</li>
+          </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="list_user_values">
           <li class="user_input_value"><%= f.text_field :state, :placeholder => "State"%></li>
           <li class="user_input_value"><%= f.text_field :zip_code, :placeholder => "Zip/Postal Code"%></li>
           <li class="user_input_value"><%= f.text_field :phone_number, :placeholder => "Phone Number"%></li>
@@ -52,13 +50,12 @@
           <li class="user_input_value"><%= f.password_field :password, :placeholder => "Password" %></li>
           <li class="user_input_value"><%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %></li>
         </ul>
-
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <%= f.submit "continue", class: "submit" %>
+        <%= f.submit ">>", class: "submit" %>
       </div>
     </div>
 
