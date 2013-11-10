@@ -13,6 +13,12 @@ module Api
         render json: {users: User.to_json(@event.users)}
       end
 
+      def post_comment
+      end
+
+      def post_ranking
+      end
+
     end
   end
 end
