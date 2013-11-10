@@ -47,15 +47,10 @@ class User < ActiveRecord::Base
 
   def to_json
     return {
+      encid: id,
       first_name: first_name,
       last_name: last_name,
-      country: country,
-      street_address: street_address,
-      city: city,
-      state: state,
-      zip_code: zip_code,
-      phone_number: phone_number,
-      email: email
+      country: country
     }
   end
 
