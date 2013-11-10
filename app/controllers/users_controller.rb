@@ -1,4 +1,5 @@
 class UsersController < ApplicationController 
+  before_action :signed_in_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -48,5 +49,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,
                                    :date_of_birth, :country, :street_address, :city, :state, :zip_code,
                                    :phone_number)
+    end
+
+    def signed_in_user
+      redirect_to new_session_path, notice: "Please sign in." unless signed_in?
     end
 end
