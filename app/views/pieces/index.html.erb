@@ -31,6 +31,10 @@
     <td><%= p.other_a %></td>
     <td><%= p.other_b %></td>
     <td><%= p.other_c %></td>
+    <li>
+      <%= link_to p.title, piece_path(p) -%>
+      <b> <%= link_to 'Edit', edit_piece_path(p) %></b>
+    </li>
   </tr>
   <% end %>
 </table>
