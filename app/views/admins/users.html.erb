@@ -4,12 +4,12 @@
     <th>Last Name</th>
     <th>First Name</th>
   </tr>
-  <% @users.each do |u| %>
+  <% @users.each do |user| %>
   <tr>
-    <td><%= u.id %></td>
-    <td><%= u.last_name %></td>
-    <td><%= u.first_name %></td>
-    <td><%= link_to "Show",  u  =%></td>
+    <td><%= user.id %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.first_name %></td>
+    <td><%= link_to "Show", user %></td>
   </tr>
   <% end %>
 </table>
