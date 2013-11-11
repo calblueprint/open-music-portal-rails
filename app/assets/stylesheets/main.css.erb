@@ -9,6 +9,8 @@ body {
   line-height: 20px;
   font-family: 'Open Sans', sans-serif;
   height: 100%;
+  background-image: url(<%= image_path "piano.jpg"%>);
+  background-size: cover;
 }
 
 *:focus {
@@ -19,21 +21,15 @@ a:hover {
   text-decoration: none;
 }
 
-#main_container {
-  border-bottom: 1px black solid;
-  padding: 0px;
-}
-
-.copyright {
-  color: black;
-  margin-right: -13px;
-  font-size: 10px;
-  position: relative;
-  top: 33px;
-  text-align: right;
-}
-
 .title {
+  color: white;
+}
+
+.title_alt {
+  color: white;
+}
+
+/*
   font-family: 'Montserrat', sans-serif;
   font-size: 45px;
   color: black;
@@ -64,6 +60,7 @@ a:hover {
   background: transparent;
   border-style: none;
 }
+*/
 
 p {
   font-size: 18px;
@@ -89,15 +86,15 @@ input[type=text], input[type=password] {
 }
 
 #main_header {
-  height: 150px;
   width: 100%;
   z-index: 3;
   position: fixed;
   text-align: center;
 }
 
+/* WHAT IS THIS OMEGEH*/
 #errors_container {
-  padding-top: 180px;
+  padding-top: 0px;
 }
 
 .slight_left {
