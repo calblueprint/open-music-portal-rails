@@ -1,7 +1,7 @@
 USOMC::Application.routes.draw do
   root to: 'static_pages#home'
 
-  resources :users, only: [:create, :destroy, :show]
+  resources :users, only: [:create, :destroy, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
