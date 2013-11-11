@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class EventRank < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
   belongs_to :judge
