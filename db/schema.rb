@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20131113052026) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "admins", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -34,6 +38,12 @@ ActiveRecord::Schema.define(version: 20131113052026) do
 
   create_table "books", force: true do |t|
     t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,9 +84,10 @@ ActiveRecord::Schema.define(version: 20131113052026) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
-  create_table "events_pieces", id: false, force: true do |t|
+  create_table "events_pieces", force: true do |t|
     t.integer "event_id", null: false
     t.integer "piece_id", null: false
   end
