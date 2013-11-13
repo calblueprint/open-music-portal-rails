@@ -84,10 +84,9 @@ ActiveRecord::Schema.define(version: 20131113052026) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
   end
 
-  create_table "events_pieces", force: true do |t|
+  create_table "events_pieces", id: false, force: true do |t|
     t.integer "event_id", null: false
     t.integer "piece_id", null: false
   end
