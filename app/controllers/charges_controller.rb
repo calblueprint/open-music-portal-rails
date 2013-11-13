@@ -42,7 +42,7 @@ class ChargesController < ApplicationController
     # mark the user's events as paid
     ActiveRecord::Base.transaction do
       @transaction.charged = true
-      @transaction.charged_at = DateTime.now
+      @transaction.charged_at = Time.zone.now
       @transaction.stripe_charge_id = charge.id
       @transaction.save
 
