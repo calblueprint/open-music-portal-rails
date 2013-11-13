@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110023859) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
+ActiveRecord::Schema.define(version: 20131113052026) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -38,12 +34,6 @@ ActiveRecord::Schema.define(version: 20131110023859) do
 
   create_table "books", force: true do |t|
     t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "categories", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,14 +64,19 @@ ActiveRecord::Schema.define(version: 20131110023859) do
   add_index "contestants", ["name", "resource_type", "resource_id"], name: "index_contestants_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "contestants", ["name"], name: "index_contestants_on_name", using: :btree
 
+  create_table "event_ranks", force: true do |t|
+    t.integer  "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id"
   end
 
-  create_table "events_pieces", force: true do |t|
+  create_table "events_pieces", id: false, force: true do |t|
     t.integer "event_id", null: false
     t.integer "piece_id", null: false
   end
@@ -183,6 +178,8 @@ ActiveRecord::Schema.define(version: 20131110023859) do
     t.string   "zip_code"
     t.string   "phone_number"
     t.string   "remember_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

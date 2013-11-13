@@ -6,6 +6,7 @@ USOMC::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
