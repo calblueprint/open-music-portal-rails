@@ -1,12 +1,45 @@
-#header_border {
-  background:white;
-  border-bottom: black 1px solid;
+#main_header {
+  height: 50px;
+  background: rgba(0,0,0,0.5);
 }
 
 #main_container {
+  padding: 0px;
+  margin: 50px;
   margin-top: 15px;
 }
 
+.tab {
+  display: inline-block;
+  font-family: 'News Cycle', sans-serif;
+  font-size: 25px;
+  color: white;
+  opacity: 0.5;
+  background: transparent;
+  z-index: 1;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.tab:hover {
+  color: white;
+  opacity: 1;
+}
+
+#collapse-button {
+  position: fixed;
+  font-size: 16px;
+  color: white;
+  top: 0px;
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  border-style: none;
+  background: transparent;
+  z-index: 3;
+}
+
+/*
 .header_button {
   border-style: none;
   font-size: 15px;
@@ -17,8 +50,6 @@
   display: inline-block;
   padding-top: 10px;
   text-align: center;
-  transition: 0.25s;
-  -webkit-transition: 0.25s;
 }
 
 .header_button:hover {
@@ -47,24 +78,6 @@
   list-style: none;
 }
 
-.tab {
-  display: inline-block;
-  text-align: left;
-  font-family: pt-sans-narrow, sans-serif;
-  font-size: 20px;
-  color: black;
-  background: transparent;
-  z-index: 1;
-  margin-top: 5px;
-  margin-left: -20px;
-  margin-right: -20px;
-}
-
-.tab:hover {
-  color: #d02200;
-}
-
-/*
 #search {
   position: fixed;
   top: 0px;
@@ -72,18 +85,6 @@
   width: 40px;
   border-style: none;
   background: #1896d5;
-  z-index: 3;
-}
-*/
-
-#collapse-button {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  height: 40px;
-  width: 40px;
-  border-style: none;
-  background: black;
   z-index: 3;
 }
 
@@ -97,8 +98,6 @@
   color: transparent;
   background: transparent;
   z-index: 3;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
 }
 
 #text:hover {
@@ -107,41 +106,6 @@
   background: #1896d5;
   transition: 0.5s;
   -webkit-transition: 0.5s;
-}
-
-#logo {
-  text-align: left;
-}
-
-#image {
-  position: absolute;
-  top: -12px;
-  left: 470px;
-}
-
-#usomc {
-  margin-top: 20px;
-  padding-top: 20px;
-  margin-left: -10px;
-  height: 100px;
-  border-style: none;
-  background: transparent;
-  font-size: 100px;
-  font-family: serif;
-}
-
-#subtitle {
-  margin-top: 57px;
-  margin-left: -30px;
-  text-align: left;
-  width: 100px;
-  line-height: 15px;
-  border-style:none;
-  background: transparent;
-  font-size: 15px;
-  color: black;
-  opacity: 0.5;
-  font-weight: 600;
 }
 
 @media (max-width: 1300px) {
@@ -155,3 +119,4 @@
     margin-right: 60px;
   }
 }
+*/

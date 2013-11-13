@@ -1,11 +1,7 @@
 <header>
   <div id="main_header">
-    <div class="container" id = "header_border">
+    <div class="container">
       <div class="row">
-        <div class="col-md-4 no_padding" id="logo">
-          <button type="button" id="usomc">USOMC</button>
-        </div>
-        <p class="col-md-4 no_padding" id="subtitle">united states open music competition</p>
         <!-- WILL RETURN TO THIS LATER
         <img id="image" src="<%= image_path "logo.svg"%>" height = "150" width = "150">
         <div class="col-md-12 no_padding">
@@ -20,33 +16,30 @@
         </div>
         -->
       </div>
-
       <div class="row">
-        <div class="col-md-12 no_padding">
-          <div class="navbar-header">
-            <button type="button" id="collapse-button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span id="icon" class="glyphicon glyphicon-align-justify"></span>
-            </button>
-          </div>
+        <div class="navbar-header">
+          <button type="button" id="collapse-button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span id="icon" class="glyphicon glyphicon-align-justify"></span>
+          </button>
+        </div>
 
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav pull-right">
-              <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "tab" %></li>
-              <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
-              <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "tab" %></li>
-              <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "tab" %></li>
-              <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "tab" %></li>
-              <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "tab" %></li>
-            </ul>
-          </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav pull-right">
+            <li class=<%= is_active?(action: "about") %>><%= link_to "about", about_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "competition") %>><%= link_to "competition", competition_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "winners") %>><%= link_to "winners", winners_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "judges") %>><%= link_to "judges", judges_path, class: "tab" %></li>
+            <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "registration", registration_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "support") %>><%= link_to "support", support_path, class: "tab" %></li>
+          </ul>
+        </div>
           <!-- WILL ALSO RETURN TO THIS
           <button type="button" id="search">
             <span id="icon" class="glyphicon glyphicon-search"></span>
           </button>
           <input id="text" type="text"></input>
           -->
-        </div>
       </div>
     </div>
   </div>
