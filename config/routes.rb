@@ -1,4 +1,5 @@
 USOMC::Application.routes.draw do
+  get "password_resets/new"
   root to: 'static_pages#home'
 
   resources :users, only: [:create, :destroy, :show, :edit, :update]
