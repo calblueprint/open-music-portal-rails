@@ -5,6 +5,14 @@ GIT
     database_cleaner (1.2.0)
 
 GIT
+  remote: git://github.com/hojonathanho/textacular.git
+  revision: e30937a0a1bc736837389f3df27d5a58710616a7
+  ref: e30937a0a1bc736837389f3df27d5a58710616a7
+  specs:
+    textacular (3.1.0)
+      activerecord (>= 3.0, < 4.1)
+
+GIT
   remote: git://github.com/sporkrb/spork-rails.git
   revision: 0dd45e59d3237b4c8f9efc215b46d9c07072a95e
   specs:
@@ -245,6 +253,7 @@ DEPENDENCIES
   selenium-webdriver (= 2.0.0)
   spork-rails!
   stripe!
+  textacular!
   turbolinks (= 1.1.1)
   twitter-typeahead-rails (= 0.9.3)
   uglifier (= 2.1.1)
