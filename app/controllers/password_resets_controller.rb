@@ -9,14 +9,20 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_password_reset_token!(params[:id])
+    @user = User.find_by(password_reset_token: params[:id])
+    if not @user
+      redirect_to root_url, :notice => "This password reset link has already been used."
+    end
   end
 
   def update
-    @user = User.find_by_password_reset_token!(params[:id])
-    if @user.password_reset_sent_at < 2.hours.ago
+    @user = User.find_by(password_reset_token: params[:id])
+    if not @user
+      redirect_to root_url, :notice => "This password reset link has already been used."
+    elsif @user.password_reset_sent_at < 2.hours.ago
       redirect_to new_password_reset_path, :alert => "Password reset has expired."
     elsif @user.update_attributes(password_reset_user_params)
+      @user.clear_password_reset_token
       redirect_to root_url, :notice => "Password successfully reset. You can now log in with your new password."
     else
       render :edit
