@@ -62,10 +62,23 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def send_password_reset
+    generate_password_reset_token
+    self.password_reset_sent_at = Time.zone.now
+    save(validate: false)
+    UserMailer.password_reset(self).deliver
+  end
+
   private
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def generate_password_reset_token
+      begin
+        self.password_reset_token = SecureRandom.urlsafe_base64
+      end while User.exists?(password_reset_token: self.password_reset_token)
     end
 
     def assign_default_role

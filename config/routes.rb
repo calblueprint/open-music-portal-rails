@@ -1,10 +1,12 @@
 USOMC::Application.routes.draw do
+  get "password_resets/new"
   root to: 'static_pages#home'
 
   resources :users, only: [:create, :destroy, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
