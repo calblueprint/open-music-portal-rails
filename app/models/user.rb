@@ -47,15 +47,10 @@ class User < ActiveRecord::Base
 
   def to_json
     return {
+      encid: id,
       first_name: first_name,
       last_name: last_name,
-      country: country,
-      street_address: street_address,
-      city: city,
-      state: state,
-      zip_code: zip_code,
-      phone_number: phone_number,
-      email: email
+      country: country
     }
   end
 
@@ -67,10 +62,29 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def send_password_reset
+    generate_password_reset_token
+    self.password_reset_sent_at = Time.zone.now
+    save(validate: false)
+    UserMailer.password_reset(self).deliver
+  end
+
+  def clear_password_reset_token
+    self.password_reset_token = nil
+    self.password_reset_sent_at = nil
+    save(validate: false)
+  end
+
   private
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def generate_password_reset_token
+      begin
+        self.password_reset_token = SecureRandom.urlsafe_base64
+      end while User.exists?(password_reset_token: self.password_reset_token)
     end
 
     def assign_default_role

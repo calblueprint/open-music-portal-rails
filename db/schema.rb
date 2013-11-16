@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102205104) do
+ActiveRecord::Schema.define(version: 20131113083644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -41,6 +42,15 @@ ActiveRecord::Schema.define(version: 20131102205104) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", force: true do |t|
+    t.string   "body"
+    t.integer  "judge_id"
+    t.integer  "contestant_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "composers", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
@@ -57,6 +67,12 @@ ActiveRecord::Schema.define(version: 20131102205104) do
 
   add_index "contestants", ["name", "resource_type", "resource_id"], name: "index_contestants_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "contestants", ["name"], name: "index_contestants_on_name", using: :btree
+
+  create_table "event_ranks", force: true do |t|
+    t.integer  "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.text     "name"
@@ -166,6 +182,8 @@ ActiveRecord::Schema.define(version: 20131102205104) do
     t.string   "zip_code"
     t.string   "phone_number"
     t.string   "remember_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,10 +1,12 @@
 USOMC::Application.routes.draw do
+  get "password_resets/new"
   root to: 'static_pages#home'
 
-  resources :users, only: [:create, :destroy, :show]
+  resources :users, only: [:create, :destroy, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
@@ -26,8 +28,10 @@ USOMC::Application.routes.draw do
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      match 'users/index', to: 'users#index', via: :get
-      match 'rooms/index', to: 'rooms#index', via: :get
+      match 'events/index', to: 'events#index', via: :get
+      match 'events/:event_id/users', to: 'events#users', via: :get
+      match 'events/:event_id/user/:user_id/comment', to: 'events#post_comment', via: :post
+      match 'events/:event_id/user/:user_id/ranking', to: 'events#post_ranking', via: :post
     end
   end
 end
