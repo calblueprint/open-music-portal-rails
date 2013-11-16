@@ -1,105 +1,104 @@
-.link_box {
-  margin-top: 40px;
-  margin-left: 100px;
-  width: 900px;
+#nav_row {
+  position: absolute;
+  top: 45px;
+  left: 0px;
+  width: 100%;
+  z-index: 4;
+}
+
+#home_page_nav {
+  margin: auto;
+  width: 1200px;
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#home_page_nav li {
+  display: inline;
+  margin: 48px;
+}
+
+#whitener {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.1;
+  z-index: 4;
+}
+
+#piano {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(<%= image_path "piano.jpg"%>);
+  background-size: cover;
+  z-index: 3;
+}
+
+#title_row {
+  position: absolute;
+  top: 325px;
+  left: -10px;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
 }
 
 #home_title {
   padding: 0px;
   margin: 0px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 203px;
+  font-size: 94px;
   color: white;
   background: transparent;
-  border-style: none;
-  margin-top: 70px;
-  margin-left: 90px;
 }
 
 #sub_title {
   padding: 0px;
   margin: 0px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 34px;
+  font-size: 16px;
   color: white;
   background: transparent;
-  border-style: none;
-  margin-left: 105px;
 }
 
-.status {
-  float: left;
-  padding: 0px;
-  margin: 0px;
-  height: 55px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 70px;
-  color: white;
-  opacity: 0;
-  background: transparent;
-  border-style: none;
+#title_box_row {
+  position: absolute;
+  top: 310px;
+  left: -12px;
+  width: 100%;
+  z-index: 4;
 }
 
-.quick_link {
-  float: left;
-  padding: 0px;
-  margin: 0px;
-  height: 55px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 70px;
+#title_box {
+  margin: auto;
+  margin-top: -80px;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  background: black;
+  opacity: 0.8;
+  width: 350px;
+  height: 350px;
+}
+
+.home_tab {
+  display: inline-block;
+  font-family: Montserrat, sans-serif;
+  padding-top: 11px;
+  font-size: 15px;
   color: white;
   opacity: 0.5;
   background: transparent;
-  border-style: none;
+  z-index: 1;
 }
 
-.quick_link:hover {
-  cursor: pointer;
+.home_tab:hover {
+  color: white;
   opacity: 1;
 }
-
-.quick_link:hover + .status {
-  opacity: 0.25;
-}
-
-/*
-#display {
-  text-align: right;
-  padding-right: 40px;
-  color: black;
-  height: 450px;
-  background: transparent;
-}
-
-#piano {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  background-image: url(<%= image_path "piano.svg"%>);
-  background-size: cover;
-  top: 25px;
-  left: 600px;
-}
-
-@media (max-width: 1300px) {
-  #display {
-    display: none;
-  }
-}
-
-@keyframes opacity
-{
-  0%   {opacity: 0;}
-  5%  {opacity: 1;}
-  22%  {opacity: 1;}
-  25%  {opacity: 0;}
-}
-
-@-webkit-keyframes opacity
-{
-  0%   {opacity: 0;}
-  5%  {opacity: 1;}
-  22%  {opacity: 1;}
-  25%  {opacity: 0;}
-}
-*/

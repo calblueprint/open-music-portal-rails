@@ -1,9 +1,8 @@
 <header>
   <div id="main_header">
-    <div class="container">
+    <div class="container" id = "header_bottom_border">
       <div class="row">
         <!-- WILL RETURN TO THIS LATER
-        <img id="image" src="<%= image_path "logo.svg"%>" height = "150" width = "150">
         <div class="col-md-12 no_padding">
           <div class="user_greeting pull-right">
             <% if signed_in? %>
@@ -13,8 +12,7 @@
               <%= link_to "sign in", login_path, class: "header_button" %>
             <% end %>
           </div>
-        </div>
-        -->
+        </div>-->
       </div>
       <div class="row">
         <div class="navbar-header">
@@ -23,23 +21,24 @@
             <span id="icon" class="glyphicon glyphicon-align-justify"></span>
           </button>
         </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav pull-left">
+            <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "tab" %></li>
+          </ul>
+          <div id = "diamond_row">
+            <div id = "diamond"></div>
+          </div>
+          <div id = "diamond_title_row">
+            <h1 id = "diamond_title">USOMC</h1>
+          </div>
           <ul class="nav navbar-nav pull-right">
-            <li class=<%= is_active?(action: "about") %>><%= link_to "about", about_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "competition") %>><%= link_to "competition", competition_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "winners") %>><%= link_to "winners", winners_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "judges") %>><%= link_to "judges", judges_path, class: "tab" %></li>
-            <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "registration", registration_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "support") %>><%= link_to "support", support_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "tab" %></li>
+            <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "tab" %></li>
+            <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "tab" %></li>
           </ul>
         </div>
-          <!-- WILL ALSO RETURN TO THIS
-          <button type="button" id="search">
-            <span id="icon" class="glyphicon glyphicon-search"></span>
-          </button>
-          <input id="text" type="text"></input>
-          -->
       </div>
     </div>
   </div>

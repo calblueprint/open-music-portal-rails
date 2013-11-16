@@ -1,35 +1,82 @@
 #main_header {
-  height: 50px;
-  background: rgba(0,0,0,0.5);
+  background: white;
+  width: 100%;
+  z-index: 3;
+  position: fixed;
+  text-align: center;
+}
+
+#header_bottom_border {
+  border-bottom: 1px solid #2F2F2F;
 }
 
 #main_container {
-  padding: 0px;
-  margin: 50px;
+  margin: 0px;
   margin-top: 15px;
+}
+
+#diamond_row {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+#diamond {
+  margin: auto;
+  width: 90px;
+  height: 90px;
+  background: #2F2F2F;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  cursor: pointer;
+}
+
+#diamond_title_row {
+  position: absolute;
+  top: 47px;
+  left: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+#diamond_title {
+  margin: auto;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+  background: transparent;
 }
 
 .tab {
   display: inline-block;
-  font-family: 'News Cycle', sans-serif;
-  font-size: 25px;
-  color: white;
+  font-family: Montserrat, sans-serif;
+  padding-top: 11px;
+  font-size: 15px;
+  color: black;
   opacity: 0.5;
   background: transparent;
-  z-index: 1;
-  margin-left: -20px;
-  margin-right: -20px;
+  z-index: 2;
 }
 
 .tab:hover {
-  color: white;
+  color: black;
   opacity: 1;
+}
+
+.highlighted {
+  background: #EFEFEF;
 }
 
 #collapse-button {
   position: fixed;
   font-size: 16px;
-  color: white;
+  color: black;
   top: 0px;
   right: 0px;
   height: 40px;
@@ -37,6 +84,34 @@
   border-style: none;
   background: transparent;
   z-index: 3;
+}
+
+.navbar-nav > li {
+  height: 41px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
+}
+
+.navbar-nav > li > a {
+  padding-top: 11px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.navbar-toggle {
+  padding: 2px 6px 3px;
+  border-radius: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .navbar-nav > li > a {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 /*
@@ -76,47 +151,5 @@
   margin: 0;
   padding-left: 0;
   list-style: none;
-}
-
-#search {
-  position: fixed;
-  top: 0px;
-  height: 40px;
-  width: 40px;
-  border-style: none;
-  background: #1896d5;
-  z-index: 3;
-}
-
-#text {
-  position: fixed;
-  top: 0px;
-  height: 40px;
-  width: 40px;
-  border-style: none;
-  text-indent: 15px;
-  color: transparent;
-  background: transparent;
-  z-index: 3;
-}
-
-#text:hover {
-  width: 150px;
-  color: white;
-  background: #1896d5;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-}
-
-@media (max-width: 1300px) {
-  #subtitle {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .user_greeting {
-    margin-right: 60px;
-  }
 }
 */
