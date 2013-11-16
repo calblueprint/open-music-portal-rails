@@ -1,20 +1,21 @@
-<!--<div id="piano">
-</div>-->
-<div class="row">
-    <h1 id="home_title">USOMC</h1>
-    <h1 id="sub_title">UNITED STATES OPEN MUSIC COMPETITION</h1>
+<div id="whitener">
 </div>
-<div class="row">
-  <div class="link_box">
-    <h1 class="quick_link">RULES</h1>
-    <h1 class="status">AVAILABLE</h1>
-    <h1 class="quick_link">SYLLABUS</h1>
-    <h1 class="status">AVAILABLE</h1>
-    <h1 class="quick_link">REGISTRATION</h1>
-    <h1 class="status">OPEN 12/08</h1>
-    <h1 class="quick_link">EVENT INFO</h1>
-    <h1 class="status">AVAILABLE</h1>
-    <h1 class="quick_link">RESULTS</h1>
-    <h1 class="status">RELEASED 02/07</h1>
-  </div>
+<div id="piano">
+</div>
+<div id="title_box_row">
+  <div id="title_box"></div>
+</div>
+<div id="title_row">
+  <h1 id="home_title">USOMC</h1>
+  <h1 id="sub_title">UNITED STATES OPEN MUSIC COMPETITION</h1>
+</div>
+<div id="nav_row">
+  <ul id="home_page_nav">
+    <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "home_tab" %></li>
+    <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "home_tab" %></li>
+    <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "home_tab" %></li>
+    <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "home_tab" %></li>
+    <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "home_tab" %></li>
+    <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "home_tab" %></li>
+  </ul>
 </div>
