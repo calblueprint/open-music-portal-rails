@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113083644) do
+ActiveRecord::Schema.define(version: 20131116215109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -78,6 +77,11 @@ ActiveRecord::Schema.define(version: 20131113083644) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events_judges", force: true do |t|
+    t.integer "event_id"
+    t.integer "judge_id"
   end
 
   create_table "events_pieces", id: false, force: true do |t|
@@ -154,6 +158,11 @@ ActiveRecord::Schema.define(version: 20131113083644) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "rooms_judges", force: true do |t|
+    t.integer "room_id"
+    t.integer "judge_id"
   end
 
   create_table "transactions", force: true do |t|
