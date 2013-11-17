@@ -160,6 +160,11 @@ ActiveRecord::Schema.define(version: 20131116215109) do
     t.datetime "updated_at"
   end
 
+  create_table "rooms_judges", force: true do |t|
+    t.integer "room_id"
+    t.integer "judge_id"
+  end
+
   create_table "transactions", force: true do |t|
     t.integer  "user_id",                          null: false
     t.integer  "amount",                           null: false
