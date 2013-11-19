@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: event_ranks
+#
+#  id         :integer          not null, primary key
+#  rank       :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class EventRank < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
