@@ -1,4 +1,5 @@
 USOMC::Application.routes.draw do
+  get "confirmations/new"
   get "password_resets/new"
   root to: 'static_pages#home'
 
