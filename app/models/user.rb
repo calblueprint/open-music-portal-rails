@@ -77,6 +77,12 @@ class User < ActiveRecord::Base
     save(validate: false)
   end
 
+  def send_confirmation
+    generate_confirmation_token
+    save!
+    UserMailer.confirmation(self).deliver
+  end
+
   private
 
     def create_remember_token
@@ -87,6 +93,10 @@ class User < ActiveRecord::Base
       begin
         self.password_reset_token = SecureRandom.urlsafe_base64
       end while User.exists?(password_reset_token: self.password_reset_token)
+    end
+
+    def generate_confirmation_token
+      self.generate_confirmation_token = SecureRandom.urlsafe_base64
     end
 
     def assign_default_role
