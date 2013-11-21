@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
+      @user.send_confirmation
       flash[:success] = "Welcome to the USOMC!"
       redirect_to @user
     else
