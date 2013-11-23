@@ -13,6 +13,7 @@ gem 'annotate', '>=2.5.0'
 gem 'twitter-typeahead-rails', '0.9.3'
 gem 'rest-client', '1.6.7'
 gem 'stripe', github: 'stripe/stripe-ruby'
+gem 'textacular', github: 'hojonathanho/textacular', ref: 'e30937a0a1bc736837389f3df27d5a58710616a7'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '2.1.1'
