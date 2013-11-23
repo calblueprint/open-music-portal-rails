@@ -1,6 +1,7 @@
 module Api
   module V1
     class EventsController < ApplicationController
+      skip_before_filter :verify_authenticity_token
       respond_to :json
 
       def index
@@ -17,6 +18,10 @@ module Api
       end
 
       def post_ranking
+      end
+
+      def start
+        render json: {}
       end
 
     end
