@@ -8,7 +8,7 @@ USOMC::Application.routes.draw do
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  match "confirmed", to: 'confirmations#update', via: :patch
+  get 'confirmed/:id', to: 'confirmations#update', as: 'confirmed'
 
   match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
