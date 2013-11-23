@@ -6,5 +6,6 @@ class ConfirmationsController < ApplicationController
   def update
     @user = User.find_by_confirmation_token!(params[:id])
     @user.update_attributes(confirmed: true)
+    @user.save(validate: false)
   end
 end
