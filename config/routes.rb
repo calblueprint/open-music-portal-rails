@@ -23,6 +23,7 @@ USOMC::Application.routes.draw do
 
   match 'admin/dashboard', to: 'admins#show', via: :get
   match 'admin/users', to: 'admins#users' , via: :get
+  get 'admin/users/edit/:id', to: 'admins#user_edit', as: 'admin_edit'
 
   resources :rooms
   resources :charges, only: [:new, :create]
