@@ -14,4 +14,12 @@ module ApplicationHelper
     "highlighted" if params.merge(options) == params
   end
 
+  def decrypt(message)
+    if message.length > 0
+      encryption_key = ENV['ENCRYPTION_KEY']
+      decrypted_message = AESCrypt.decrypt(message, encryption_key)
+    else
+      ''
+    end
+  end
 end
