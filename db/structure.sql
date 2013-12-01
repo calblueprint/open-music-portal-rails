@@ -23,6 +23,20 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+
+
+--
 -- Name: pg_trgm; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -277,7 +291,8 @@ CREATE TABLE events (
     name text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    start_time time without time zone
+    start_time time without time zone,
+    room_id integer
 );
 
 
@@ -679,7 +694,9 @@ CREATE TABLE users (
     phone_number character varying(255),
     remember_token character varying(255),
     password_reset_token character varying(255),
-    password_reset_sent_at timestamp without time zone
+    password_reset_sent_at timestamp without time zone,
+    confirmed boolean DEFAULT false,
+    confirmation_token character varying(255)
 );
 
 
@@ -1178,14 +1195,22 @@ INSERT INTO schema_migrations (version) VALUES ('20131102204720');
 
 INSERT INTO schema_migrations (version) VALUES ('20131102205104');
 
+INSERT INTO schema_migrations (version) VALUES ('20131103071122');
+
 INSERT INTO schema_migrations (version) VALUES ('20131110013757');
 
 INSERT INTO schema_migrations (version) VALUES ('20131110023859');
 
 INSERT INTO schema_migrations (version) VALUES ('20131113052026');
 
+INSERT INTO schema_migrations (version) VALUES ('20131113083644');
+
 INSERT INTO schema_migrations (version) VALUES ('20131116215109');
 
 INSERT INTO schema_migrations (version) VALUES ('20131116233151');
 
 INSERT INTO schema_migrations (version) VALUES ('20131118085536');
+
+INSERT INTO schema_migrations (version) VALUES ('20131121164447');
+
+INSERT INTO schema_migrations (version) VALUES ('20131201233605');

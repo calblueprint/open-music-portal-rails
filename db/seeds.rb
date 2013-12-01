@@ -78,80 +78,77 @@ descriptions.each do |date, description|
 end
 
 # Creating users
-u = User.create(first_name: "Howard", last_name: "Chen", email: "howard@howard.com",
-                country: "USA", street_address: "101 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "11111", phone_number: "1111111111",
-                date_of_birth: Date.today - 1.year,
-                password: "password", password_confirmation: "password")
+user_params = {
+  country: "USA",
+  street_address: "1 Main St.",
+  city: "Berkeley",
+  state: "CA",
+  zip_code: "11111",
+  phone_number: "111-111-1111",
+  date_of_birth: Date.today - 10.years,
+  password: "password",
+  password_confirmation: "password"
+}
 
-u.add_role :contestant
+users = {
+  "contestant" => [
+    ["Howard", "Chen", "howard@howard.com"],
+    ["Joe", "Schmo", "joe@schmo.com"],
+    ["John", "Doe", "john@doe.com"],
+    ["John", "Hoe", "john@hoe.com"],
+    ["George", "Washington", "jwash@ington.com"],
+  ],
+  "admin" => [
+    ["How", "Word", "how@ie.com"],
+    ["Mark", "Mark", "mark@mark.com"],
+  ],
+  "judge" => [
+    ["How", "Word", "how@word.com"],
+    ["Judge", "Judy", "judge@judy.com"],
+  ]
+}
 
-a = User.create(first_name: "Howie", last_name: "Cheng", email: "how@ie.com",
-                country: "USA", street_address: "102 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "22222", phone_number: "2222222222",
-                date_of_birth: Date.today - 2.years,
-                password: "password", password_confirmation: "password")
+users.each do |user_type, list_of_users|
+  list_of_users.each do |user|
+    new_user_params = user_params.merge({first_name: user[0], last_name: user[1], email: user[2]})
+    new_user = User.create(new_user_params)
+    new_user.add_role user_type
+    puts "Created new user with type #{user_type}: #{new_user.first_name} #{new_user.last_name} with email #{new_user.email}."
+  end
+end
 
-a.add_role :admin
+room_numbers = [
+  "101",
+  "102",
+  "103",
+  "104",
+]
 
-j = User.create(first_name: "How", last_name: "Word", email: "how@word.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-j.add_role :judge
-
-b  = User.create(first_name: "Mark", last_name: "Sama", email: "mark@mark.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-c  = User.create(first_name: "Marky", last_name: "Mark", email: "marky@marky.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-d  = User.create(first_name: "Mark", last_name: "Dono", email: "mark@dono.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-e  = User.create(first_name: "Mark", last_name: "Kun", email: "mark@kun.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-f  = User.create(first_name: "Mark", last_name: "Chan", email: "mark@Chan.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-g  = User.create(first_name: "Mighty", last_name: "Mark", email: "Mighty@Mark.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-h  = User.create(first_name: "Mark", last_name: "Miyashta", email: "mark@swag.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
-
-i  = User.create(first_name: "i", last_name: "j", email: "mark@yoloswag.com",
-                country: "USA", street_address: "69 Swole St.", city: "Berkeley",
-                state: "CA", zip_code: "90909", phone_number: "6969696969",
-                date_of_birth: Date.today - 3.years,
-                password: "password", password_confirmation: "password")
+room_numbers.each do |room_number|
+  new_room = Room.where(name: room_number).first_or_create
+  puts "Created room: #{new_room.name}."
+end
 
 # Create events
-e1 = Event.where(name: "Cool test event").first_or_create
-e1.pieces << Piece.find(1)
-e1.pieces << Piece.find(2)
-e1.users << u
+events = [
+  "Cool test event",
+  "Not cool test event",
+  "Test event for kids",
+  "Test event for teens",
+  "Piano - 11-15",
+  "Violin - 8-9",
+  "The fun event",
+  "Super not fun event",
+]
+
+pieces = Piece.where("id < 10")
+event_users = User.with_role(:contestant).where("user_id < 20")
+room = Room.where(name: "101").first
+
+events.each do |event|
+  new_event = Event.where(name: event).first_or_create
+  new_event.pieces += pieces
+  new_event.users += event_users
+  new_event.room = room
+  puts "Created event: #{new_event.name} with #{new_event.pieces.count} pieces and #{new_event.users.count} users in room #{new_event.room.name}."
+end

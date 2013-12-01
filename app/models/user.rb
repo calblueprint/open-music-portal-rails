@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
   rolify :role_cname => 'Judge'
   rolify :role_cname => 'Contestant'
   rolify :role_cname => 'Admin'
-  after_create :assign_default_role
 
   has_many :events_users
   has_many :events, :through => :events_users
@@ -99,9 +98,5 @@ class User < ActiveRecord::Base
       begin
         self.confirmation_token = SecureRandom.urlsafe_base64
       end while User.exists?(confirmation_token: self.confirmation_token)
-    end
-
-    def assign_default_role
-      self.add_role :contestant
     end
 end
