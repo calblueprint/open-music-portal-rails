@@ -25,6 +25,8 @@ gem 'pg', '0.17.0'
 gem 'newrelic_rpm', '~> 3.6.8.168'
 gem 'rolify', '~> 3.2.0'
 
+gem 'aescrypt', '~> 1.0.0'
+
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
   gem 'spork-rails', github: 'sporkrb/spork-rails'

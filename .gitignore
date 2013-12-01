@@ -18,4 +18,8 @@ doc/
 .idea
 .secret
 
+# User should edit their database.yml
 config/database.yml
+
+# Set up a file for environment variables
+config/initializers/environment_variables.rb
