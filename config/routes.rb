@@ -31,6 +31,8 @@ USOMC::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       match 'start', to: 'events#start', via: :post
+      match 'login', to: 'sessions#login', via: :post
+
       match 'events/index', to: 'events#index', via: :get
       match 'events/:event_id/users', to: 'events#users', via: :get
       match 'events/:event_id/judge/:judge_id/contestant/:contestant_id/comment', to: 'events#post_comment', via: :post
