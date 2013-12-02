@@ -105,6 +105,7 @@ users = {
   "judge" => [
     ["How", "Word", "how@word.com"],
     ["Judge", "Judy", "judge@judy.com"],
+    ["Will", "Tang", "will@will.com"],
   ]
 }
 
