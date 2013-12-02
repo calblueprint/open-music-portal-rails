@@ -28,6 +28,7 @@ class Event < ActiveRecord::Base
     return {
       encid: id,
       name: name,
+      room_number: room.blank? ? '' : room.name,
       users: User.to_json(users)
     }
   end
