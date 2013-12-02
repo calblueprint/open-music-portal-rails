@@ -30,7 +30,6 @@ USOMC::Application.routes.draw do
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      match 'start', to: 'events#start', via: :post
       match 'login', to: 'sessions#login', via: :post
 
       match 'events/index', to: 'events#index', via: :get

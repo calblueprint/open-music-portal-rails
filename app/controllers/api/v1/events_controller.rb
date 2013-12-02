@@ -34,10 +34,6 @@ module Api
       def post_ranking
       end
 
-      def start
-        render json: {}
-      end
-
     end
   end
 end
