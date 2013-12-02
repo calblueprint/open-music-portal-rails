@@ -37,6 +37,8 @@
           <li class="user_input_value"><%= f.text_field :email, :placeholder => "Email"%></li>
           <li class="user_input_value"><input type="text" placeholder="First"></li>
           <li class="user_input_value"><input type="text" placeholder="Last"></li>
+          <% @events.each do |event| %>
+          <div>
         </ul>
       </div>
     </div>
