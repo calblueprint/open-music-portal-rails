@@ -1,3 +1,11 @@
+### 0.9
+
+* API
+  * Login endpoint and comments endpoints set up but not tested
+* Transactions finished.
+* Rooms, events, users finished.
+* Most admin functionality finished -- need to allow admins to add users to events manually.
+
 ### 0.0.2
 
 * Users
