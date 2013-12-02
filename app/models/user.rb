@@ -82,6 +82,11 @@ class User < ActiveRecord::Base
     UserMailer.confirmation(self).deliver
   end
 
+  def event_ids= event_ids
+    self.events =  Event.find(event_ids)
+  end
+
+
   private
 
     def create_remember_token
