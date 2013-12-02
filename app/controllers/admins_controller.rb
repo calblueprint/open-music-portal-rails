@@ -9,6 +9,7 @@ class AdminsController < ApplicationController
   end
 
   def user_edit
+    @events = Event.all
     @user = User.find(params[:id])
   end
 

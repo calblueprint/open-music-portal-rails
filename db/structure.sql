@@ -1196,15 +1196,11 @@ INSERT INTO schema_migrations (version) VALUES ('20131102204720');
 
 INSERT INTO schema_migrations (version) VALUES ('20131102205104');
 
-INSERT INTO schema_migrations (version) VALUES ('20131103071122');
-
 INSERT INTO schema_migrations (version) VALUES ('20131110013757');
 
 INSERT INTO schema_migrations (version) VALUES ('20131110023859');
 
 INSERT INTO schema_migrations (version) VALUES ('20131113052026');
-
-INSERT INTO schema_migrations (version) VALUES ('20131113083644');
 
 INSERT INTO schema_migrations (version) VALUES ('20131116215109');
 
