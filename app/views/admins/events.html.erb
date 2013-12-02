@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.id %></td>
+      <td><% event.name %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate(@events, :rendere => WillPaginate::ActionView::LinkRenderer) %>
