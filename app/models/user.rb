@@ -83,9 +83,7 @@ class User < ActiveRecord::Base
   end
 
   def event_ids= event_ids
-    puts "Inside user model"
     self.events =  Event.find(event_ids)
-    puts events
   end
 
 

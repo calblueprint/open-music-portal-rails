@@ -16,7 +16,6 @@ class AdminsController < ApplicationController
   def user_update
     @user = User.find(params[:id])
     @user.attributes = user_params
-    puts user_params
     @user.save(validate:false)
     redirect_to @user
   end
