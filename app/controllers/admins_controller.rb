@@ -16,6 +16,7 @@ class AdminsController < ApplicationController
   def user_update
     @user = User.find(params[:id])
     @user.attributes = user_params
+    puts user_params
     @user.save(validate:false)
     redirect_to @user
   end
@@ -29,7 +30,7 @@ class AdminsController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email,
                                    :date_of_birth, :country, :street_address, :city, :state, :zip_code,
-                                   :phone_number)
+                                   :phone_number, :event_ids => [])
     end
 
 end
