@@ -20,14 +20,6 @@ class AdminsController < ApplicationController
     redirect_to @user
   end
 
-  def events
-    @events = Event.paginate(:page => params[:page], :per_page => 10).order('id DESC')
-  end
-
-  def event_edit
-    @event = Event.find(params[:id])
-  end
-
   private
 
     def admin_user
