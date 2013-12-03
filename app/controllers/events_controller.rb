@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :admin_user, only: [:edit, :update]
 
   def new
     @event = Event.new
@@ -39,6 +40,10 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:name)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user != nil and current_user.has_role? :admin
     end
 
 end
