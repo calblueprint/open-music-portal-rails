@@ -26,8 +26,10 @@ USOMC::Application.routes.draw do
   match 'admin/users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
   match 'admin/users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
   match 'admin/events', to: 'admins#events' , via: :get
+  match 'admin/events/:id/edit', to: 'admins#event_edit', as: 'admin_event_edit', via: :get
 
   resources :rooms
+  resources :events
   resources :charges, only: [:new, :create]
   resources :events
 
