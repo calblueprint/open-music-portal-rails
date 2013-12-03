@@ -28,6 +28,7 @@ USOMC::Application.routes.draw do
 
   resources :rooms
   resources :charges, only: [:new, :create]
+  resources :events
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
