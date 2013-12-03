@@ -13,6 +13,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def index
+    @events = Event.paginate(:page => params[:page], :per_page => 10).order('id DESC')
+  end
+
   def show
     @event = Event.find(params[:id])
   end
