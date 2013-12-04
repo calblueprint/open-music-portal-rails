@@ -22,6 +22,7 @@ USOMC::Application.routes.draw do
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
   resources :pieces
 
+  match 'admin', to: redirect('/admin/dashboard'), via: :get
   match 'admin/dashboard', to: 'admins#show', via: :get
   match 'admin/users', to: 'admins#users' , via: :get
   match 'admin/users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
