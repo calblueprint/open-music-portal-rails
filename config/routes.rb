@@ -23,7 +23,7 @@ USOMC::Application.routes.draw do
   match 'scholarships', to: 'static_pages#scholarships', via: :get
   match 'adjundicator-program', to: 'static_pages#adjundicator_program', as: 'adjundicator_program', via: :get
   match 'donor-levels', to: 'static_pages#donor_levels', as: 'donor_levels', via: :get
-  match 'sponsorship_levels', to: 'static_pages#sponsorship_levels', as: 'sponsorship_levels', via: :get
+  match 'sponsorship-levels', to: 'static_pages#sponsorship_levels', as: 'sponsorship_levels', via: :get
   match 'current-sponsors', to: 'static_pages#current_sponsors', as: 'current_sponsors', via: :get
   match 'donations', to: 'static_pages#donations', via: :get
   match 'volunteer', to: 'static_pages#volunteer', via: :get
