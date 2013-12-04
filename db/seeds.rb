@@ -144,12 +144,14 @@ events = [
 
 pieces = Piece.where("id < 10")
 event_users = User.with_role(:contestant).where("user_id < 20")
+judges = User.with_role(:judge).where("user_id < 10")
 room = Room.where(name: "101").first
 
 events.each do |event|
   new_event = Event.where(name: event).first_or_create
   new_event.pieces += pieces
   new_event.users += event_users
+  new_event.users += judges
   new_event.room = room
-  puts "Created event: #{new_event.name} with #{new_event.pieces.count} pieces and #{new_event.users.count} users in room #{new_event.room.name}."
+  puts "Created event: #{new_event.name} with #{new_event.pieces.count} pieces and #{new_event.contestants.count} contestants and #{new_event.judges.count} in room #{new_event.room.name}."
 end
