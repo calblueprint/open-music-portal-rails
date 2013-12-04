@@ -1,13 +1,17 @@
 <div class="content_container">
   <div class="container">
     <div class="row">
-    <div class="col-md-12">  
-      <div class="comp_link">SYLLABUS</div>
-      <div class="comp_link">REGISTER</div>
-      <div class="comp_link">PICTURES</div>
-      <div class="comp_link">PROFILES</div>
+      <div class="col-md-12">
+        <div class="comp_link">
+          <%= link_to 'SYLLABUS', '/downloads/2014_USOMC_Syllabus.pdf', class: 'gray-highlight' %>
+        </div>
+        <div class="comp_link">
+          <%= link_to 'REGISTER', registration_path, class: 'gray-highlight' %>
+        </div>
+        <div class="comp_link">PICTURES</div>
+        <div class="comp_link">PROFILES</div>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 <div id = "loc_images">
