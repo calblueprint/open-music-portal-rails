@@ -1,6 +1,8 @@
 USOMC::Application.routes.draw do
-  get "confirmations/new"
   get "password_resets/new"
+  get "confirmations/new"
+  get 'confirmed/:id', to: 'confirmations#update', as: 'confirmed'
+
   root to: 'static_pages#home'
 
   resources :users, only: [:create, :destroy, :show, :edit, :update]
@@ -8,7 +10,6 @@ USOMC::Application.routes.draw do
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  get 'confirmed/:id', to: 'confirmations#update', as: 'confirmed'
 
   match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
@@ -37,6 +38,7 @@ USOMC::Application.routes.draw do
       match 'login', to: 'sessions#login', via: :post
 
       match 'events/index', to: 'events#index', via: :get
+      match 'events/:event_id', to: 'events#show', via: :get
       match 'events/:event_id/users', to: 'events#users', via: :get
       match 'events/:event_id/judge/:judge_id/contestant/:contestant_id/comment', to: 'events#post_comment', via: :post
       match 'events/:event_id/user/:user_id/ranking', to: 'events#post_ranking', via: :post

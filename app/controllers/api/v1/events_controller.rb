@@ -9,6 +9,11 @@ module Api
         render json: {events: Event.to_json(@events)}
       end
 
+      def show
+        @event = Event.find(params[:event_id])
+        render json: {event: @event.to_json}
+      end
+
       def users
         @event = Event.find(params[:event_id])
         render json: {users: User.to_json(@event.users)}
