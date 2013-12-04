@@ -19,6 +19,20 @@ USOMC::Application.routes.draw do
   match 'judges', to: 'static_pages#judges', via: :get
   match 'support', to: 'static_pages#support', via: :get
 
+  # Extra static pages
+  match 'scholarships', to: 'static_pages#scholarships', via: :get
+  match 'adjundicator-program', to: 'static_pages#adjundicator_program', as: 'adjundicator_program', via: :get
+  match 'donor-levels', to: 'static_pages#donor_levels', as: 'donor_levels', via: :get
+  match 'sponsorship_levels', to: 'static_pages#sponsorship_levels', as: 'sponsorship_levels', via: :get
+  match 'current-sponsors', to: 'static_pages#current_sponsors', as: 'current_sponsors', via: :get
+  match 'donations', to: 'static_pages#donations', via: :get
+  match 'volunteer', to: 'static_pages#volunteer', via: :get
+  match 'advertise', to: 'static_pages#advertise', via: :get
+  match 'history', to: 'static_pages#history', via: :get
+  match 'board-members', to: 'static_pages#board_members', as: 'board_members', via: :get
+  match 'staff-members', to: 'static_pages#staff_members', as: 'staff_members', via: :get
+  match 'contact', to: 'static_pages#contact', via: :get
+
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
 
   scope '/admin' do
