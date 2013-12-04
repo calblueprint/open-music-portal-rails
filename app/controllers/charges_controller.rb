@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+
   def new
     if not signed_in?
       redirect_to root_path

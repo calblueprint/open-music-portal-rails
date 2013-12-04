@@ -17,4 +17,16 @@ class Comment < ActiveRecord::Base
   belongs_to :event
 
   validates_presence_of :body
+
+  def self.to_json(comments)
+    return comments.collect {|comment| comment.to_json}
+  end
+
+  def to_json
+    return {
+      encid: id,
+      body: body
+    }
+  end
+
 end

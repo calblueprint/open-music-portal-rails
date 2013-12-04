@@ -26,6 +26,5 @@ module USOMC
     # config.i18n.default_locale = :de
 
     config.active_record.schema_format = :sql
-    Rake::Task["db:structure:dump"].clear if Rails.env.production?
   end
 end

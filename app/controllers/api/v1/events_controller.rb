@@ -19,6 +19,14 @@ module Api
         render json: {users: User.to_json(@event.users)}
       end
 
+      def comments
+        @event = Event.find(params[:event_id])
+        @judge = User.find(params[:judge_id])
+        @contestant = User.find(params[:contestant_id])
+        @comments = @event.comments_for_contestant_by_judge(@contestant, @judge)
+        render json: {comments: Comment.to_json(@comments)}
+      end
+
       def post_comment
         judge = User.find(params[:judge_id])
         if not judge.has_role?(:judge)
@@ -32,8 +40,8 @@ module Api
 
         event = Event.find(params[:event_id])
 
-        Comment.create(judge: judge, contestant: contestant, event: event, body: params[:body])
-        render json: Response.ok
+        comment = Comment.create(judge: judge, contestant: contestant, event: event, body: params[:body])
+        render json: {comments: Comment.to_json(event.comments_for_contestant_by_judge(contestant, judge))}
       end
 
       def post_ranking

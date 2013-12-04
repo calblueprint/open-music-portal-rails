@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   def self.to_json(users)
-      return users.collect {|user| user.to_json}
+    return users.collect {|user| user.to_json}
   end
 
   def to_json

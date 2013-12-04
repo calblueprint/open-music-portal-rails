@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
   belongs_to :room
   has_many :events_users
   has_many :users, :through => :events_users
+  has_many :comments
 
   has_and_belongs_to_many :pieces
   has_and_belongs_to_many :transactions
@@ -29,6 +30,10 @@ class Event < ActiveRecord::Base
 
   def judges
     users.with_role(:judge)
+  end
+
+  def comments_for_contestant_by_judge(contestant, judge)
+    comments.where(judge_id: judge.id, contestant_id: contestant.id)
   end
 
   def to_json
