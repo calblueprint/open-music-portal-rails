@@ -30,6 +30,7 @@ gem 'aescrypt', '~> 1.0.0'
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
   gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'better_errors', '1.0.1'
   gem 'quiet_assets', '1.0.2'
 end
 
