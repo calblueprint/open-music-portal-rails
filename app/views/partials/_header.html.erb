@@ -27,11 +27,11 @@
             <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
             <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "tab" %></li>
           </ul>
-          <div id = "diamond_row">
-            <div id = "diamond"></div>
+          <div id="diamond_row">
+            <div id="diamond"></div>
           </div>
-          <div id = "diamond_title_row">
-            <h1 id = "diamond_title">USOMC</h1>
+          <div id="diamond_title_row">
+            <h1 id="diamond_title"><%= link_to 'USOMC', root_path, class: 'no-highlight' %></h1>
           </div>
           <ul class="nav navbar-nav pull-right">
             <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "tab" %></li>
