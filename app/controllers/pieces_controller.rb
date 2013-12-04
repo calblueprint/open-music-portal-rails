@@ -1,5 +1,6 @@
 class PiecesController < ApplicationController
-  before_action :admin_user,       only: :new
+  before_action :admin_user, only: :new
+
   def index
     @pieces = Piece.paginate(:page => params[:page])
   end
