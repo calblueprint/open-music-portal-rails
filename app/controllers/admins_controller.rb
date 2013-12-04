@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   end
 
   def users
-    @users = User.paginate(:page => params[:page], :per_page => 10).order('id DESC')
+    @users = User.paginate(:page => params[:page], :per_page => 10).order('id ASC')
   end
 
   def user_edit
