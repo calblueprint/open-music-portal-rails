@@ -23,20 +23,16 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-left">
-            <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "tab" %></li>
+            <%= render partial: "partials/left_header_links", locals: {home: false} %>
           </ul>
-          <div id = "diamond_row">
-            <div id = "diamond"></div>
+          <div id="diamond_row">
+            <div id="diamond"></div>
           </div>
-          <div id = "diamond_title_row">
-            <h1 id = "diamond_title">USOMC</h1>
+          <div id="diamond_title_row">
+            <h1 id="diamond_title"><%= link_to 'USOMC', root_path, class: 'no-highlight' %></h1>
           </div>
           <ul class="nav navbar-nav pull-right">
-            <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "tab" %></li>
-            <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "tab" %></li>
-            <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "tab" %></li>
+            <%= render partial: "partials/right_header_links", locals: {home: false} %>
           </ul>
         </div>
       </div>

@@ -11,11 +11,7 @@
 </div>
 <div id="nav_row">
   <ul id="home_page_nav">
-    <li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: "home_tab" %></li>
-    <li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: "home_tab" %></li>
-    <li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: "home_tab" %></li>
-    <li class=<%= is_active?(action: "judges") %>><%= link_to "JUDGES", judges_path, class: "home_tab" %></li>
-    <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTRATION", registration_path, class: "home_tab" %></li>
-    <li class=<%= is_active?(action: "support") %>><%= link_to "SUPPORT", support_path, class: "home_tab" %></li>
+    <%= render partial: "partials/left_header_links", locals: {home: true} %>
+    <%= render partial: "partials/right_header_links", locals: {home: true} %>
   </ul>
 </div>

@@ -1,0 +1,3 @@
+<li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: (home ? "home_tab" : "tab") %></li>
+<li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: (home ? "home_tab" : "tab") %></li>
+<li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: (home ? "home_tab" : "tab") %></li>
