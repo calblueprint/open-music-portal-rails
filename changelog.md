@@ -5,6 +5,8 @@
 * Static pages all filled in.
 * Navigation bar finished with login/logout/dashboard for admins.
 * Events working with comments coming from the API
+* Admin functionality works for everything except the new Competition model.
+* API is almost finished (just needs rankings)
 
 ### 0.9
 
