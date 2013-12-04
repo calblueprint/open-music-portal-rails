@@ -3,7 +3,6 @@
 --
 
 SET statement_timeout = 0;
-SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -189,6 +188,40 @@ ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
+-- Name: competitions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE competitions (
+    id integer NOT NULL,
+    name character varying(255),
+    year integer,
+    location character varying(255),
+    venue character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: competitions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE competitions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: competitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE competitions_id_seq OWNED BY competitions.id;
+
+
+--
 -- Name: composers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -293,7 +326,8 @@ CREATE TABLE events (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     start_time time without time zone,
-    room_id integer
+    room_id integer,
+    competition_id integer
 );
 
 
@@ -782,6 +816,13 @@ ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY competitions ALTER COLUMN id SET DEFAULT nextval('competitions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY composers ALTER COLUMN id SET DEFAULT nextval('composers_id_seq'::regclass);
 
 
@@ -913,6 +954,14 @@ ALTER TABLE ONLY books
 
 ALTER TABLE ONLY comments
     ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: competitions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY competitions
+    ADD CONSTRAINT competitions_pkey PRIMARY KEY (id);
 
 
 --
@@ -1211,3 +1260,7 @@ INSERT INTO schema_migrations (version) VALUES ('20131118085536');
 INSERT INTO schema_migrations (version) VALUES ('20131121164447');
 
 INSERT INTO schema_migrations (version) VALUES ('20131201233605');
+
+INSERT INTO schema_migrations (version) VALUES ('20131204121347');
+
+INSERT INTO schema_migrations (version) VALUES ('20131204121535');

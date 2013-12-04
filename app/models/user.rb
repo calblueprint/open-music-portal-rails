@@ -20,6 +20,8 @@
 #  remember_token         :string(255)
 #  password_reset_token   :string(255)
 #  password_reset_sent_at :datetime
+#  confirmed              :boolean          default(FALSE)
+#  confirmation_token     :string(255)
 #
 
 class User < ActiveRecord::Base

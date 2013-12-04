@@ -2,14 +2,17 @@
 #
 # Table name: events
 #
-#  id         :integer          not null, primary key
-#  name       :text
-#  created_at :datetime
-#  updated_at :datetime
-#  start_time :time
+#  id             :integer          not null, primary key
+#  name           :text
+#  created_at     :datetime
+#  updated_at     :datetime
+#  start_time     :time
+#  room_id        :integer
+#  competition_id :integer
 #
 
 class Event < ActiveRecord::Base
+  belongs_to :competition
   belongs_to :room
   has_many :events_users
   has_many :users, :through => :events_users
