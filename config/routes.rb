@@ -20,13 +20,15 @@ USOMC::Application.routes.draw do
   match 'support', to: 'static_pages#support', via: :get
 
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
-  resources :pieces
 
-  match 'admin', to: redirect('/admin/dashboard'), via: :get
-  match 'admin/dashboard', to: 'admins#show', via: :get
-  match 'admin/users', to: 'admins#users' , via: :get
-  match 'admin/users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
-  match 'admin/users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
+  scope '/admin' do
+    resources :pieces
+    match '/', to: redirect('/admin/dashboard'), via: :get
+    match 'dashboard', to: 'admins#show', via: :get
+    match 'users', to: 'admins#users', as: 'admin_users', via: :get
+    match 'users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
+    match 'users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
+  end
 
   resources :rooms
   resources :events
