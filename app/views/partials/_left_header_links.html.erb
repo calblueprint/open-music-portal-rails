@@ -1,3 +1,20 @@
-<li class=<%= is_active?(action: "about") %>><%= link_to "ABOUT", about_path, class: (home ? "home_tab" : "tab") %></li>
-<li class=<%= is_active?(action: "competition") %>><%= link_to "COMPETITION", competition_path, class: (home ? "home_tab" : "tab") %></li>
-<li class=<%= is_active?(action: "winners") %>><%= link_to "WINNERS", winners_path, class: (home ? "home_tab" : "tab") %></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle <%= home ? 'home_tab' : 'tab' %>" data-toggle="dropdown">ABOUT<b class="caret <%= home ? "white-caret" : "" %>"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'USOMC History', history_path %></li>
+    <li><%= link_to 'Board Members', board_members_path %></li>
+    <li><%= link_to 'Staff Members', staff_members_path %></li>
+  </ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle <%= home ? 'home_tab' : 'tab' %>" data-toggle="dropdown">COMPETITION<b class="caret <%= home ? "white-caret" : "" %>"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'Register', registration_path %></li>
+    <li><%= link_to 'Syllabus', '/downloads/2014_USOMC_Syllabus.pdf' %></li>
+    <li><%= link_to 'Rules', '/downloads/2014_USOMC_Syllabus.pdf' %></li>
+    <li><%= link_to "Winners", winners_path %></li>
+    <li><%= link_to "Judges", judges_path %></li>
+    <li><%= link_to "Location", competition_path %></li>
+  </ul>
+</li>
+<li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTER", registration_path, class: (home ? "home_tab" : "tab") %></li>
