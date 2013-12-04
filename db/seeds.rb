@@ -156,6 +156,7 @@ events.each do |event|
   puts "Created event: #{new_event.name} with #{new_event.pieces.count} pieces and #{new_event.contestants.count} contestants and #{new_event.judges.count} in room #{new_event.room.name}."
 end
 
+# Create comments
 comments = [
   'Great job!',
   'Needs improvement',
@@ -164,9 +165,10 @@ comments = [
 ]
 
 event = Event.first
-contestant = User.with_role(:contestant).first
+contestants = User.with_role(:contestant).limit(comments.length)
 judge = User.with_role(:judge).first
-comments.each do |comment|
+comments.each_with_index do |comment, index|
+  contestant = contestants[index]
   new_comment = Comment.where(event_id: event.id, contestant_id: contestant.id, judge_id: judge.id, body: comment).first_or_create
   puts "Created comment: #{new_comment.body} for contestant: #{contestant.id} by judge: #{judge.id} for event: #{event.id}."
 end
