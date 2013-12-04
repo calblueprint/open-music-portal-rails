@@ -1,37 +1,41 @@
-<div class="row" id="user_profile">
-  <div class="col-md-3 no_padding" id="user_sidebar">
-    <ul class="profile_component_links">
-      <li class="highlighted"><%= link_to "profile", profile_path %></li>
-      <li><%= link_to "competitions", profile_path %></li>
-      <li><%= link_to "pieces", profile_path %></li>
-      <li><%= link_to "notes", profile_path %></li>
-    </ul>
-  </div>
-
-  <div class="col-md-9" id="main_user_info">
-    <h1 class="title"><%= @event.name %></h1>
-
-    <div class="row">
-      <div class="col-md-3">
-        <ul class="list_user_labels">
-          <li class="user_info_label">Name:</li>
+<div class="content_container">
+  <div class="container">
+    <div class="row" id="user_profile">
+      <div class="col-md-3 no_padding" id="user_sidebar">
+        <ul class="profile_component_links">
+          <li class="highlighted"><%= link_to "profile", profile_path %></li>
+          <li><%= link_to "competitions", profile_path %></li>
+          <li><%= link_to "pieces", profile_path %></li>
+          <li><%= link_to "notes", profile_path %></li>
         </ul>
       </div>
-      <div class="col-md-3">
-      <%= form_for(@event, html: {id: "form"}) do |f| %>
-        <ul class="list_user_values">
-          <li class="user_input_value"><%= f.text_field :name, :placeholder => "Name" %></li>
-        </ul>
+
+      <div class="col-md-9" id="main_user_info">
+        <h1 class="title"><%= @event.name %></h1>
+
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="list_user_labels">
+              <li class="user_info_label">Name:</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+          <%= form_for(@event, html: {id: "form"}) do |f| %>
+            <ul class="list_user_values">
+              <li class="user_input_value"><%= f.text_field :name, :placeholder => "Name" %></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.submit "continue", class: "submit" %>
+          </div>
+        </div>
+
+        <% end %>
+
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <%= f.submit "continue", class: "submit" %>
-      </div>
-    </div>
-
-    <% end %>
-
   </div>
 </div>
