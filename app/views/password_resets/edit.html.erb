@@ -1,29 +1,32 @@
 <% provide(:title, "Reset Password") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1 class="title">Reset Password</h1>
-    <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
-      <% if @user.errors.any? %>
-        <div class="error_messages">
-          <h2>Form is invalid</h2>
-          <ul>
-            <% for message in @user.errors.full_messages %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="title">Reset Password</h1>
+        <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
+          <% if @user.errors.any? %>
+            <div class="error_messages">
+              <h2>Form is invalid</h2>
+              <ul>
+                <% for message in @user.errors.full_messages %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-      <%= f.label :password, class: "form_label" %>
-      <%= f.password_field :password, :placeholder => "Password", class: "full_width login_text_field" %><br />
-      <%= f.label :password_confirmation, class: "form_label" %>
-      <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: "full_width login_text_field" %>
+          <%= f.label :password, class: "form_label" %>
+          <%= f.password_field :password, :placeholder => "Password", class: "full_width login_text_field" %><br />
+          <%= f.label :password_confirmation, class: "form_label" %>
+          <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: "full_width login_text_field" %>
 
-      <div class="submit_button_container">
-        <%= f.submit "Reset password", class: "submit" %>
+          <div class="submit_button_container">
+            <%= f.submit "Reset password", class: "submit" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
-
