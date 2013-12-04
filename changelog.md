@@ -1,3 +1,11 @@
+### 1.0
+
+* Introducing version 1.0!
+* Home page, registration page, all styled.
+* Static pages all filled in.
+* Navigation bar finished with login/logout/dashboard for admins.
+* Events working with comments coming from the API
+
 ### 0.9
 
 * API
