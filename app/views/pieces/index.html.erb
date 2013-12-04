@@ -1,41 +1,50 @@
-<table>
-  <tr>
-    <th>Composer</th>
-    <th>Nationality</th>
-    <th>Title</th>
-    <th>Book</th>
-    <th>Publisher</th>
-    <th>Affiliate link</th>
-    <th>Length (min)</th>
-    <th>Length (sec)</th>
-    <th>Period</th>
-    <th>Pages</th>
-    <th>Level</th>
-    <th>Other a</th>
-    <th>Other b</th>
-    <th>Other c</th>
-  </tr>
-  <% @pieces.each do |p| %>
-  <tr>
-    <td><%= p.composer ? p.composer.name : '' %></td>
-    <td><%= p.nationality ? p.nationality.name : '' %></td>
-    <td><%= p.title %></td>
-    <td><%= p.book ? p.book.name : '' %></td>
-    <td><%= p.publisher ? p.publisher.name : '' %></td>
-    <td><%= p.affiliate_link %></td>
-    <td><%= p.length_minutes %></td>
-    <td><%= p.length_seconds %></td>
-    <td><%= p.period ? p.period.name : '' %></td>
-    <td><%= p.pages %></td>
-    <td><%= p.level ? p.level.name : '' %></td>
-    <td><%= p.other_a %></td>
-    <td><%= p.other_b %></td>
-    <td><%= p.other_c %></td>
-    <li>
-      <%= link_to p.title, piece_path(p) -%>
-      <b> <%= link_to 'Edit', edit_piece_path(p) %></b>
-    </li>
-  </tr>
-  <% end %>
-</table>
-<%= will_paginate(@pieces, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>Composer</th>
+            <th>Nationality</th>
+            <th>Title</th>
+            <th>Book</th>
+            <th>Publisher</th>
+            <th>Affiliate link</th>
+            <th>Length (min)</th>
+            <th>Length (sec)</th>
+            <th>Period</th>
+            <th>Pages</th>
+            <th>Level</th>
+            <th>Other a</th>
+            <th>Other b</th>
+            <th>Other c</th>
+          </tr>
+          <% @pieces.each do |p| %>
+          <tr>
+            <td><%= p.composer ? p.composer.name : '' %></td>
+            <td><%= p.nationality ? p.nationality.name : '' %></td>
+            <td><%= p.title %></td>
+            <td><%= p.book ? p.book.name : '' %></td>
+            <td><%= p.publisher ? p.publisher.name : '' %></td>
+            <td><%= p.affiliate_link %></td>
+            <td><%= p.length_minutes %></td>
+            <td><%= p.length_seconds %></td>
+            <td><%= p.period ? p.period.name : '' %></td>
+            <td><%= p.pages %></td>
+            <td><%= p.level ? p.level.name : '' %></td>
+            <td><%= p.other_a %></td>
+            <td><%= p.other_b %></td>
+            <td><%= p.other_c %></td>
+            <li>
+              <%= link_to p.title, piece_path(p) %>
+              <b><%= link_to 'Edit', edit_piece_path(p) %></b>
+            </li>
+          </tr>
+          <% end %>
+        </table>
+        <%= will_paginate(@pieces, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+
+      </div>
+    </div>
+  </div>
+</div>
