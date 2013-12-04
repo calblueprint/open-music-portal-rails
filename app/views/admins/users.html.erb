@@ -1,17 +1,25 @@
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Last Name</th>
-    <th>First Name</th>
-  </tr>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= user.id %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.first_name %></td>
-    <td class="divider"><%= link_to "Show", user %></td>
-    <td class="divider"><%= link_to "Edit",  admin_edit_path(user)%></td>
-  </tr>
-  <% end %>
-</table>
-<%= will_paginate(@users, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+          </tr>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.first_name %></td>
+            <td class="divider"><%= link_to "Show", user %></td>
+            <td class="divider"><%= link_to "Edit",  admin_edit_path(user)%></td>
+          </tr>
+          <% end %>
+        </table>
+        <%= will_paginate(@users, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+      </div>
+    </div>
+  </div>
+</div>
