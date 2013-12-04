@@ -27,6 +27,7 @@ USOMC::Application.routes.draw do
   match 'admin/users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
 
   resources :rooms
+  resources :events
   resources :charges, only: [:new, :create]
   resources :events
 
