@@ -67,24 +67,33 @@
   background: transparent;
 }
 
-#title_box_row {
+#title_row {
   position: absolute;
-  top: 310px;
+  top: 150px;
   left: -12px;
   width: 100%;
   z-index: 4;
 }
 
-#title_box {
+#title {
   margin: auto;
-  margin-top: -80px;
-  transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  background: black;
-  opacity: 0.8;
-  width: 350px;
-  height: 350px;
+  width: 518px;
+  height: 518px;
+  background-image: url(<%= image_path "Center.svg"%>);
+  background-size: cover;
+}
+
+.title_link {
+  position: relative;
+  top: 170px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 150px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.title_link:hover {
+  color: transparent;
 }
 
 .home_tab {
