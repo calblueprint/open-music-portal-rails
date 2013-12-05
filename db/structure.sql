@@ -1157,6 +1157,13 @@ CREATE UNIQUE INDEX index_events_judges_on_judge_id ON events_judges USING btree
 
 
 --
+-- Name: index_events_on_competition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_events_on_competition_id ON events USING btree (competition_id);
+
+
+--
 -- Name: index_events_on_room_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1259,6 +1266,13 @@ CREATE INDEX index_pieces_on_period_id ON pieces USING btree (period_id);
 --
 
 CREATE INDEX index_pieces_on_publisher_id ON pieces USING btree (publisher_id);
+
+
+--
+-- Name: index_transactions_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_transactions_on_user_id ON transactions USING btree (user_id);
 
 
 --

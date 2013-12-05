@@ -7,6 +7,9 @@ class AddIndexesToModels < ActiveRecord::Migration
     add_index :comments, :event_id
 
     add_index :events, :room_id, unique: true
+    add_index :events, :competition_id, unique: true
+
+    add_index :transactions, :user_id, unique: true
 
     add_index :events_judges, :event_id, unique: true
     add_index :events_judges, :judge_id, unique: true
