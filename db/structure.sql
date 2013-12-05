@@ -1101,6 +1101,34 @@ CREATE INDEX index_admins_on_name_and_resource_type_and_resource_id ON admins US
 
 
 --
+-- Name: index_announcements_on_admin_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_announcements_on_admin_id ON announcements USING btree (admin_id);
+
+
+--
+-- Name: index_comments_on_contestant_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_contestant_id ON comments USING btree (contestant_id);
+
+
+--
+-- Name: index_comments_on_event_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_event_id ON comments USING btree (event_id);
+
+
+--
+-- Name: index_comments_on_judge_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_judge_id ON comments USING btree (judge_id);
+
+
+--
 -- Name: index_contestants_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1115,6 +1143,69 @@ CREATE INDEX index_contestants_on_name_and_resource_type_and_resource_id ON cont
 
 
 --
+-- Name: index_events_judges_on_event_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_events_judges_on_event_id ON events_judges USING btree (event_id);
+
+
+--
+-- Name: index_events_judges_on_judge_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_events_judges_on_judge_id ON events_judges USING btree (judge_id);
+
+
+--
+-- Name: index_events_on_room_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_events_on_room_id ON events USING btree (room_id);
+
+
+--
+-- Name: index_events_pieces_on_event_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_events_pieces_on_event_id ON events_pieces USING btree (event_id);
+
+
+--
+-- Name: index_events_pieces_on_piece_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_events_pieces_on_piece_id ON events_pieces USING btree (piece_id);
+
+
+--
+-- Name: index_events_transactions_on_event_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_events_transactions_on_event_id ON events_transactions USING btree (event_id);
+
+
+--
+-- Name: index_events_transactions_on_transaction_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_events_transactions_on_transaction_id ON events_transactions USING btree (transaction_id);
+
+
+--
+-- Name: index_events_users_on_event_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_events_users_on_event_id ON events_users USING btree (event_id);
+
+
+--
+-- Name: index_events_users_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_events_users_on_user_id ON events_users USING btree (user_id);
+
+
+--
 -- Name: index_judges_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1126,6 +1217,48 @@ CREATE INDEX index_judges_on_name ON judges USING btree (name);
 --
 
 CREATE INDEX index_judges_on_name_and_resource_type_and_resource_id ON judges USING btree (name, resource_type, resource_id);
+
+
+--
+-- Name: index_pieces_on_book_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_pieces_on_book_id ON pieces USING btree (book_id);
+
+
+--
+-- Name: index_pieces_on_composer_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_pieces_on_composer_id ON pieces USING btree (composer_id);
+
+
+--
+-- Name: index_pieces_on_level_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_pieces_on_level_id ON pieces USING btree (level_id);
+
+
+--
+-- Name: index_pieces_on_nationality_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_pieces_on_nationality_id ON pieces USING btree (nationality_id);
+
+
+--
+-- Name: index_pieces_on_period_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_pieces_on_period_id ON pieces USING btree (period_id);
+
+
+--
+-- Name: index_pieces_on_publisher_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_pieces_on_publisher_id ON pieces USING btree (publisher_id);
 
 
 --
@@ -1267,4 +1400,8 @@ INSERT INTO schema_migrations (version) VALUES ('20131204121347');
 
 INSERT INTO schema_migrations (version) VALUES ('20131204121535');
 
+<<<<<<< HEAD
 INSERT INTO schema_migrations (version) VALUES ('20131205091229');
+=======
+INSERT INTO schema_migrations (version) VALUES ('20131205095640');
+>>>>>>> Adding indexes to lots of models for speed
