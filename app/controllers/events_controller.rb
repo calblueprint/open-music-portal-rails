@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:name, :num_pieces)
+      params.require(:event).permit(:name, :num_pieces, :max_time)
     end
 
     def admin_user
