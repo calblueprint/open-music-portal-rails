@@ -28,13 +28,21 @@ gem 'rolify', '~> 3.2.0'
 gem 'aescrypt', '~> 1.0.0'
 
 group :development, :test do
-  gem 'rspec-rails', '2.13.1'
+  gem 'pry', '0.9.12.2'
+  gem 'pry-rails', '0.3.2'
+  gem 'awesome_print', '1.2.0'
   gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'better_errors', '1.0.1'
   gem 'quiet_assets', '1.0.2'
+  gem 'bullet', '4.7.1'
+  gem 'debugger', '1.6.3'
+  gem 'hirb', '0.7.1'
+
+  gem 'rails_best_practices', '1.14.4'
 end
 
 group :test do
+  gem 'rspec-rails', '2.13.1'
   gem 'selenium-webdriver', '2.0.0'
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.2.0'
