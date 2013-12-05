@@ -13,7 +13,7 @@ USOMC::Application.routes.draw do
 
   match 'profile', to: 'users#my_profile', via: :get
   match 'registration', to: 'users#new', via: :get
-  match 'about', to: 'static_pages#about', via: :get
+  match 'overview', to: 'static_pages#overview', via: :get
   match 'competition', to: 'static_pages#competition', via: :get
   match 'winners', to: 'static_pages#winners', via: :get
   match 'judges', to: 'static_pages#judges', via: :get
