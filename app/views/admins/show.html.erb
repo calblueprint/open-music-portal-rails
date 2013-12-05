@@ -4,6 +4,7 @@
       <div class="col-md-12">
         <h1 class="title">Admin Dashboard</h1>
         <ul class="no-bullets with-buttons">
+          <li><%= link_to "Create a new Competition", new_competition_path, class: 'btn btn-primary btn-lg btn-block' %></li>
           <li><%= link_to "Show all Users", admin_users_path, class: 'btn btn-primary btn-lg btn-block' %></li>
           <li><%= link_to "Show all Events", events_path, class: 'btn btn-primary btn-lg btn-block'  %></li>
           <li><%= link_to "Show all Pieces", pieces_path, class: 'btn btn-primary btn-lg btn-block'  %></li>
