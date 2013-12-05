@@ -20,6 +20,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if @user.events != nil
+      @events = @user.events
+    end
   end
 
   def my_profile
