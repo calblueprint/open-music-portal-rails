@@ -1414,8 +1414,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131204121347');
 
 INSERT INTO schema_migrations (version) VALUES ('20131204121535');
 
-<<<<<<< HEAD
 INSERT INTO schema_migrations (version) VALUES ('20131205091229');
-=======
+
 INSERT INTO schema_migrations (version) VALUES ('20131205095640');
->>>>>>> Adding indexes to lots of models for speed
