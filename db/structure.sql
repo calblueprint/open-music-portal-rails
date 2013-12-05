@@ -3,6 +3,7 @@
 --
 
 SET statement_timeout = 0;
+SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -329,7 +330,8 @@ CREATE TABLE events (
     room_id integer,
     competition_id integer,
     max_time integer,
-    num_pieces integer
+    num_pieces integer,
+    closed boolean
 );
 
 
@@ -1422,3 +1424,7 @@ INSERT INTO schema_migrations (version) VALUES ('20131205095640');
 INSERT INTO schema_migrations (version) VALUES ('20131205183304');
 
 INSERT INTO schema_migrations (version) VALUES ('20131205092149');
+
+INSERT INTO schema_migrations (version) VALUES ('20131205095640');
+
+INSERT INTO schema_migrations (version) VALUES ('20131205163232');
