@@ -20,17 +20,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.events != nil
-      @events = @user.events
-    end
   end
 
   def my_profile
     if signed_in?
       @user = current_user
-      if @user.events != nil
-        @events = @user.events
-      end
       render 'show'
     else
       redirect_to root_path
