@@ -7,7 +7,7 @@
 }
 
 #header_bottom_border {
-  border-bottom: 1px solid #2F2F2F;
+  box-shadow: 0px 1px #2F2F2F;
 }
 
 #main_container {
@@ -57,6 +57,7 @@
   display: inline-block;
   font-family: Montserrat, sans-serif;
   padding-top: 11px;
+  margin-right: 15px;
   font-size: 15px;
   color: black;
   opacity: 0.5;
@@ -67,6 +68,14 @@
 .tab:hover {
   color: black;
   opacity: 1;
+}
+
+.left_tab {
+  margin-left: -40px;
+}
+
+.right_tab {
+  margin-right: -40px;
 }
 
 .highlighted {
@@ -122,6 +131,7 @@
 }
 
 .header_button {
+  float: left;
   border-style: none;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -136,26 +146,16 @@
   opacity: 1;
 }
 
-/*
-#header_links {
-  text-align: center;
-  height: 100%;
-  padding-top: 9px;
-}
-
-#icon {
+#login_diamond {
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   float: left;
-  color: white;
-  font-size: 16px;
-  padding-left: 6px;
-  padding-bottom: 6px;
+  width: 6px;
+  height: 6px;
+  margin: 10px;
+  margin-left: 40px;
+  margin-right: 5px;
+  background: black;
+  opacity: 0.5;
 }
-
-.logo_in_nav {
-  text-align: center;
-  float: left;
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-*/

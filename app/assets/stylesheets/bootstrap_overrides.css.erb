@@ -2,7 +2,35 @@
   text-align: left;
 }
 
-.white-caret {
-  border-bottom-color: #FFFFFF;
-  border-top-color: #FFFFFF;
+a {
+  color: black;
+  text-decoration: none; 
+}
+
+a:hover, a:focus {
+  color: black;
+  text-decoration: none; 
+}
+
+a:focus {
+  outline: none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: transparent;
+  border-color: transparent; 
+}
+
+.nav .caret {
+  border-bottom-color: #000000;
+  border-top-color: #000000;
+}
+
+.nav a:hover .caret {
+  border-bottom-color: #000000;
+  border-top-color: #000000; 
+}
+
+.dropdown-menu {
+  font-family: Roboto;
 }
