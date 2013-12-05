@@ -26,6 +26,7 @@ class Event < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :num_pieces, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :max_time, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   def self.to_json(events)
     return events.collect {|event| event.to_json}
