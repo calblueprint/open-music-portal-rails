@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201233605) do
+ActiveRecord::Schema.define(version: 20131205095640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+  enable_extension "pg_trgm"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 20131201233605) do
     t.datetime "updated_at"
   end
 
+  add_index "announcements", ["admin_id"], name: "index_announcements_on_admin_id", unique: true, using: :btree
+
   create_table "books", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
@@ -47,6 +50,19 @@ ActiveRecord::Schema.define(version: 20131201233605) do
     t.integer  "judge_id"
     t.integer  "contestant_id"
     t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["contestant_id"], name: "index_comments_on_contestant_id", using: :btree
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
+  add_index "comments", ["judge_id"], name: "index_comments_on_judge_id", using: :btree
+
+  create_table "competitions", force: true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.string   "location"
+    t.string   "venue"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,28 +96,44 @@ ActiveRecord::Schema.define(version: 20131201233605) do
     t.datetime "updated_at"
     t.time     "start_time"
     t.integer  "room_id"
+    t.integer  "competition_id"
   end
+
+  add_index "events", ["competition_id"], name: "index_events_on_competition_id", unique: true, using: :btree
+  add_index "events", ["room_id"], name: "index_events_on_room_id", unique: true, using: :btree
 
   create_table "events_judges", force: true do |t|
     t.integer "event_id"
     t.integer "judge_id"
   end
 
+  add_index "events_judges", ["event_id"], name: "index_events_judges_on_event_id", unique: true, using: :btree
+  add_index "events_judges", ["judge_id"], name: "index_events_judges_on_judge_id", unique: true, using: :btree
+
   create_table "events_pieces", id: false, force: true do |t|
     t.integer "event_id", null: false
     t.integer "piece_id", null: false
   end
+
+  add_index "events_pieces", ["event_id"], name: "index_events_pieces_on_event_id", using: :btree
+  add_index "events_pieces", ["piece_id"], name: "index_events_pieces_on_piece_id", using: :btree
 
   create_table "events_transactions", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "transaction_id"
   end
 
+  add_index "events_transactions", ["event_id"], name: "index_events_transactions_on_event_id", unique: true, using: :btree
+  add_index "events_transactions", ["transaction_id"], name: "index_events_transactions_on_transaction_id", unique: true, using: :btree
+
   create_table "events_users", force: true do |t|
     t.integer "event_id",                 null: false
     t.integer "user_id",                  null: false
     t.boolean "paid",     default: false
   end
+
+  add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
+  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
 
   create_table "judges", force: true do |t|
     t.string   "name"
@@ -151,6 +183,13 @@ ActiveRecord::Schema.define(version: 20131201233605) do
     t.datetime "updated_at"
   end
 
+  add_index "pieces", ["book_id"], name: "index_pieces_on_book_id", using: :btree
+  add_index "pieces", ["composer_id"], name: "index_pieces_on_composer_id", using: :btree
+  add_index "pieces", ["level_id"], name: "index_pieces_on_level_id", using: :btree
+  add_index "pieces", ["nationality_id"], name: "index_pieces_on_nationality_id", using: :btree
+  add_index "pieces", ["period_id"], name: "index_pieces_on_period_id", using: :btree
+  add_index "pieces", ["publisher_id"], name: "index_pieces_on_publisher_id", using: :btree
+
   create_table "publishers", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
@@ -172,6 +211,8 @@ ActiveRecord::Schema.define(version: 20131201233605) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -196,6 +237,9 @@ ActiveRecord::Schema.define(version: 20131201233605) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "users_email_idx", using: :gin
+  add_index "users", ["first_name"], name: "users_first_name_idx", using: :gin
+  add_index "users", ["last_name"], name: "users_last_name_idx", using: :gin
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "users_admins", id: false, force: true do |t|

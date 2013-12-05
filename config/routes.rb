@@ -5,7 +5,7 @@ USOMC::Application.routes.draw do
 
   root to: 'static_pages#home'
 
-  resources :users, only: [:create, :destroy, :show, :edit, :update]
+  resources :users, except: [:new, :destroy, :index]
   resources :sessions, only: [:new, :create, :destroy]
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]
@@ -36,7 +36,7 @@ USOMC::Application.routes.draw do
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
 
   scope '/admin' do
-    resources :pieces
+    resources :pieces, except: [:update, :destroy]
     match '/', to: redirect('/admin/dashboard'), via: :get
     match 'dashboard', to: 'admins#show', via: :get
     match 'users', to: 'admins#users', as: 'admin_users', via: :get
@@ -46,10 +46,9 @@ USOMC::Application.routes.draw do
     resources :competitions, only: [:new, :create]
   end
 
-  resources :rooms
-  resources :events
+  resources :rooms, except: [:edit, :update, :destroy]
+  resources :events, except: [:destroy]
   resources :charges, only: [:new, :create]
-  resources :events
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
