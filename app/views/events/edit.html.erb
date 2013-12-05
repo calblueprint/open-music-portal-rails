@@ -19,6 +19,7 @@
                <li class="user_info_label">Name:</li>
                <li class="user_info_label">Number of Pieces:</li>
                <li class="user_info_label">Max Time (min):</li>
+               <li class="user_info_label">Closed:</li>
             </ul>
           </div>
           <div class="col-md-3">
@@ -27,6 +28,7 @@
               <li class="user_input_value"><%= f.text_field :name, :placeholder => "Name" %></li>
               <li class="user_input_value"><%= f.text_field :num_pieces, :placeholder => "Number of Pieces" %></li>
               <li class="user_input_value"><%= f.text_field :max_time, :placeholder => "Max Time" %></li>
+              <%= check_box_tag 'closed' , @event.closed %>
             </ul>
           </div>
         </div>
