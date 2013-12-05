@@ -9,6 +9,7 @@
 #  start_time     :time
 #  room_id        :integer
 #  competition_id :integer
+#  max_time       :integer
 #
 
 class Event < ActiveRecord::Base
