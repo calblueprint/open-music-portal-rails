@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       flash[:success] = "Welcome back to USOMC, #{user.first_name}!"
-      if user.is_admin?
+      if user.has_role?(:admin)
         redirect_to dashboard_path
       else
         redirect_to profile_path
