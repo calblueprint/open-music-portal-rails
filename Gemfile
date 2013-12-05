@@ -37,6 +37,8 @@ group :development, :test do
   gem 'bullet', '4.7.1'
   gem 'debugger', '1.6.3'
   gem 'hirb', '0.7.1'
+
+  gem 'rails_best_practices', '1.14.4'
 end
 
 group :test do
