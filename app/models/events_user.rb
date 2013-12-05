@@ -6,6 +6,7 @@
 #  event_id :integer          not null
 #  user_id  :integer          not null
 #  paid     :boolean          default(FALSE)
+#  rank     :integer
 #
 
 class EventsUser < ActiveRecord::Base

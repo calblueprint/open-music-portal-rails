@@ -10,6 +10,8 @@
 #  room_id        :integer
 #  competition_id :integer
 #  max_time       :integer
+#  num_pieces     :integer
+#  closed         :boolean
 #
 
 require 'spec_helper'

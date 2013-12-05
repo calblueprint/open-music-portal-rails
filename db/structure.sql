@@ -3,6 +3,7 @@
 --
 
 SET statement_timeout = 0;
+SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -328,7 +329,9 @@ CREATE TABLE events (
     start_time time without time zone,
     room_id integer,
     competition_id integer,
-    max_time integer
+    max_time integer,
+    num_pieces integer,
+    closed boolean
 );
 
 
@@ -409,7 +412,8 @@ CREATE TABLE events_users (
     id integer NOT NULL,
     event_id integer NOT NULL,
     user_id integer NOT NULL,
-    paid boolean DEFAULT false
+    paid boolean DEFAULT false,
+    rank integer
 );
 
 
@@ -1415,4 +1419,10 @@ INSERT INTO schema_migrations (version) VALUES ('20131204121535');
 
 INSERT INTO schema_migrations (version) VALUES ('20131205091229');
 
+INSERT INTO schema_migrations (version) VALUES ('20131205092149');
+
 INSERT INTO schema_migrations (version) VALUES ('20131205095640');
+
+INSERT INTO schema_migrations (version) VALUES ('20131205163232');
+
+INSERT INTO schema_migrations (version) VALUES ('20131205183304');
