@@ -33,6 +33,7 @@ group :development, :test do
   gem 'better_errors', '1.0.1'
   gem 'quiet_assets', '1.0.2'
   gem 'bullet', '4.7.1'
+  gem 'debugger', '1.6.3'
 end
 
 group :test do
