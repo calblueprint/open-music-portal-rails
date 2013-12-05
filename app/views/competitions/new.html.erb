@@ -3,7 +3,34 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class="title">Create a Competition</h1>
-
+        <%= render partial: "shared/form_errors", locals: {errors: @competition.errors} %>
+        <div class="row">
+          <%= form_for(@competition, html: {id: "form"}) do |f| %>
+          <div class="col-md-4">
+              <ul class="list_user_labels">
+                <li class="user_input_label">Name:</li>
+                <li class="user_input_label">Year:</li>
+                <li class="user_input_label">Location:</li>
+                <li class="user_input_label">Venue:</li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list_user_values">
+              <li class="user_input_value"><%= f.text_field :name, :placeholder => "Name" %></li>
+              <li class="user_input_value"><%= f.text_field :year, :placeholder => "Year" %></li>
+              <li class="user_input_value"><%= f.text_field :location, :placeholder => "Location" %></li>
+              <li class="user_input_value"><%= f.text_field :venue, :placeholder => "Venue" %></li>
+          </div>
+          <div id="reg_box">
+            <p>How to make a new Competition:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.submit ">>", class: "submit" %>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
