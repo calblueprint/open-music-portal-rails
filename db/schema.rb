@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205095640) do
+ActiveRecord::Schema.define(version: 20131205183304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20131205095640) do
     t.time     "start_time"
     t.integer  "room_id"
     t.integer  "competition_id"
+    t.integer  "max_time"
   end
 
   add_index "events", ["competition_id"], name: "index_events_on_competition_id", unique: true, using: :btree
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(version: 20131205095640) do
     t.integer "event_id",                 null: false
     t.integer "user_id",                  null: false
     t.boolean "paid",     default: false
+    t.integer "rank"
   end
 
   add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
