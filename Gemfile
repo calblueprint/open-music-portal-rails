@@ -32,6 +32,7 @@ group :development, :test do
   gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'better_errors', '1.0.1'
   gem 'quiet_assets', '1.0.2'
+  gem 'bullet', '4.7.1'
 end
 
 group :test do
