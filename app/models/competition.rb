@@ -12,5 +12,9 @@
 #
 
 class Competition < ActiveRecord::Base
-  has_many :events
+  has_many :days
+
+  def events
+    days.collect{ |day| day.events }
+  end
 end

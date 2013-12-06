@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   pg_search_scope :search, against: [[:name, 'A']],
                            using: {tsearch: {prefix: true, normalization: 2}}
 
-  belongs_to :competition
+  belongs_to :day
   belongs_to :room
   has_many :events_users
   has_many :users, :through => :events_users
@@ -35,6 +35,10 @@ class Event < ActiveRecord::Base
 
   def self.to_json(events)
     return events.collect {|event| event.to_json}
+  end
+
+  def competition
+    day.competition
   end
 
   def contestants

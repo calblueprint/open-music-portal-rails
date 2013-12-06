@@ -77,6 +77,15 @@ descriptions.each do |date, description|
   Announcement.where(date: date, description: description).first_or_create
 end
 
+# Create a sample competition
+competition = Competition.where(name: "Spring 2014").first_or_create
+
+# Make days
+(10..15).each do |day_number|
+  new_day = Day.where(date: Date.parse("2014-02-#{day_number}"), competition_id: competition.id).first_or_create
+  puts "Created new day: #{new_day.date.strftime('%a %d %b %Y')}"
+end
+
 # Creating users
 user_params = {
   country: "USA",
@@ -147,13 +156,13 @@ event_users = User.with_role(:contestant).where("user_id < 20")
 judges = User.with_role(:judge).where("user_id < 10")
 room = Room.where(name: "101").first
 
-events.each do |event|
-  new_event = Event.where(name: event, num_pieces: 1, max_time: 120).first_or_create
+events.each_with_index do |event, index|
+  new_event = Event.where(name: event, num_pieces: 1, max_time: 120, day_id: index % Day.count + 1).first_or_create
   new_event.pieces += pieces
   new_event.users += event_users
   new_event.users += judges
   new_event.room = room
-  puts "Created event: #{new_event.name} with #{new_event.pieces.count} pieces and #{new_event.contestants.count} contestants and #{new_event.judges.count} in room #{new_event.room.name}."
+  puts "Created event: #{new_event.name} on day: #{new_event.day.date.strftime('%a %d %b %Y')} with #{new_event.pieces.count} pieces and #{new_event.contestants.count} contestants and #{new_event.judges.count} in room #{new_event.room.name}."
 end
 
 # Create comments
