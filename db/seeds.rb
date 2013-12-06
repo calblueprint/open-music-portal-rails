@@ -148,7 +148,7 @@ judges = User.with_role(:judge).where("user_id < 10")
 room = Room.where(name: "101").first
 
 events.each do |event|
-  new_event = Event.where(name: event).first_or_create
+  new_event = Event.where(name: event, num_pieces: 1, max_time: 120).first_or_create
   new_event.pieces += pieces
   new_event.users += event_users
   new_event.users += judges

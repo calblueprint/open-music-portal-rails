@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205183304) do
+ActiveRecord::Schema.define(version: 20131206023437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
-  enable_extension "pg_trgm"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -168,6 +167,14 @@ ActiveRecord::Schema.define(version: 20131205183304) do
     t.datetime "updated_at"
   end
 
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pieces", force: true do |t|
     t.integer  "composer_id"
     t.integer  "nationality_id"
@@ -241,9 +248,6 @@ ActiveRecord::Schema.define(version: 20131205183304) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["email"], name: "users_email_idx", using: :gin
-  add_index "users", ["first_name"], name: "users_first_name_idx", using: :gin
-  add_index "users", ["last_name"], name: "users_last_name_idx", using: :gin
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "users_admins", id: false, force: true do |t|
