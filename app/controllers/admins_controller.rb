@@ -20,6 +20,10 @@ class AdminsController < ApplicationController
     redirect_to @user
   end
 
+  def judges
+    @judges = User.paginate(:page => params[:page], :per_page => 10).order('id ASC')
+  end
+
   private
 
     def admin_user
