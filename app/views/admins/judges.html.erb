@@ -1,0 +1,25 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+          </tr>
+          <% @judges.each do |judge| %>
+          <tr>
+            <td><%= judge.id %></td>
+            <td><%= judge.last_name %></td>
+            <td><%= judge.first_name %></td>
+            <td class="divider"><%= link_to "Show", judge %></td>
+            <td class="divider"><%= link_to "Edit",  admin_edit_path(judge)%></td>
+          </tr>
+          <% end %>
+        </table>
+        <%= will_paginate(@judges, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -42,6 +42,7 @@ USOMC::Application.routes.draw do
     match 'users', to: 'admins#users', as: 'admin_users', via: :get
     match 'users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
     match 'users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
+    match 'judges', to: 'admins#judges', as: 'admin_judges', via: :get
 
     resources :competitions, only: [:new, :create]
     resources :events, except: [:destroy]
