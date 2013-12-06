@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="title">Event Creation Lab</h1>
+            <h1 class="title">Create an Event</h1>
           </div>
         </div>
         <div class="row">
@@ -12,11 +12,15 @@
           <div class="col-md-2">
               <ul class="list_user_labels">
                 <li class="user_input_label">Name:</li>
+                <li class='user_input_label'>Number of Pieces:</li>
+                <li class='user_input_label'>Max Time:</li>
               </ul>
           </div>
           <div class="col-md-2">
             <ul class="list_user_values">
               <li class="user_input_value"><%= f.text_field :name, :placeholder => "Name" %></li>
+              <li class="user_input_value"><%= f.text_field :num_pieces, :placeholder => "Number of Pieces" %></li>
+              <li class="user_input_value"><%= f.text_field :max_time, :placeholder => "Max Time(min)" %></li>
           </div>
         </div>
         <div class="row">

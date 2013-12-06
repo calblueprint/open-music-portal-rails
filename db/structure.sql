@@ -328,7 +328,9 @@ CREATE TABLE events (
     start_time time without time zone,
     room_id integer,
     competition_id integer,
-    max_time integer
+    max_time integer,
+    num_pieces integer,
+    closed boolean
 );
 
 
@@ -1416,6 +1418,10 @@ INSERT INTO schema_migrations (version) VALUES ('20131204121535');
 
 INSERT INTO schema_migrations (version) VALUES ('20131205091229');
 
+INSERT INTO schema_migrations (version) VALUES ('20131205092149');
+
 INSERT INTO schema_migrations (version) VALUES ('20131205095640');
+
+INSERT INTO schema_migrations (version) VALUES ('20131205163232');
 
 INSERT INTO schema_migrations (version) VALUES ('20131205183304');
