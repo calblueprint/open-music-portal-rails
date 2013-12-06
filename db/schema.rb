@@ -91,6 +91,13 @@ ActiveRecord::Schema.define(version: 20131206054802) do
   add_index "contestants", ["name", "resource_type", "resource_id"], name: "index_contestants_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "contestants", ["name"], name: "index_contestants_on_name", using: :btree
 
+  create_table "days", force: true do |t|
+    t.integer  "competition_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "display_events", force: true do |t|
     t.integer  "category_id"
     t.string   "name"
@@ -119,6 +126,7 @@ ActiveRecord::Schema.define(version: 20131206054802) do
     t.integer  "competition_id"
     t.boolean  "closed"
     t.integer  "display_event_id"
+    t.integer  "day_id"
   end
 
   add_index "events", ["competition_id"], name: "index_events_on_competition_id", unique: true, using: :btree
