@@ -15,6 +15,11 @@
 #
 
 class Event < ActiveRecord::Base
+  include PgSearch
+
+  pg_search_scope :search, against: [[:name, 'A']],
+                           using: {tsearch: {prefix: true, normalization: 2}}
+
   belongs_to :competition
   belongs_to :room
   has_many :events_users
