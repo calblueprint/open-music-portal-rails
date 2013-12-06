@@ -44,10 +44,11 @@ USOMC::Application.routes.draw do
     match 'users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
 
     resources :competitions, only: [:new, :create]
+    resources :events, except: [:destroy]
   end
 
   resources :rooms, except: [:edit, :update, :destroy]
-  resources :events, except: [:destroy]
+  resources :events, only: [:show, :index]
   resources :charges, only: [:new, :create]
 
   # API for the iPad app.
