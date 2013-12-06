@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206031024) do
+ActiveRecord::Schema.define(version: 20131206054802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20131206031024) do
 
   create_table "books", force: true do |t|
     t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.integer  "competition_id"
+    t.string   "name"
+    t.integer  "age_limit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +98,20 @@ ActiveRecord::Schema.define(version: 20131206031024) do
     t.datetime "updated_at"
   end
 
+  create_table "display_events", force: true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "max_time"
+    t.integer  "num_pieces"
+  end
+
+  create_table "display_events_pieces", id: false, force: true do |t|
+    t.integer "display_event_id"
+    t.integer "piece_id"
+  end
+
   create_table "event_ranks", force: true do |t|
     t.integer  "rank"
     t.datetime "created_at"
@@ -97,15 +119,13 @@ ActiveRecord::Schema.define(version: 20131206031024) do
   end
 
   create_table "events", force: true do |t|
-    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.time     "start_time"
     t.integer  "room_id"
     t.integer  "competition_id"
-    t.integer  "max_time"
-    t.integer  "num_pieces"
     t.boolean  "closed"
+    t.integer  "display_event_id"
     t.integer  "day_id"
   end
 
@@ -119,14 +139,6 @@ ActiveRecord::Schema.define(version: 20131206031024) do
 
   add_index "events_judges", ["event_id"], name: "index_events_judges_on_event_id", unique: true, using: :btree
   add_index "events_judges", ["judge_id"], name: "index_events_judges_on_judge_id", unique: true, using: :btree
-
-  create_table "events_pieces", id: false, force: true do |t|
-    t.integer "event_id", null: false
-    t.integer "piece_id", null: false
-  end
-
-  add_index "events_pieces", ["event_id"], name: "index_events_pieces_on_event_id", using: :btree
-  add_index "events_pieces", ["piece_id"], name: "index_events_pieces_on_piece_id", using: :btree
 
   create_table "events_transactions", id: false, force: true do |t|
     t.integer "event_id"
