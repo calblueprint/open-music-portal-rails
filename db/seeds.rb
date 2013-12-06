@@ -180,7 +180,6 @@ categories.each_with_index do |category, index|
   new_category = Category.where(name: category[0], age_limit: category[1]).first_or_create
   new_category.display_events += [DisplayEvent.find(index % DisplayEvent.count + 1)]
   puts "Created category: #{new_category.name} with #{new_category.display_events.count} display events."
->>>>>>> Adding display events and fixing up previous migrations that used events
 end
 
 # Create comments
