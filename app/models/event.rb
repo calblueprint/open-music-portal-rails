@@ -2,16 +2,15 @@
 #
 # Table name: events
 #
-#  id             :integer          not null, primary key
-#  name           :text
-#  created_at     :datetime
-#  updated_at     :datetime
-#  start_time     :time
-#  room_id        :integer
-#  competition_id :integer
-#  max_time       :integer
-#  num_pieces     :integer
-#  closed         :boolean
+#  id               :integer          not null, primary key
+#  created_at       :datetime
+#  updated_at       :datetime
+#  start_time       :time
+#  room_id          :integer
+#  competition_id   :integer
+#  closed           :boolean
+#  day_id           :integer
+#  display_event_id :integer
 #
 
 class Event < ActiveRecord::Base
@@ -22,16 +21,17 @@ class Event < ActiveRecord::Base
 
   belongs_to :day
   belongs_to :room
+  belongs_to :display_event
+
   has_many :events_users
-  has_many :users, :through => :events_users
+  has_many :users, through: :events_users
   has_many :comments
 
-  has_and_belongs_to_many :pieces
   has_and_belongs_to_many :transactions
 
-  validates :name, presence: true, uniqueness: true
-  validates :num_pieces, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validates :max_time, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  def name
+    display_event.name
+  end
 
   def self.to_json(events)
     return events.collect {|event| event.to_json}

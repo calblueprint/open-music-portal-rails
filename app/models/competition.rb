@@ -13,8 +13,10 @@
 
 class Competition < ActiveRecord::Base
   has_many :days
+  has_many :categories
 
-  def events
-    days.collect{ |day| day.events }
+  def display_events
+    categories.collect{ |category| category.display_events }
   end
+
 end
