@@ -7,10 +7,8 @@
             <% if signed_in? %>
               Welcome back, <%= link_to current_user.first_name, profile_path, class: "header_button" %>.
             <% else %>
-              <div id="login_diamond"></div>
-              <%= link_to "login", login_path, class: "header_button" %>
-              <div id="login_diamond"></div>
-              <%= link_to " register", registration_path, class: "header_button" %>
+              <%= link_to "sign in", login_path, class: "header_button" %>
+              <%= link_to "register", registration_path, class: "header_button" %>
             <% end %>
           </div>
         </div>
