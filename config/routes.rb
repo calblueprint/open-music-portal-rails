@@ -35,6 +35,7 @@ USOMC::Application.routes.draw do
 
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
 
+  # Admin functionality
   scope '/admin' do
     resources :pieces, except: [:update, :destroy]
     match '/', to: redirect('/admin/dashboard'), via: :get
