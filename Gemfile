@@ -13,8 +13,6 @@ gem 'annotate', '>=2.5.0'
 gem 'twitter-typeahead-rails', '0.9.3'
 gem 'rest-client', '1.6.7'
 gem 'stripe', github: 'stripe/stripe-ruby'
-gem 'textacular', github: 'hojonathanho/textacular', ref: 'e30937a0a1bc736837389f3df27d5a58710616a7'
-
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '2.1.1'
 gem 'jquery-rails', '2.2.1'
@@ -26,6 +24,9 @@ gem 'newrelic_rpm', '~> 3.6.8.168'
 gem 'rolify', '~> 3.2.0'
 
 gem 'aescrypt', '~> 1.0.0'
+
+# Search
+gem 'pg_search', '0.7.2'
 
 group :development, :test do
   gem 'pry', '0.9.12.2'
