@@ -30,6 +30,16 @@ class DisplayEvent < ActiveRecord::Base
   end
 
   def add_contestant(contestant)
+    event = self.event_with_fewest_contestants
+    event.users << contestant
+  end
+
+  def event_with_fewest_contestants
+    sorted_events_by_contestants_count.first
+  end
+
+  def sorted_events_by_contestants_count
+    events.sort_by{ |event| event.contestants.count }.reverse
   end
 
   def create_default_event

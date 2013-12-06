@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
   belongs_to :display_event
 
   has_many :events_users
-  has_many :users, :through => :events_users
+  has_many :users, through: :events_users
   has_many :comments
 
   has_and_belongs_to_many :transactions
