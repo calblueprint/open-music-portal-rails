@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(version: 20131206054802) do
     t.integer  "room_id"
     t.integer  "competition_id"
     t.boolean  "closed"
-    t.integer  "display_event_id"
     t.integer  "day_id"
+    t.integer  "display_event_id"
   end
 
   add_index "events", ["competition_id"], name: "index_events_on_competition_id", unique: true, using: :btree
@@ -147,16 +147,6 @@ ActiveRecord::Schema.define(version: 20131206054802) do
 
   add_index "events_transactions", ["event_id"], name: "index_events_transactions_on_event_id", unique: true, using: :btree
   add_index "events_transactions", ["transaction_id"], name: "index_events_transactions_on_transaction_id", unique: true, using: :btree
-
-  create_table "events_users", force: true do |t|
-    t.integer "event_id",                 null: false
-    t.integer "user_id",                  null: false
-    t.boolean "paid",     default: false
-    t.integer "rank"
-  end
-
-  add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
-  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
 
   create_table "judges", force: true do |t|
     t.string   "name"

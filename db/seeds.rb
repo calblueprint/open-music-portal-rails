@@ -140,7 +140,7 @@ room_numbers.each do |room_number|
 end
 
 # Create events
-events = [
+display_events = [
   "Cool test event",
   "Not cool test event",
   "Test event for kids",
@@ -152,17 +152,33 @@ events = [
 ]
 
 pieces = Piece.where("id < 10")
-event_users = User.with_role(:contestant).where("user_id < 20")
+display_event_users = User.with_role(:contestant).where("user_id < 20")
 judges = User.with_role(:judge).where("user_id < 10")
 room = Room.where(name: "101").first
 
-events.each_with_index do |event, index|
-  new_event = Event.where(name: event, num_pieces: 1, max_time: 120, day_id: index % Day.count + 1).first_or_create
+display_events.each do |display_event|
+  new_event = DisplayEvent.where(name: event, num_pieces: 1, max_time: 120).first_or_create
   new_event.pieces += pieces
-  new_event.users += event_users
-  new_event.users += judges
-  new_event.room = room
-  puts "Created event: #{new_event.name} on day: #{new_event.day.date.strftime('%a %d %b %Y')} with #{new_event.pieces.count} pieces and #{new_event.contestants.count} contestants and #{new_event.judges.count} in room #{new_event.room.name}."
+  new_event.add_contestants(display_event_users)
+  new_event.event.users += judges
+  new_event.event.room = room
+  puts "Created display event: #{new_event.name} with #{new_event.pieces.count} pieces and #{new_event.event.contestants.count} contestants and #{new_event.event.judges.count} in room #{new_event.event.room.name}."
+end
+
+# Create categories
+categories = [
+  ['Open Solo', nil],
+  ['The Treasury of Baroque Composers', nil],
+  ['The Treasury of Classical Composers', nil],
+  ['The Treasury of Romantic Composers', nil],
+  ['The Treasury of Impressionist Composers', nil],
+]
+
+categories.each_with_index do |category, index|
+  new_category = Category.where(name: category[0], age_limit: category[1]).first_or_create
+  new_category.display_events += [DisplayEvent.find(index % DisplayEvent.count)]
+  puts "Created category: #{new_category.name} with #{new_category.display_events.count} display events."
+>>>>>>> Adding display events and fixing up previous migrations that used events
 end
 
 # Create comments
