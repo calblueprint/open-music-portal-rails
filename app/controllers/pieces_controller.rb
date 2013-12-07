@@ -2,7 +2,7 @@ class PiecesController < ApplicationController
   before_action :admin_user, only: :new
 
   def index
-    @pieces = Piece.paginate(:page => params[:page])
+    @pieces = Piece.paginate(:page => params[:page]).includes(:composer, :nationality, :book, :publisher, :period, :level)
   end
 
   def show
