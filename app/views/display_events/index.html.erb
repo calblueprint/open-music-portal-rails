@@ -7,7 +7,7 @@
             <th>ID</th>
             <th>Name</th>
           </tr>
-          <% @events.each do |event| %>
+          <% @display_events.each do |event| %>
           <tr>
             <td><%= event.id %></td>
             <td><%= event.name  %></td>
@@ -18,7 +18,7 @@
           </tr>
           <% end %>
         </table>
-        <%= will_paginate(@events, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+        <%= will_paginate(@display_events, :renderer => WillPaginate::ActionView::LinkRenderer) %>
       </div>
     </div>
   </div>

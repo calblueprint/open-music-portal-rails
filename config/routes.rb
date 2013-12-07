@@ -46,7 +46,7 @@ USOMC::Application.routes.draw do
     match 'judges', to: 'admins#judges', as: 'admin_judges', via: :get
 
     resources :competitions, only: [:new, :create]
-    resources :events, except: [:destroy]
+    resources :display_events, path: 'events', except: [:destroy]
   end
 
   resources :rooms, except: [:edit, :update, :destroy]
