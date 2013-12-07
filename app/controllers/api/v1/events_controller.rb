@@ -27,6 +27,11 @@ module Api
         render json: {comments: Comment.to_json(@comments)}
       end
 
+      def rankings
+        @event = Event.find(params[:event_id])
+        render json: {contestants: User.contestant_to_json(@event)}
+      end
+
       def post_comment
         judge = User.find(params[:judge_id])
         if not judge.has_role?(:judge)
