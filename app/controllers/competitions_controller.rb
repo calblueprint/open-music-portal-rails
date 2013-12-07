@@ -17,7 +17,7 @@ class CompetitionsController < ApplicationController
   private
 
   def competition_params
-    params.require(:competition).permit(:name).permit(:year).permit(:location).permit(:venue)
+    params.require(:competition).permit(:name, :year, :location, :venue)
   end
 
 end
