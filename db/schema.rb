@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207211523) do
+ActiveRecord::Schema.define(version: 20131207213715) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20131207211523) do
     t.integer "event_id",                 null: false
     t.integer "user_id",                  null: false
     t.boolean "paid",     default: false
-    t.integer "piece_id",                 null: false
+    t.integer "piece_id"
     t.integer "rank"
   end
 
