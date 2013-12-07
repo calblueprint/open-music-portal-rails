@@ -1,14 +1,11 @@
+<div id="reg_back_1"></div>
 <div class="content_container">
-  <%= render partial: "shared/form_errors", locals: {errors: @user.errors} %>
   <div class="container">
-    <div class="row">
+    <div class="row reg_body">
+      <h1 class="title">- REGISTER -</h1>
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-12">
-            <h1 class="title">REGISTRATION</h1>
-          </div>
-        </div>
-        <div class="row">
+          <div class="col-md-2"></div>
           <%= form_for(@user, html: {id: "form"}) do |f| %>
           <div class="col-md-2">
               <ul class="list_user_labels">
@@ -57,17 +54,15 @@
               <li class="user_input_value"><%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %></li>
             </ul>
           </div>
-          <div id="reg_box">
-            <p>Registration Instructions</p>
-          </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            <%= f.submit ">>", class: "submit" %>
+            <%= f.submit "-      >>      -", class: "submit" %>
           </div>
         </div>
         <% end %>
       </div>
     </div>
   </div>
+  <%= render partial: "shared/form_errors", locals: {errors: @user.errors} %>
 </div>
