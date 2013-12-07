@@ -2,15 +2,15 @@
 
 <div class="content_container">
   <div class="container">
-    <div class="row">
+    <div class="row blurb">
       <div class="col-md-6 col-md-offset-3">
-        <h1 class="title">Reset Password</h1>
+        <h1 class="title">- RESET PASSWORD -</h1>
         <%= form_for :password_reset, url: password_resets_path do |f| %>
           <%= f.label :email, class: "form_label" %>
           <%= f.text_field :email, placeholder: "Email", class: "full_width login_text_field" %><br>
 
           <div class="submit_button_container">
-            <%= f.submit "Reset password", class: "submit" %>
+            <%= f.submit "- RESET -", class: "submit" %>
           </div>
         <% end %>
       </div>

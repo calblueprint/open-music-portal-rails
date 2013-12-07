@@ -7,7 +7,7 @@
 }
 
 #header_bottom_border {
-  border-bottom: 1px solid #2F2F2F;
+  box-shadow: 0px 1px #2F2F2F;
 }
 
 #main_container {
@@ -57,16 +57,28 @@
   display: inline-block;
   font-family: Montserrat, sans-serif;
   padding-top: 11px;
-  font-size: 15px;
+  font-size: 14px;
+  margin-right: -10px;
+  letter-spacing: 3px;
   color: black;
   opacity: 0.5;
   background: transparent;
   z-index: 2;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
 }
 
 .tab:hover {
   color: black;
   opacity: 1;
+}
+
+.left_tab {
+  margin-left: -40px;
+}
+
+.right_tab {
+  margin-right: -40px;
 }
 
 .highlighted {
@@ -107,13 +119,6 @@
   margin-bottom: 0px;
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
-  .navbar-nav > li > a {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
 #greeting {
   position: absolute;
   top: 10px;
@@ -122,13 +127,20 @@
 }
 
 .header_button {
+  float: left;
   border-style: none;
   font-family: 'Roboto', sans-serif;
+  padding-top: 2px;
   font-size: 15px;
+  width: 100px;
+  height: 30px;
+  margin-left: 15px;
   color: black;
-  opacity: 0.5;
-  display: inline-block;
   text-align: center;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.25, #FFFFFF), color-stop(1, #EBEBEB) );
+  background:-moz-linear-gradient( center top, #FFFFFF 25%, #EBEBEB 100% );
+  opacity: 0.5;
+  box-shadow: 0px 0px 1px #2F2F2F;
 }
 
 .header_button:hover {
@@ -136,26 +148,16 @@
   opacity: 1;
 }
 
-/*
-#header_links {
-  text-align: center;
-  height: 100%;
-  padding-top: 9px;
+/*NOT WORKING RIGHT!!!!*/
+@media (min-width: 960px) and (max-width: 1200px) {
+  .navbar-nav > li > a {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
-#icon {
-  float: left;
-  color: white;
-  font-size: 16px;
-  padding-left: 6px;
-  padding-bottom: 6px;
+@media (max-width: 960px) {
+  #greeting {
+    top: 45px;
+  }
 }
-
-.logo_in_nav {
-  text-align: center;
-  float: left;
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-*/

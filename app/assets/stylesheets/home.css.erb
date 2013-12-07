@@ -1,113 +1,118 @@
-#nav_row {
-  position: absolute;
-  top: 45px;
-  left: 0px;
-  width: 100%;
-  z-index: 4;
-}
-
-#home_page_nav {
-  margin: auto;
-  width: 1200px;
-  height: 45px;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-#home_page_nav li {
-  display: inline;
-  margin: 48px;
-}
-
-#whitener {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  opacity: 0.1;
-  z-index: 4;
-}
-
 #piano {
   position: absolute;
-  top: 0px;
+  top: 85px;
   left: 0px;
+  height: 450px;
   width: 100%;
-  height: 100%;
   background-image: url(<%= image_path "piano.jpg"%>);
   background-size: cover;
-  z-index: 3;
 }
 
-#title_row {
+#piano_title {
   position: absolute;
-  top: 325px;
-  left: -10px;
+  top: 90px;
+  left: 0px;
+  height: 400px;
   width: 100%;
-  text-align: center;
-  z-index: 5;
+  background-image: url(<%= image_path "piano.svg"%>);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-#home_title {
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 94px;
-  color: white;
-  background: transparent;
-}
-
-#sub_title {
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 16px;
-  color: white;
-  background: transparent;
-}
-
-#title_row {
-  position: absolute;
-  top: 150px;
-  left: -12px;
-  width: 100%;
-  z-index: 4;
-}
-
-#title {
-  margin: auto;
-  width: 518px;
-  height: 518px;
-  background-image: url(<%= image_path "Center.svg"%>);
-  background-size: cover;
-}
-
-.title_link {
+.home_divider {
   position: relative;
-  top: 170px;
+  top: -20px;
+  left: 25px;
+  float: left;
+  height: 160px;
+  border-left: 2px solid #EBEBEB;
+}
+
+.home_title {
+  float: left;
+  padding-left: 0px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 150px;
-  color: transparent;
+  margin-top: -22px;
+  font-color: #2F2F2F;
+  font-size: 50px;
+}
+
+#home_container {
+  margin-top: 460px;
+}
+
+.left {
+  width: 150px;
+}
+
+.center {
+  margin-left: 50px;
+  width: 155px;
+}
+
+.right {
+  width: 170px;
+  margin-left: 55px;
+}
+
+#info {
+  padding-top: 35px;
+  text-align: center;
+  color: white;
+}
+
+#info_back {
+  position: absolute;
+  top: 770px;
+  left: 0px;
+  height: 480px;
+  width: 100%;
+  background: #2F2F2F;
+}
+
+#info_title {
+  padding-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+#button_row {
+  position: absolute;
+  top: 435px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  z-index: 2;
+}
+
+#button {
+  margin: auto;
+  font-family: Montserrat, sans-serif;
+  width: 150px;
+  color: white;
+  height: 22px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  border: white solid 1px;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+}
+
+#button:hover {
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
 
-.title_link:hover {
-  color: transparent;
-}
 
-.home_tab {
-  display: inline-block;
-  font-family: Montserrat, sans-serif;
-  padding-top: 11px;
-  font-size: 15px;
-  color: white;
-  opacity: 0.5;
-  background: transparent;
-  z-index: 1;
-}
-
-.home_tab:hover {
-  color: white;
-  opacity: 1;
+@media (max-width: 1200px) {
+  #piano {
+    height: 100%;
+  }
+  #piano_title {
+    height: 100%;
+  }
+  #home_container {
+    display: none;
+  }
 }
