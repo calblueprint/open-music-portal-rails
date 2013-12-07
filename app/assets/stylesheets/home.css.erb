@@ -17,25 +17,53 @@
   background-image: url(<%= image_path "piano.svg"%>);
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
+}
+
+.home_divider {
+  position: relative;
+  top: -20px;
+  left: 25px;
+  float: left;
+  height: 160px;
+  border-left: 2px solid #EBEBEB;
 }
 
 .home_title {
   float: left;
-  padding: 0px;
-  font-family: Montserrat, sans-serif;
-  margin-top: -14px;
+  padding-left: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: -22px;
   font-color: #2F2F2F;
   font-size: 50px;
 }
 
 #home_container {
-  margin-top: 450px;
+  margin-top: 460px;
+}
+
+.left {
+  width: 150px;
 }
 
 .center {
-  padding-left: 30px;
+  margin-left: 50px;
+  width: 155px;
 }
 
 .right {
-  padding-left: 33px;
+  width: 170px;
+  margin-left: 55px;
+}
+
+@media (max-width: 1200px) {
+  #piano {
+    height: 100%;
+  }
+  #piano_title {
+    height: 100%;
+  }
+  #home_container {
+    display: none;
+  }
 }
