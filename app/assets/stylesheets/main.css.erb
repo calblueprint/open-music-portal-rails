@@ -11,6 +11,16 @@ a:hover {
   padding-top: 45px;
 }
 
+.inverted_color {
+  color: white;
+}
+
+.blurb {
+  margin: auto;
+  text-align: center;
+  line-height: 35px;
+}
+
 p {
   font-size: 14px;
   line-height: 20px;
@@ -294,4 +304,101 @@ a.gray-highlight:hover {
 #judge_button:hover {
   background: #777777;
   cursor: pointer;
+}
+
+/*DONATIONS*/
+
+.patron {
+  float: left;
+  width: 233px;
+  height: 233px;
+  padding-top: 60px;
+  color: #EBEBEB;
+  margin:auto;
+}
+
+.patron_title {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 50px;
+}
+
+.patron:hover {
+  color:transparent;
+  border: 1px solid #EBEBEB;
+}
+
+#life_patron:hover {
+  background-image: url(<%= image_path "life_patron.svg"%>);
+  background-size: 130px 130px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#gold_patron:hover {
+  background: url(<%= image_path "gold_patron.svg"%>);
+  background-size: 150px 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#silver_patron:hover {
+  background: url(<%= image_path "silver_patron.svg"%>);
+  background-size: 150px 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#bronze_patron:hover {
+  background: url(<%= image_path "bronze_patron.svg"%>);
+  background-size: 150px 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#normal_patron:hover {
+  background: url(<%= image_path "normal_patron.svg"%>);
+  background-size: 155px 155px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#donations_back {
+  position: absolute;
+  top: 480px;
+  left: 0px;
+  height: 250px;
+  width: 100%;
+  background: #EBEBEB;
+}
+
+#donate_instructions {
+  padding-top: 60px;
+}
+
+#sponsor_levels {
+  padding-top: 60px;
+  margin-bottom: 150px;
+}
+
+#sponsors_title_back {
+  position: absolute;
+  top: 730px;
+  left: 0px;
+  height: 100px;
+  width: 100%;
+  background: #2F2F2F;
+}
+
+#sponsors_back {
+  position: absolute;
+  top: 2000px;
+  left: 0px;
+  height: 950px;
+  width: 100%;
+  background: #2F2F2F;
+}
+
+#current_sponsors {
+  padding-top: 140px;
 }
