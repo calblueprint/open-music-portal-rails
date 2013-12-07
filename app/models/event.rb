@@ -53,6 +53,10 @@ class Event < ActiveRecord::Base
     comments.where(judge_id: judge.id, contestant_id: contestant.id)
   end
 
+  def price
+    display_event.price
+  end
+
   def to_json
     return {
       encid: id,
