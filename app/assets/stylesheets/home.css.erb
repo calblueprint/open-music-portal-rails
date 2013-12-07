@@ -10,9 +10,9 @@
 
 #piano_title {
   position: absolute;
-  top: 85px;
+  top: 90px;
   left: 0px;
-  height: 450px;
+  height: 400px;
   width: 100%;
   background-image: url(<%= image_path "piano.svg"%>);
   background-size: contain;
@@ -56,31 +56,52 @@
   margin-left: 55px;
 }
 
-#credits {
+#info {
   padding-top: 35px;
   text-align: center;
   color: white;
 }
 
-#home_address {
-  padding-top: 75px;
-  text-align: left;
-}
-
-#credits_back {
+#info_back {
   position: absolute;
   top: 770px;
   left: 0px;
-  height: 680px;
+  height: 480px;
   width: 100%;
   background: #2F2F2F;
 }
 
-#credits_title {
+#info_title {
   padding-top: 50px;
   text-align: center;
   color: white;
 }
+
+#button_row {
+  position: absolute;
+  top: 435px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  z-index: 2;
+}
+
+#button {
+  margin: auto;
+  font-family: Montserrat, sans-serif;
+  width: 150px;
+  color: white;
+  height: 22px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  border: white solid 1px;
+}
+
+#button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
 
 @media (max-width: 1200px) {
   #piano {

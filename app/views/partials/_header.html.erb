@@ -1,18 +1,6 @@
 <header>
   <div id="main_header">
     <div class="container" id = "header_bottom_border">
-      <div class="row" id="greeting">
-        <div class="col-md-12 no_padding">
-          <div class="user_greeting pull-right">
-            <% if signed_in? %>
-              Welcome back, <%= link_to current_user.first_name, profile_path, class: "header_button" %>.
-            <% else %>
-              <%= link_to "sign in", login_path, class: "header_button" %>
-              <%= link_to "register", registration_path, class: "header_button" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="navbar-header">
           <button type="button" id="collapse-button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
