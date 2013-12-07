@@ -35,7 +35,7 @@ namespace :scheduling do
       end
     end
     #event_ids = event_total_times.keys
-    print event_total_times
+    print "event total times: ", event_total_times, "\n"
 
     sorted_event_ids = event_scores.keys.sort {|a, b| event_scores[b] <=> event_scores[a]}
 
@@ -71,11 +71,11 @@ namespace :scheduling do
       # NOTE: this actually could allocate an extra piece to a day.
       # This is fixable but the code is much simpler the way it is now.
 
-      curr_day = (curr_day + 1) % NUM_DAYS;
+      curr_day = (curr_day + 1) % NUM_DAYS
     end
 
 
-    puts days
+    #print "days", days, "\n"
 
 
     # Compute and print conflicts
@@ -99,6 +99,16 @@ namespace :scheduling do
     end
     if no_conflicts
       puts 'No conflicts!'
+    end
+
+    # Print out schedule
+    NUM_DAYS.times do |i|
+      puts "Day #{i}:"
+      MAX_CONCURRENT_EVENTS.times do |j|
+        if not days[i][j].empty?
+          print "Room #{j}: events #{days[i][j]}\n"
+        end
+      end
     end
 
   end

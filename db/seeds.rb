@@ -22,6 +22,12 @@ if Piece.count < 2000
     time_min = Integer(time) rescue nil
     time_sec = Integer(time.modulo(1) * 60) rescue nil
 
+    # default time
+    if not time_min and not time_sec
+      time_min = 3
+      time_sec = 0
+    end
+
     composer = row_composer ? Composer.where(:name => row_composer).first_or_create : nil
     nationality = row_nationality ? Nationality.where(:name => row_nationality).first_or_create : nil
     book = row_book ? Book.where(:name => row_book).first_or_create : nil

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206054802) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
+ActiveRecord::Schema.define(version: 20131207205317) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -125,8 +121,8 @@ ActiveRecord::Schema.define(version: 20131206054802) do
     t.integer  "room_id"
     t.integer  "competition_id"
     t.boolean  "closed"
-    t.integer  "display_event_id"
     t.integer  "day_id"
+    t.integer  "display_event_id"
   end
 
   add_index "events", ["competition_id"], name: "index_events_on_competition_id", unique: true, using: :btree
@@ -152,6 +148,7 @@ ActiveRecord::Schema.define(version: 20131206054802) do
     t.integer "event_id",                 null: false
     t.integer "user_id",                  null: false
     t.boolean "paid",     default: false
+    t.integer "piece_id",                 null: false
     t.integer "rank"
   end
 
