@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20131207213715) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "pg_trgm"
+
   create_table "admins", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -266,6 +270,9 @@ ActiveRecord::Schema.define(version: 20131207213715) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "users_email_idx", using: :gin
+  add_index "users", ["first_name"], name: "users_first_name_idx", using: :gin
+  add_index "users", ["last_name"], name: "users_last_name_idx", using: :gin
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "users_admins", id: false, force: true do |t|
