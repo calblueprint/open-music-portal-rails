@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(version: 20131206054802) do
     t.integer  "room_id"
     t.integer  "competition_id"
     t.boolean  "closed"
-    t.integer  "display_event_id"
     t.integer  "day_id"
+    t.integer  "display_event_id"
   end
 
   add_index "events", ["competition_id"], name: "index_events_on_competition_id", unique: true, using: :btree
