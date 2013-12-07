@@ -45,7 +45,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   def self.to_json(users)
-    return users.collect {|user| user.to_json}
+    return users.collect{ |user| user.to_json }
+  end
+
+  def self.contestant_to_json(event)
+    # TODO(mark): Find a better way to consolidate these .to_json calls
+    return event.contestants.collect{ |contestant| contestant.contestant_to_json(event.id) }
   end
 
   def to_json
@@ -55,6 +60,13 @@ class User < ActiveRecord::Base
       last_name: last_name,
       country: country
     }
+  end
+
+  def contestant_to_json(event_id)
+    user_to_json = to_json
+    event_user = events_users.find_by_event_id(event_id)
+    user_to_json[:rank] = event_user.rank
+    return user_to_json
   end
 
   def User.new_remember_token
