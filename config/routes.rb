@@ -52,6 +52,7 @@ USOMC::Application.routes.draw do
   resources :rooms, except: [:edit, :update, :destroy]
   resources :events, only: [:show, :index]
   resources :charges, only: [:new, :create]
+  resources :competitions, only: [:index, :show]
 
   # API for the iPad app.
   namespace :api, defaults: {format: 'json'} do
