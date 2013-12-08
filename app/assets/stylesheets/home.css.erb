@@ -2,7 +2,7 @@
   position: absolute;
   top: 85px;
   left: 0px;
-  height: 630px;
+  height: 680px;
   width: 100%;
   background-image: url(<%= image_path "piano.jpg"%>);
   background-size: cover;
@@ -10,7 +10,7 @@
 
 #piano_title {
   position: absolute;
-  top: 100px;
+  top: 120px;
   left: 0px;
   height: 550px;
   width: 100%;
@@ -39,7 +39,7 @@
 }
 
 #home_container {
-  margin-top: 640px;
+  margin-top: 690px;
 }
 
 .left {
@@ -64,7 +64,7 @@
 
 #info_back {
   position: absolute;
-  top: 950px;
+  top: 1000px;
   left: 0px;
   height: 480px;
   width: 100%;
@@ -79,7 +79,7 @@
 
 #button_row {
   position: absolute;
-  top: 580px;
+  top: 590px;
   width: 100%;
   height: 50px;
   text-align: center;
@@ -104,15 +104,33 @@
   cursor: pointer;
 }
 
+@media (max-width: 1366px) {
+  #piano {
+    height: 550px;
+  }
+  #piano_title {
+    top: 90px;
+    height: 500px;
+  }
+  #button_row {
+    top: 490px;
+  }
+  #home_container {
+    margin-top: 560px;
+  }
+  #info_back {
+    top: 870px;
+  }
+}
 
 @media (max-width: 1200px) {
   #piano {
     height: 100%;
   }
-  #piano_title {
-    height: 100%;
-  }
   #home_container {
+    display: none;
+  }
+  #info_back {
     display: none;
   }
 }
