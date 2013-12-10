@@ -78,7 +78,7 @@ descriptions.each do |date, description|
 end
 
 # Create a sample competition
-competition = Competition.where(name: "Spring 2014").first_or_create
+competition = Competition.where(name: "Spring Competition", year: 2014, is_current: true).first_or_create
 
 # Make days
 (10..15).each do |day_number|
@@ -179,6 +179,7 @@ categories = [
 categories.each_with_index do |category, index|
   new_category = Category.where(name: category[0], age_limit: category[1]).first_or_create
   new_category.display_events += [DisplayEvent.find(index % DisplayEvent.count + 1)]
+  competition.categories << new_category
   puts "Created category: #{new_category.name} with #{new_category.display_events.count} display events."
 end
 
