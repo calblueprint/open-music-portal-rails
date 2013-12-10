@@ -53,7 +53,9 @@ USOMC::Application.routes.draw do
   resources :events, only: [:show, :index]
   resources :charges, only: [:new, :create]
   resources :competitions, only: [:index, :show] do
-    resources :categories, only: [:show]
+    resources :categories, only: [:show] do
+      resources :display_events, path: 'events', only: [:show]
+    end
   end
 
   # API for the iPad app.
