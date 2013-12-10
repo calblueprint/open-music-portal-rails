@@ -13,8 +13,8 @@
             <td><%= judge.id %></td>
             <td><%= judge.last_name %></td>
             <td><%= judge.first_name %></td>
-            <td class="divider"><%= link_to "Show", judge %></td>
-            <td class="divider"><%= link_to "Edit",  admin_edit_path(judge)%></td>
+            <td class="divider"><%= link_to "Show", judge, class: "admin_link" %></td>
+            <td class="divider"><%= link_to "Edit",  admin_edit_path(judge), class: "admin_link" %></td>
           </tr>
           <% end %>
         </table>
