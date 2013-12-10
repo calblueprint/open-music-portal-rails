@@ -37,7 +37,7 @@
             <td><%= p.other_c %></td>
             <li>
               <%= link_to p.title, piece_path(p) %>
-              <b><%= link_to 'Edit', edit_piece_path(p) %></b>
+              <b><%= link_to 'Edit', edit_piece_path(p), class: "admin_link" %></b>
             </li>
           </tr>
           <% end %>
