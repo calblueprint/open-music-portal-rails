@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210231119) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "hstore"
+ActiveRecord::Schema.define(version: 20131210234239) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -114,6 +110,17 @@ ActiveRecord::Schema.define(version: 20131210231119) do
     t.integer "piece_id"
   end
 
+  create_table "display_events_transactions", id: false, force: true do |t|
+    t.integer "display_event_id"
+    t.integer "transaction_id"
+  end
+
+  create_table "display_events_users", id: false, force: true do |t|
+    t.integer "display_event_id"
+    t.integer "user_id"
+    t.boolean "paid",             default: false, null: false
+  end
+
   create_table "event_ranks", force: true do |t|
     t.integer  "rank"
     t.datetime "created_at"
@@ -142,18 +149,9 @@ ActiveRecord::Schema.define(version: 20131210231119) do
   add_index "events_judges", ["event_id"], name: "index_events_judges_on_event_id", unique: true, using: :btree
   add_index "events_judges", ["judge_id"], name: "index_events_judges_on_judge_id", unique: true, using: :btree
 
-  create_table "events_transactions", id: false, force: true do |t|
-    t.integer "event_id"
-    t.integer "transaction_id"
-  end
-
-  add_index "events_transactions", ["event_id"], name: "index_events_transactions_on_event_id", unique: true, using: :btree
-  add_index "events_transactions", ["transaction_id"], name: "index_events_transactions_on_transaction_id", unique: true, using: :btree
-
   create_table "events_users", force: true do |t|
-    t.integer "event_id",                 null: false
-    t.integer "user_id",                  null: false
-    t.boolean "paid",     default: false
+    t.integer "event_id", null: false
+    t.integer "user_id",  null: false
     t.integer "piece_id"
     t.integer "rank"
   end
