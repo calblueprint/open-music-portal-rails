@@ -14,23 +14,23 @@
 
 class Transaction < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :events
+  has_and_belongs_to_many :display_events
 
   validates :user, :presence => true
   validates :amount, :presence => true, :numericality => {:greater_than => 0}
 
-  def self.calculate_charge_amount(events)
+  def self.calculate_charge_amount(display_events)
     total = 0
-    events.each do |event|
-      total += event.price
+    display_events.each do |de|
+      total += de.price
     end
     return total
   end
 
-  def self.create_for_user_and_events(user, events)
-    amount = calculate_charge_amount(events)
+  def self.create_for_user_and_display_events(user, display_events)
+    amount = calculate_charge_amount(display_events)
     t = Transaction.create(user: user, amount: amount)
-    t.events.concat(events)
+    t.display_events.concat(display_events)
     return t
   end
 end
