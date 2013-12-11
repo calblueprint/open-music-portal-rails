@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 
   has_many :events_users
   has_many :events, :through => :events_users
+  has_and_belongs_to_many :competitions
 
   has_many :display_events_users
   has_many :display_events, :through => :display_events_users
