@@ -1,5 +1,11 @@
-<li><%= link_to 'DONATIONS', donations_path, class: "tab" %></li>
-<li><%= link_to 'VOLUNTEER', volunteer_path, class: "tab" %></li>
+<% if signed_in? %>
+  <li class=<%= is_active?(controller: "users", action: "my_profile") %>><%= link_to 'PROFILE', profile_path, class: "tab" %></li>
+  <li class=<%= is_active?(controller: "charges", action: "new") %>><%= link_to 'CHECKOUT', checkout_path, class: "tab" %></li>
+<% else %>
+  <li><%= link_to 'DONATIONS', donations_path, class: "tab" %></li>
+  <li><%= link_to 'VOLUNTEER', volunteer_path, class: "tab" %></li>
+<% end %>
+
 <% if signed_in? %>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle tab right_tab" data-toggle="dropdown">SETTINGS<b></b></a>
