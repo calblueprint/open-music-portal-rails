@@ -8,6 +8,7 @@
               <li class="user_info_label">Room :</li>
               <li class="user_info_label">Day:</li>
               <li class="user_info_label">Status:</li>
+              <li class="user_info_label">Judges:</li>
             </ul>
           </div>
         <div class="col-md-3">
@@ -20,7 +21,32 @@
               <li class="user_info_value">Open</li>
             <% end %>
           </ul>
-      </div>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_info_label">Judges:</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_values">
+            <% @event.judges.each do |judge| %>
+              <li class="user_info_value"><%= judge.first_name %>    <%= judge.last_name %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_info_label">Contestant:</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_values">
+            <% @event.contestants.each do |contestant| %>
+              <li class="user_info_value"><%= contestant.first_name %>    <%= contestant.last_name %></li>
+            <% end %>
+          </ul>
+        </div>
+
     </div>
   </div>
 </div>
