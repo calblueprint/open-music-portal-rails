@@ -50,8 +50,9 @@ module Api
       end
 
       def post_ranking
+        puts params
         @event = Event.find(params[:event_id])
-        rankings = params[:rankings]
+        rankings = params[:ratings]
         rankings.each do |contestant_hash|
           contestant_id = contestant_hash[:contestant_id]
           rank = contestant_hash[:rank]
