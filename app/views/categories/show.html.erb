@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="title"><%= @category.name %></h1>
+        <h1 class="title about_blurb">- <%= @category.name.upcase %> -</h1>
 
         <% @category.display_events.each do |event| %>
-          <%= link_to event.name, competition_category_display_event_path(competition_id: @category.competition.id, category_id: @category.id, id: event.id) %>
+          <%= link_to event.name, competition_category_display_event_path(competition_id: @category.competition.id, category_id: @category.id, id: event.id), class: "year_link" %>
         <% end %>
 
       </div>

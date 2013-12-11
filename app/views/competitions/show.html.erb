@@ -3,11 +3,10 @@
     <% if @competition.is_current %>
       <div class="row">
         <div class="col-md-12">
-          <h1 class="title">Current - <%= @competition.name %> - <%= @competition.year %></h1>
+          <h1 class="title about_blurb">- CATEGORIES -</h1>
 
           <% @competition.categories.each do |category| %>
-            <%= link_to category.name, competition_category_path(competition_id: @competition.id, id: category.id) %>
-
+            <%= link_to category.name, competition_category_path(competition_id: @competition.id, id: category.id), class: "category_link" %>
           <% end %>
 
         </div>
@@ -16,7 +15,6 @@
       <div class="row">
         <div class="col-md-12">
           <h1 class="title"><%= @competition.year %> Winners</h1>
-
         </div>
       </div>
     <% end %>
