@@ -75,7 +75,7 @@ USOMC::Application.routes.draw do
       match 'events/:event_id/users', to: 'events#users', via: :get
       match 'events/:event_id/judge/:judge_id/contestant/:contestant_id/comment', to: 'events#post_comment', via: :post
       match 'events/:event_id/judge/:judge_id/contestant/:contestant_id/comments', to: 'events#comments', via: :get
-      match 'events/:event_id/contestant/:contestant_id/ranking', to: 'events#post_ranking', via: :post
+      match 'events/:event_id/rankings', to: 'events#post_ranking', via: :post
       match 'events/:event_id/rankings', to: 'events#rankings', via: :get
     end
   end
