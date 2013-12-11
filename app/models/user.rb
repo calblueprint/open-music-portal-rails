@@ -103,6 +103,10 @@ class User < ActiveRecord::Base
     self.events =  Event.find(event_ids)
   end
 
+  def has_display_event(display_event)
+    return display_events.where(id: display_event.id).count > 0
+  end
+
 
   private
 

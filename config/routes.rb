@@ -6,6 +6,7 @@ USOMC::Application.routes.draw do
   root to: 'static_pages#home'
 
   resources :users, except: [:new, :destroy, :index]
+  match 'users/add_display_event/:display_event_id', to: 'users#add_display_event', via: :get
   resources :sessions, only: [:new, :create, :destroy]
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: [:get, :delete]

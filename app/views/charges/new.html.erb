@@ -10,7 +10,7 @@
             <tr>
               <th>Name</th>
             </tr>
-            <% @transaction.events.each do |e| %>
+            <% @transaction.display_events.each do |e| %>
             <tr>
               <td><%= e.name %></td>
             </tr>

@@ -45,6 +45,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_display_event
+    if signed_in?
+      user = current_user
+      display_event = DisplayEvent.find(params[:display_event_id])
+      if not user.has_display_event(display_event)
+        user.display_events << display_event
+      end
+      category = display_event.category
+      redirect_to competition_category_url(category.competition, category)
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
     def user_params
