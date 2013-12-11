@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :admin_user, only: [:edit, :update]
+  before_action :admin_user, only: [:edit, :update, :show_comments]
 
   def new
     @event = Event.new
@@ -34,6 +34,12 @@ class EventsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show_comments
+    @event = Event.find(params[:event_id])
+    @contestant = User.find(params[:contestant_id])
+    @comments = @event.comments.where(contestant_id: params[:contestant_id]).includes(:judge)
   end
 
   private
