@@ -50,6 +50,17 @@ module Api
       end
 
       def post_ranking
+        @event = Event.find(params[:event_id])
+        rankings = params[:rankings]
+        rankings.each do |contestant_hash|
+          contestant_id = contestant_hash[:contestant_id]
+          rank = contestant_hash[:rank]
+          contestant = User.with_role(:contestant).find(contestant_id)
+          event_user = contestant.events_users.find_by_event_id(@event.id)
+          event_user.rank = rank
+          event_user.save
+        end
+        render json: {contestants: User.contestant_to_json(@event)}
       end
 
     end
