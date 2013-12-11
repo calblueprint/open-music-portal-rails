@@ -12,5 +12,9 @@
     <li><%= link_to "Location", competition_path %></li>
   </ul>
 </li>
-<li class=<%= is_active?(controller: "N/A", action: "new") %>><%= link_to "ABOUT", overview_path, class: "tab" %></li>
-<li class=<%= is_active?(controller: "N/A", action: "new") %>><%= link_to "REGISTER", registration_path, class: "tab" %></li>
+<li class=<%= is_active?(controller: "static_pages", action: "overview") %>><%= link_to "ABOUT", overview_path, class: "tab" %></li>
+<% if signed_in? %>
+  <li class=<%= is_active?(controller: "users", action: "my_profile") %>><%= link_to 'PROFILE', profile_path, class: "tab" %></li>
+<% else %>
+  <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTER", registration_path, class: "tab" %></li>
+<% end %>
