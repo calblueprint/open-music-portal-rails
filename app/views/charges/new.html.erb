@@ -29,6 +29,9 @@
                     data-description="Event payment"
                     data-amount="<%= @transaction.amount %>"></script>
           <% end %>
+        <% else %>
+          <p>You don't have any events to pay for!</p>
+          <p>Browse some <%= link_to "categories", competition_path(current_user.competitions.last) %> to find events!</p>
         <% end %>
       </div>
     </div>
