@@ -55,7 +55,7 @@ class ChargesController < ApplicationController
     end
     @payment_succeeded = true
 
-  rescue Stripe::CardError => e
+    rescue Stripe::CardError => e
     flash.now[:error] = e.message
   end
 

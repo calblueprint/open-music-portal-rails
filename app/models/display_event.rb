@@ -18,6 +18,9 @@ class DisplayEvent < ActiveRecord::Base
   has_and_belongs_to_many :pieces
   has_and_belongs_to_many :transactions
 
+  has_many :display_events_users
+  has_many :users, through: :display_events_users
+
   validates :name, presence: true, uniqueness: true
   validates :num_pieces, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :max_time, presence: true, numericality: { only_integer: true, greater_than: 0 }
