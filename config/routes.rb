@@ -13,9 +13,12 @@ USOMC::Application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   match 'profile', to: 'users#my_profile', via: :get
+
   match 'registration', to: 'users#new', via: :get
+  match 'registration', to: 'users#create', via: :post
+
   match 'overview', to: 'static_pages#overview', via: :get
-  match 'competition', to: 'static_pages#competition', via: :get
+  match 'location', to: 'static_pages#competition', via: :get
   match 'winners', to: 'static_pages#winners', via: :get
   match 'judges', to: 'static_pages#judges', via: :get
   match 'support', to: 'static_pages#support', via: :get

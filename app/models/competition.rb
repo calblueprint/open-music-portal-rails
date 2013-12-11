@@ -14,6 +14,9 @@
 class Competition < ActiveRecord::Base
   has_many :days
   has_many :categories
+  has_and_belongs_to_many :users
+
+  scope :active, -> { where(is_current: true) }
 
   def display_events
     categories.collect{ |category| category.display_events }

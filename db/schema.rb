@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211003745) do
+ActiveRecord::Schema.define(version: 20131211201727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(version: 20131211003745) do
     t.datetime "updated_at"
     t.boolean  "is_current"
   end
+
+  create_table "competitions_users", force: true do |t|
+    t.integer "competition_id"
+    t.integer "user_id"
+  end
+
+  add_index "competitions_users", ["competition_id"], name: "index_competitions_users_on_competition_id", using: :btree
+  add_index "competitions_users", ["user_id"], name: "index_competitions_users_on_user_id", using: :btree
 
   create_table "composers", force: true do |t|
     t.text     "name"

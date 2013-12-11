@@ -8,11 +8,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.competitions << Competition.find(params[:competition_id])
     if @user.save
       sign_in @user
       @user.send_confirmation
       flash[:success] = "Welcome to the USOMC!"
-      redirect_to @user
+      redirect_to competition_path(@user.competitions.first)
     else
       render 'new'
     end

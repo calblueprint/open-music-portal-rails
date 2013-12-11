@@ -1,11 +1,12 @@
 <div class="content_container">
   <div class="container">
     <div class="row reg_body">
+      <%= render partial: "shared/form_errors", locals: {errors: @user.errors} %>
       <h1 class="title">- REGISTER -</h1>
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-4"></div>
-          <%= form_for(@user, html: {id: "form"}) do |f| %>
+          <%= form_for(@user, html: {id: "form"}, url: registration_path) do |f| %>
           <div class="col-md-2">
               <ul class="list_user_labels">
                 <li class="user_input_label">First Name:</li>
@@ -42,6 +43,7 @@
                 <li class="user_input_label">Teacher's Last Name:</li>
                 <li class="user_input_label">Password:</li>
                 <li class="user_input_label">Password Confirmation:</li>
+                <li class="user_input_label">Competition:</li>
               </ul>
           </div>
           <div class="col-md-1">
@@ -54,6 +56,7 @@
               <li class="user_input_value"><input type="text" placeholder="Last"></li>
               <li class="user_input_value"><%= f.password_field :password, :placeholder => "Password" %></li>
               <li class="user_input_value"><%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %></li>
+              <li class="user_input_value"><%= select_tag "competition_id", options_from_collection_for_select(Competition.active, "id", "name") %></li>
             </ul>
           </div>
         </div>
@@ -66,5 +69,4 @@
       </div>
     </div>
   </div>
-  <%= render partial: "shared/form_errors", locals: {errors: @user.errors} %>
 </div>
