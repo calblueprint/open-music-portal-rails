@@ -6,11 +6,11 @@ class ChargesController < ApplicationController
     else
       @transaction = nil
       user = current_user
-      events = user.events.where("events_users.paid" => false)
-      if events.empty?
+      display_events = user.display_events.where("display_events_users.paid" => false)
+      if display_events.empty?
         flash.now[:error] = "Nothing to pay for!"
       else
-        @transaction = Transaction.create_for_user_and_events(user, events)
+        @transaction = Transaction.create_for_user_and_display_events(user, display_events)
       end
     end
   end
@@ -47,10 +47,10 @@ class ChargesController < ApplicationController
       @transaction.stripe_charge_id = charge.id
       @transaction.save
 
-      @transaction.events.each do |e|
-        eu = EventsUser.find_by(event: e, user: @transaction.user)
+      @transaction.display_events.each do |de|
+        eu = DisplayEventsUser.find_by(display_event: de, user: @transaction.user)
         eu.paid = true
-        eu.save
+        eu.save!
       end
     end
     @payment_succeeded = true

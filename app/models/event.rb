@@ -27,8 +27,6 @@ class Event < ActiveRecord::Base
   has_many :users, through: :events_users
   has_many :comments
 
-  has_and_belongs_to_many :transactions
-
   def name
     display_event.name
   end
@@ -51,10 +49,6 @@ class Event < ActiveRecord::Base
 
   def comments_for_contestant_by_judge(contestant, judge)
     comments.where(judge_id: judge.id, contestant_id: contestant.id)
-  end
-
-  def price
-    display_event.price
   end
 
   def to_json
