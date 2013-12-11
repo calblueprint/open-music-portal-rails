@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="title">New Transaction</h1>
+        <h1 class="title">Checkout</h1>
         <% if @transaction %>
           You are paying for the following events:
 
@@ -17,7 +17,7 @@
             <% end %>
           </table>
 
-          <%= form_tag charges_path do %>
+          <%= form_tag checkout_path do %>
             <article>
               <label class="amount">
                 <span>Total: <%= transaction_amount_string @transaction %></span>

@@ -39,6 +39,10 @@ USOMC::Application.routes.draw do
 
   match 'pieces/typeahead_search', to: 'pieces#typeahead_search', via: :get
 
+  # Charges and transactions
+  match 'checkout', to: 'charges#new', via: :get
+  match 'checkout', to: 'charges#create', via: :post
+
   # Admin functionality
   scope '/admin' do
     resources :pieces, except: [:update, :destroy]
@@ -55,7 +59,6 @@ USOMC::Application.routes.draw do
 
   resources :rooms, except: [:edit, :update, :destroy]
   resources :events, only: [:show, :index]
-  resources :charges, only: [:new, :create]
   resources :competitions, only: [:index, :show] do
     resources :categories, only: [:show] do
       resources :display_events, path: 'events', only: [:show]

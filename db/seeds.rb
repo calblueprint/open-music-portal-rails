@@ -157,7 +157,7 @@ judges = User.with_role(:judge).where("user_id < 10")
 room = Room.where(name: "101").first
 
 display_events.each do |display_event|
-  new_event = DisplayEvent.where(name: display_event, num_pieces: 1, max_time: 120).first_or_create
+  new_event = DisplayEvent.where(name: display_event, num_pieces: 1, max_time: 120, price: 200).first_or_create
   new_event.pieces += pieces
   new_event.add_contestants(display_event_users)
 
