@@ -1,7 +1,4 @@
 <div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
         <table>
           <tr>
             <th>Composer</th>
@@ -35,16 +32,13 @@
             <td><%= p.other_a %></td>
             <td><%= p.other_b %></td>
             <td><%= p.other_c %></td>
-            <li>
+            <td>
               <%= link_to p.title, piece_path(p) %>
               <b><%= link_to 'Edit', edit_piece_path(p), class: "admin_link" %></b>
-            </li>
+            </td>
           </tr>
           <% end %>
         </table>
         <%= will_paginate(@pieces, :renderer => WillPaginate::ActionView::LinkRenderer) %>
 
-      </div>
-    </div>
-  </div>
 </div>
