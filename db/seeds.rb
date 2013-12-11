@@ -139,35 +139,6 @@ room_numbers.each do |room_number|
   puts "Created room: #{new_room.name}."
 end
 
-# Create events
-display_events = [
-  "Cool test event",
-  "Not cool test event",
-  "Test event for kids",
-  "Test event for teens",
-  "Piano - 11-15",
-  "Violin - 8-9",
-  "The fun event",
-  "Super not fun event",
-]
-
-pieces = Piece.where("id < 10")
-display_event_users = User.with_role(:contestant).where("user_id < 20")
-judges = User.with_role(:judge).where("user_id < 10")
-room = Room.where(name: "101").first
-
-display_events.each do |display_event|
-  new_event = DisplayEvent.where(name: display_event, num_pieces: 1, max_time: 120, price: 200).first_or_create
-  new_event.pieces += pieces
-  new_event.add_contestants(display_event_users)
-
-  event = new_event.events.first
-  event.users += judges
-  event.room = room
-  event.save!
-  puts "Created display event: #{new_event.name} with #{new_event.pieces.count} pieces and #{event.contestants.count} contestants and #{event.judges.count} in room #{event.room.name}."
-end
-
 # Create categories
 categories = [
   ['Open Solo', nil],
@@ -177,9 +148,35 @@ categories = [
   ['The Treasury of Impressionist Composers', nil],
 ]
 
+# Create events
+display_events = [
+  "Elementary",
+  "Junior",
+  "Intermediate",
+  "Senior",
+  "Advanced",
+]
+
+pieces = Piece.where("id < 10")
+display_event_users = User.with_role(:contestant).where("user_id < 20")
+judges = User.with_role(:judge).where("user_id < 10")
+room = Room.where(name: "101").first
+
 categories.each_with_index do |category, index|
   new_category = Category.where(name: category[0], age_limit: category[1]).first_or_create
-  new_category.display_events += [DisplayEvent.find(index % DisplayEvent.count + 1)]
+  display_events.each do |display_event|
+    new_event = DisplayEvent.where(name: display_event, num_pieces: 1, max_time: 120, price: 200).first_or_create
+    new_category.display_events << new_event
+    new_event.pieces += pieces
+    new_event.add_contestants(display_event_users)
+
+    event = new_event.events.first
+    event.users += judges
+    event.room = room
+    event.save!
+    puts "Created display event: #{new_event.name} with #{new_event.pieces.count} pieces and #{event.contestants.count} contestants and #{event.judges.count} in room #{event.room.name}."
+  end
+
   competition.categories << new_category
   puts "Created category: #{new_category.name} with #{new_category.display_events.count} display events."
 end

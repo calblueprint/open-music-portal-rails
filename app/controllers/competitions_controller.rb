@@ -15,7 +15,7 @@ class CompetitionsController < ApplicationController
   end
 
   def index
-    @competitions = Competition.all
+    @competitions = Competition.active
   end
 
   def show
