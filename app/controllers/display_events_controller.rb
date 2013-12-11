@@ -19,6 +19,11 @@ class DisplayEventsController < ApplicationController
 
   def show
     @display_event = DisplayEvent.find(params[:id])
+
+    @user = nil
+    if signed_in?
+      @user = current_user
+    end
   end
 
   def edit
