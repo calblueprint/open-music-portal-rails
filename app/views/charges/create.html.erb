@@ -1,5 +1,13 @@
-<% if @payment_succeeded %>
-  <h2>Thanks, you paid <strong><%= transaction_amount_string @transaction %></strong>!</h2>
-<% else %>
-  Transaction failed. You were not charged.
-<% end %>
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @payment_succeeded %>
+          <h2>Thanks, you paid <strong><%= transaction_amount_string @transaction %></strong>!</h2>
+        <% else %>
+          Transaction failed. You were not charged.
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
