@@ -123,6 +123,9 @@ users.each do |user_type, list_of_users|
     new_user_params = user_params.merge({first_name: user[0], last_name: user[1], email: user[2]})
     new_user = User.create(new_user_params)
     new_user.add_role user_type
+    if user_type == "contestant"
+      new_user.competitions << competition
+    end
     puts "Created new user with type #{user_type}: #{new_user.first_name} #{new_user.last_name} with email #{new_user.email}."
   end
 end
@@ -165,8 +168,7 @@ room = Room.where(name: "101").first
 categories.each_with_index do |category, index|
   new_category = Category.where(name: category[0], age_limit: category[1]).first_or_create
   display_events.each do |display_event|
-    new_event = DisplayEvent.where(name: display_event, num_pieces: 1, max_time: 120, price: 200).first_or_create
-    new_category.display_events << new_event
+    new_event = DisplayEvent.where(name: display_event, num_pieces: 1, max_time: 120, price: 200, category_id: new_category.id).first_or_create
     new_event.pieces += pieces
     new_event.add_contestants(display_event_users)
 
@@ -191,7 +193,7 @@ comments = [
 
 event = Event.first
 contestants = User.with_role(:contestant).limit(comments.length)
-judge = User.with_role(:judge).first
+judge = User.find_by_email("judge@judy.com")
 comments.each_with_index do |comment, index|
   contestant = contestants[index]
   new_comment = Comment.where(event_id: event.id, contestant_id: contestant.id, judge_id: judge.id, body: comment).first_or_create
