@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20131211003745) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "admins", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -152,8 +156,8 @@ ActiveRecord::Schema.define(version: 20131211003745) do
   create_table "events_users", force: true do |t|
     t.integer "event_id", null: false
     t.integer "user_id",  null: false
-    t.integer "piece_id"
     t.integer "rank"
+    t.integer "piece_id"
   end
 
   add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
