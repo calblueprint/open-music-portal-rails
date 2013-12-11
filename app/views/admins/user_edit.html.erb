@@ -39,7 +39,7 @@
               <li class="user_input_value"><%= f.text_field :email, :placeholder => "Email"%></li>
               <li class="user_input_value"><input type="text" placeholder="First"></li>
               <li class="user_input_value"><input type="text" placeholder="Last"></li>
-              <% @events.each do |event| %>
+              <% @events.includes(:display_event).each do |event| %>
                 <%= check_box_tag "user[event_ids][]", event.id, @user.events.include?(event) %>
                 <%= event.name %>
               <% end %>
