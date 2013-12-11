@@ -164,6 +164,7 @@ display_events.each do |display_event|
   event = new_event.events.first
   event.users += judges
   event.room = room
+  event.save!
   puts "Created display event: #{new_event.name} with #{new_event.pieces.count} pieces and #{event.contestants.count} contestants and #{event.judges.count} in room #{event.room.name}."
 end
 
