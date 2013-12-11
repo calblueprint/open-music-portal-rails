@@ -51,8 +51,10 @@ module Api
 
       def post_ranking
         @event = Event.find(params[:event_id])
-        contestants_hash = params[:rankings]
-        contestants_hash.each do |contestant_id, rank|
+        rankings = params[:rankings]
+        rankings.each do |contestant_hash|
+          contestant_id = contestant_hash[:contestant_id]
+          rank = contestant_hash[:rank]
           contestant = User.with_role(:contestant).find(contestant_id)
           event_user = contestant.events_users.find_by_event_id(@event.id)
           event_user.rank = rank
