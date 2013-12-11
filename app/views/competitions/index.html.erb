@@ -1,0 +1,14 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="title about_blurb">- COMPETITIONS -</h1>
+
+        <% @competitions.each do |competition| %>
+          <%= link_to competition.name, competition_path(competition), class: "category_link" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
