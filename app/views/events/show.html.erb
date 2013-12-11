@@ -1,0 +1,26 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row" id="user_profile">
+     <div class="col-md-9" id="main_user_info">
+        <h1 class="title"><%= @event.name %> </h1>
+          <div class="col-md-3">
+            <ul class="list_user_labels">
+              <li class="user_info_label">Room :</li>
+              <li class="user_info_label">Day:</li>
+              <li class="user_info_label">Status:</li>
+            </ul>
+          </div>
+        <div class="col-md-3">
+          <ul class="list_user_values">
+            <li class="user_info_value"><%= @event.room_id %></li>
+            <li class="user_info_value"><%= @event.day_id %></li>
+            <% if @event.closed %>
+              <li class="user_info_value">Closed</li>
+            <% else %>
+              <li class="user_info_value">Open</li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
