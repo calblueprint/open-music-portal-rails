@@ -5,7 +5,7 @@
         <% if @payment_succeeded %>
           <h2 class="title">Thanks, you paid <strong><%= transaction_amount_string @transaction %></strong> for the following events:</h2>
 
-          <% @transaction.display_events.each do |display_event| %>
+          <% @transaction.display_events.includes(:category).each do |display_event| %>
             <%= link_to display_event.name, competition_category_display_event_path(competition_id: display_event.category.competition.id, category_id: display_event.category.id, id: display_event.id), class: "year_link" %>
           <% end %>
         <% else %>
