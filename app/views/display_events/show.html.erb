@@ -21,10 +21,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4"></div>
+      <div class="col-md-5"></div>
       <% if @user and not @user.has_display_event(@display_event) %>
       <div class="col-md-3">
-        <%= link_to "Add event", { controller: "users", action: "add_display_event", display_event_id: @display_event.id }, class: "year_link" %>
+        <%= link_to "- ADD EVENT -", { controller: "users", action: "add_display_event", display_event_id: @display_event.id }, class: "event_submit" %>
       </div>
       <% end %>
 
