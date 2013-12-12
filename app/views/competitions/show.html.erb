@@ -3,7 +3,7 @@
     <% if @competition.is_current %>
       <div class="row">
         <div class="col-md-12">
-          <h1 class="title about_blurb">- CATEGORIES -</h1>
+          <h1 class="title about_blurb">- CHOOSE A CATEGORY -</h1>
 
           <% @competition.categories.each do |category| %>
             <%= link_to category.name, competition_category_path(competition_id: @competition.id, id: category.id), class: "category_link" %>
