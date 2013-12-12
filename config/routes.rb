@@ -58,7 +58,9 @@ USOMC::Application.routes.draw do
   end
 
   resources :rooms, except: [:edit, :update, :destroy]
-  resources :events, only: [:show, :index]
+  resources :events, only: [:show, :index] do
+    match 'contestants/:contestant_id', to: 'events#show_comments', as: 'show_comments', via: :get
+  end
   resources :competitions, only: [:index, :show] do
     resources :categories, only: [:show] do
       resources :display_events, path: 'events', only: [:show]
