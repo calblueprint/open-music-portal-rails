@@ -12,7 +12,8 @@ task default_scheduler: :environment do
   days = @competition.days
   events.each_with_index do |event, index|
     index = index % days.length
-    days[index].events << event
+    day = days[index]
+    day.events << event
     puts "Adding #{event.name} to day: #{day.name}"
   end
 end
