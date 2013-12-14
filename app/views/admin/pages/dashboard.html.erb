@@ -1,0 +1,18 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="title">Admin Dashboard</h1>
+        <%= render partial: 'shared/errors' %>
+        <ul class="no-bullets with-buttons no-padding">
+          <li><%= link_to "Create a new Competition", new_admin_competition_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+          <li><%= link_to "Show all Users", admin_users_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+          <li><%= link_to "Show all Events", admin_events_path, class: 'btn btn-primary btn-lg btn-block'  %></li>
+          <li><%= link_to "Create Events", new_admin_display_event_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+          <li><%= link_to "Show all Pieces", admin_pieces_path, class: 'btn btn-primary btn-lg btn-block'  %></li>
+          <li><%= link_to "Create Piece", new_admin_piece_path, class: 'btn btn-primary btn-lg btn-block'  %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

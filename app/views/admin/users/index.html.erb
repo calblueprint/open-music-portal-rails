@@ -1,0 +1,25 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+          </tr>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.first_name %></td>
+            <td class="divider"><%= link_to "Show", admin_user_path(user), class: "admin_link" %></td>
+            <td class="divider"><%= link_to "Edit",  edit_admin_user_path(user), class: "admin_link" %></td>
+          </tr>
+          <% end %>
+        </table>
+        <%= will_paginate(@users, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+      </div>
+    </div>
+  </div>
+</div>
