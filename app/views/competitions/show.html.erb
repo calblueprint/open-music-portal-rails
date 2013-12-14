@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-md-12">
           <h1 class="title about_blurb">- CHOOSE A CATEGORY -</h1>
+          <h4 class="title center-text"><%= link_to 'See the schedule', competition_schedule_path(@competition) %></h4>
 
           <% @competition.categories.each do |category| %>
             <%= link_to category.name, competition_category_path(competition_id: @competition.id, id: category.id), class: "category_link" %>
