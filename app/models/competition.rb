@@ -30,4 +30,8 @@ class Competition < ActiveRecord::Base
     display_events.collect{ |display_event| display_event.events }.flatten
   end
 
+  def hours
+    (1..24).collect{ |num| "#{num}:00" }
+  end
+
 end
