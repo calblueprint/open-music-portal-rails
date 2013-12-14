@@ -10,7 +10,7 @@ class Admin::UsersController < Admin::BaseController
 
     def edit
       @events = Event.all
-      @user = User.find(params[:d])
+      @user = User.find(params[:id])
     end
 
     def update
