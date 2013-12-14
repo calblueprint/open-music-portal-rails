@@ -11,7 +11,7 @@
           <tr>
             <td><%= event.id %></td>
             <td><%= event.name  %></td>
-            <td class="divider"><%= link_to "Show", event, class: "admin_link"  %></td>
+            <td class="divider"><%= link_to "Show", admin_event_path(event), class: "admin_link"  %></td>
             <% if current_user!= nil and current_user.has_role?(:admin) %>
               <td class="divider"><%= link_to "Edit",  edit_admin_display_event_path(event), class: "admin_link" %></td>
             <% end %>
