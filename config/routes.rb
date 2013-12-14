@@ -63,6 +63,7 @@ USOMC::Application.routes.draw do
     match 'dashboard', to: 'pages#dashboard', via: :get
     resources :users
     resources :competitions
+    resources :events
   end
 
   resources :rooms, except: [:edit, :update, :destroy]

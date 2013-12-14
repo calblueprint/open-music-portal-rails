@@ -1,0 +1,25 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+          </tr>
+          <% @events.each do |event| %>
+          <tr>
+            <td><%= event.id %></td>
+            <td><%= event.name  %></td>
+            <td class="divider"><%= link_to "Show", event, class: "admin_link"  %></td>
+            <% if current_user!= nil and current_user.has_role?(:admin) %>
+              <td class="divider"><%= link_to "Edit",  edit_display_event_path(event), class: "admin_link" %></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </table>
+        <%= will_paginate(@events, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="title"><%= @contestant.first_name %> <%= @contestant.last_name %></h1>
+
+        <h4 class="title">Comments for event: <%= @event.name %></h4>
+        <ul>
+          <% @comments.each do |comment| %>
+            <li>Judge: <%= comment.judge.first_name %> <%= comment.judge.last_name %> --- <%= comment.body %></li>
+          <% end %>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

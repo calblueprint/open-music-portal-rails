@@ -1,0 +1,52 @@
+<div class="content_container">
+  <div class="container">
+    <div class="row" id="user_profile">
+     <div class="col-md-12" id="main_user_info">
+        <h1 class="title"><%= @event.name %> </h1>
+        <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_info_label">Room :</li>
+            <li class="user_info_label">Day:</li>
+            <li class="user_info_label">Status:</li>
+            <li class="user_info_label">Judges:</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_values">
+            <li class="user_info_value"><%= @event.room.name %></li>
+            <li class="user_info_value">December 11, 2013 (W)</li>
+            <% if @event.closed %>
+              <li class="user_info_value">Closed</li>
+            <% else %>
+              <li class="user_info_value">Open</li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_info_label">Judges:</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_values">
+            <% @event.judges.each do |judge| %>
+              <li class="user_info_value"><%= judge.first_name %>    <%= judge.last_name %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_labels">
+            <li class="user_info_label">Contestant:</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list_user_values">
+            <% @event.contestants.each do |contestant| %>
+              <li class="user_info_value"><%= contestant.first_name %> <%= contestant.last_name %> -- <%= link_to "See Comments", event_show_comments_path(event_id: @event.id, contestant_id: contestant.id) %></li>
+            <% end %>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+</div>
