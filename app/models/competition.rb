@@ -18,8 +18,20 @@ class Competition < ActiveRecord::Base
 
   scope :active, -> { where(is_current: true) }
 
+  def display_name
+    "#{name} - #{year}"
+  end
+
   def display_events
-    categories.collect{ |category| category.display_events }
+    categories.collect{ |category| category.display_events }.flatten
+  end
+
+  def events
+    display_events.collect{ |display_event| display_event.events }.flatten
+  end
+
+  def hours
+    (1..24).collect{ |num| "#{num}:00" }
   end
 
 end

@@ -1,0 +1,46 @@
+.calendar-event {
+  padding: 5px;
+
+  background-color: #428bca;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+
+  a {
+    color: #EBEBEB;
+  }
+}
+
+.calendar-event:first-child {
+  border-top: 2px solid black;
+}
+
+.calendar-hours {
+  position: absolute;
+  padding-right: 60px;
+  width: 100%;
+}
+
+.day-view {
+  margin-top: -20px;
+}
+
+.event-hour {
+  height: 60px;
+  border-bottom: 1px solid black;
+}
+
+.event-hour:nth-child(even) {
+  background-color: #EBEBEB;
+}
+
+.event-60 {
+}
+
+.event-120 {
+  height: 120px;
+}
+
+.event-180 {
+}

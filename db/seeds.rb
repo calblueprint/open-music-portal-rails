@@ -199,3 +199,5 @@ comments.each_with_index do |comment, index|
   new_comment = Comment.where(event_id: event.id, contestant_id: contestant.id, judge_id: judge.id, body: comment).first_or_create
   puts "Created comment: #{new_comment.body} for contestant: #{contestant.id} by judge: #{judge.id} for event: #{event.id}."
 end
+
+Rake::Task["default_scheduler"].invoke
