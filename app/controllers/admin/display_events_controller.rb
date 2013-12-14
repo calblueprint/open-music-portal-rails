@@ -34,7 +34,7 @@ class Admin::DisplayEventsController < Admin::BaseController
     @display_event = DisplayEvent.find(params[:id])
     if @display_event.update_attributes(display_event_params)
       flash[:success] = "Event updated"
-      redirect_to @display_event
+      redirect_to admin_display_event_path(@display_event)
     else
       render 'new'
     end
@@ -44,7 +44,7 @@ class Admin::DisplayEventsController < Admin::BaseController
   private
 
     def display_event_params
-      params.require(:event).permit(:name, :num_pieces, :max_time)
+      params.require(:display_event).permit(:name, :num_pieces, :max_time)
     end
 
 end
