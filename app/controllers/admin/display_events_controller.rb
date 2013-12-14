@@ -1,4 +1,4 @@
-class DisplayEventsController < ApplicationController
+class Admin::DisplayEventsController < Admin::BaseController
 
   def new
     @display_event = DisplayEvent.new
