@@ -1,3 +1,24 @@
+### 1.4
+
+* Moved all admin functionality into a module.
+* Added schedule view by week and by day.
+
+### 1.3
+
+* Ready for Banquet.
+* Fixed payments (there was something wrong with the transactions when working with the new display events model).
+* Cleaned up the UI and some other small bug fixes.
+
+### 1.2
+
+* Competitions have categories.
+* Categories have events which are represented by display events.
+* Days have been introduced into the app and competitions have many of them.
+
+### 1.1
+
+* Competitions now have events and admins can edit most things.
+
 ### 1.0
 
 * Introducing version 1.0!
