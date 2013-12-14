@@ -22,6 +22,10 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find(params[:id])
   end
 
+  def schedule
+    @competition = Competition.find(params[:competition_id])
+  end
+
   private
 
   def competition_params
