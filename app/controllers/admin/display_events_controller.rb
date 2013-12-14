@@ -7,7 +7,7 @@ class Admin::DisplayEventsController < Admin::BaseController
   def create
     @display_event = DisplayEvent.new(display_event_params)
     if @display_event.save
-      redirect_to @display_event
+      redirect_to admin_display_event_path(@display_event)
     else
       render 'new'
     end

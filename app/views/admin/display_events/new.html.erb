@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="row">
-          <%= form_for(@display_event, html: {id: "form"}) do |f| %>
+          <%= form_for(@display_event, html: {id: "form"}, url: admin_display_event_path(@display_event)) do |f| %>
           <div class="col-md-2">
               <ul class="list_user_labels">
                 <li class="user_input_label">Name:</li>
