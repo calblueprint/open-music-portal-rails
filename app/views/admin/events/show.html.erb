@@ -30,7 +30,7 @@
         <div class="col-md-3">
           <ul class="list_user_values">
             <% @event.judges.each do |judge| %>
-              <li class="user_info_value"><%= judge.first_name %> <%= judge.last_name %></li>
+              <li class="user_info_value"><%= judge.name %></li>
             <% end %>
           </ul>
         </div>
@@ -42,7 +42,7 @@
         <div class="col-md-3">
           <ul class="list_user_values">
             <% @event.contestants.each do |contestant| %>
-              <li class="user_info_value"><%= contestant.first_name %> <%= contestant.last_name %> -- <%= link_to "See Comments", admin_event_show_comments_path(event_id: @event.id, contestant_id: contestant.id) %></li>
+              <li class="user_info_value"><%= contestant.name %> -- <%= link_to "See Comments", admin_event_show_comments_path(event_id: @event.id, contestant_id: contestant.id) %></li>
             <% end %>
           </ul>
         </div>

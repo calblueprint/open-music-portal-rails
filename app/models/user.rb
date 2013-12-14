@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   def self.to_json(users)
     return users.collect{ |user| user.to_json }
   end
