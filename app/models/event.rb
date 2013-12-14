@@ -31,6 +31,22 @@ class Event < ActiveRecord::Base
     display_event.name
   end
 
+  def full_name
+    "#{name} - #{category.name}"
+  end
+
+  def length
+    return 120
+  end
+
+  def competition
+    display_event.category.competition
+  end
+
+  def category
+    display_event.category
+  end
+
   def self.to_json(events)
     return events.collect {|event| event.to_json}
   end
