@@ -15,7 +15,7 @@
             </ul>
           </div>
           <div class="col-md-3">
-          <%= form_for(@display_event, html: {id: "form"}) do |f| %>
+          <%= form_for(@display_event, html: {id: "form"}, url: admin_display_events_path) do |f| %>
             <ul class="list_user_values">
               <li class="user_input_value"><%= f.text_field :name, :placeholder => "Name" %></li>
               <li class="user_input_value"><%= f.text_field :num_pieces, :placeholder => "Number of Pieces" %></li>
