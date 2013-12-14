@@ -60,6 +60,7 @@ USOMC::Application.routes.draw do
   resources :events, only: [:show, :index]
   resources :competitions, only: [:index, :show] do
     match 'schedule', to: 'competitions#schedule', as: 'schedule', via: :get
+    match 'schedule/days/:day_id', to: 'competitions#day', as: 'day', via: :get
     resources :categories, only: [:show] do
       resources :display_events, path: 'events', only: [:show]
     end
