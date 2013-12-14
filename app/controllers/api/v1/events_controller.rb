@@ -48,7 +48,6 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def post_ranking
-    puts params
     @event = Event.find(params[:event_id])
     rankings = params[:ratings]
     rankings.each do |contestant_hash|
@@ -63,4 +62,3 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
 end
-
