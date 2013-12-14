@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-12">
     <% events.each do |event| %>
-      <%= event.name %>
+      <div class="calendar-event event-<%= event.length %>">
+      <%= link_to event.full_name, competition_category_display_event_path(competition_id: event.competition.id, category_id: event.category.id, id: event.display_event.id)  %>
+      </div>
     <% end %>
   </div>
 </div>

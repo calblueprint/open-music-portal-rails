@@ -1,10 +1,10 @@
 <div class="content_container">
-  <div class="container">
+  <div class="full-container">
     <div class="row">
       <div class="col-md-12">
         <h1 class="title"><%= @competition.display_name %> - Schedule</h1>
 
-        <%= render partial: 'shared/calendar/week', locals: {days: @competition.days.includes(:events)} %>
+        <%= render partial: 'shared/calendar/week', locals: {days: @competition.days.includes(:events), hours: @competition.hours} %>
       </div>
     </div>
   </div>
