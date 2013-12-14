@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <%= form_for @piece, url: pieces_path do |f| %>
+        <%= form_for @piece, url: admin_pieces_path do |f| %>
           <% if @piece.errors.any? %>
             <div id="error_explanation">
               <h2><%= pluralize(@piece.errors.count, 'error') %> prohibited this piece from being saved:</h2>

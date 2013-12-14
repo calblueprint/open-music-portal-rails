@@ -1,4 +1,4 @@
-class PiecesController < ApplicationController
+class Admin::PiecesController < Admin::ApplicationController
   before_action :admin_user, only: :new
 
   def index
@@ -37,7 +37,7 @@ class PiecesController < ApplicationController
       other_c: params[:piece][:other_c]
     )
     if @piece.save
-      redirect_to piece_url(@piece)
+      redirect_to admin_piece_url(@piece)
     else
       render 'new'
     end
