@@ -5,15 +5,9 @@
       <div class="col-md-1">
       </div>
 
-      <div class="calendar-hours">
-        <ul class="no-bullets">
-          <% hours.each do |hour| %>
-            <li class="event-hour"><%= hour %></li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render partial: 'shared/calendar/time_bar', locals: {hours: hours} %>
       <% days.limit(5).each do |day| %>
-        <div class="col-md-2">
+        <div class="col-md-2 day-view">
           <%= link_to day.name, competition_day_path(day_id: day.id) %>
           <%= render partial: 'shared/calendar/day', locals: {events: day.events} %>
         </div>
