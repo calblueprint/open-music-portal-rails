@@ -60,9 +60,9 @@ USOMC::Application.routes.draw do
 #  end
 
   namespace :admin do
-    resources :page
     match 'dashboard', to: 'pages#dashboard', via: :get
     resources :users
+    resources :competitions
   end
 
   resources :rooms, except: [:edit, :update, :destroy]
