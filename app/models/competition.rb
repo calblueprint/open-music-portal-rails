@@ -18,6 +18,10 @@ class Competition < ActiveRecord::Base
 
   scope :active, -> { where(is_current: true) }
 
+  def display_name
+    "#{name} - #{year}"
+  end
+
   def display_events
     categories.collect{ |category| category.display_events }
   end
