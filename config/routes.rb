@@ -43,18 +43,26 @@ USOMC::Application.routes.draw do
   match 'checkout', to: 'charges#new', via: :get
   match 'checkout', to: 'charges#create', via: :post
 
-  # Admin functionality
-  scope '/admin' do
-    resources :pieces, except: [:update, :destroy]
-    match '/', to: redirect('/admin/dashboard'), via: :get
-    match 'dashboard', to: 'admins#show', via: :get
-    match 'users', to: 'admins#users', as: 'admin_users', via: :get
-    match 'users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
-    match 'users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
-    match 'judges', to: 'admins#judges', as: 'admin_judges', via: :get
+  #Temporary admin dashboard
 
-    resources :competitions, only: [:new, :create]
-    resources :display_events, path: 'events', except: [:destroy]
+  # Admin functionality
+ # scope '/admin' do
+  #  resources :pieces, except: [:update, :destroy]
+  #  match '/', to: redirect('/admin/dashboard'), via: :get
+ #   match 'dashboard', to: 'admins#show', via: :get
+ #   match 'users', to: 'admins#users', as: 'admin_users', via: :get
+  #  match 'users/:id/edit', to: 'admins#user_edit', as: 'admin_edit', via: :get
+ #   match 'users/:id/update', to: 'admins#user_update', as: 'admin_update', via: :patch
+ #   match 'judges', to: 'admins#judges', as: 'admin_judges', via: :get
+
+   # resources :competitions, only: [:new, :create]
+   # resources :display_events, path: 'events', except: [:destroy]
+#  end
+
+  namespace :admin do
+    resources :page
+    match 'dashboard', to: 'pages#dashboard', via: :get
+    resources :users
   end
 
   resources :rooms, except: [:edit, :update, :destroy]
