@@ -5,7 +5,7 @@
         <h1 class="title">Create a Competition</h1>
         <%= render partial: "shared/form_errors", locals: {errors: @competition.errors} %>
         <div class="row">
-          <%= form_for(@competition, html: {id: "form"}) do |f| %>
+          <%= form_for(@competition, html: {id: "form"}, url: admin_competitions_path) do |f| %>
           <div class="col-md-4">
               <ul class="list_user_labels">
                 <li class="user_input_label">Name:</li>

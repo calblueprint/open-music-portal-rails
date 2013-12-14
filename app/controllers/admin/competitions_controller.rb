@@ -8,7 +8,7 @@ class Admin::CompetitionsController < Admin::BaseController
     @competition = Competition.new(competition_params)
     if @competition.save
       flash[:success] = "Successfully created a new competition called #{@competition.name} at #{@competition.venue} in #{@competition.location}."
-      redirect_to dashboard_path
+      redirect_to admin_dashboard_path
     else
       render 'new'
     end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       sign_in user
       flash[:success] = "Welcome back to USOMC, #{user.first_name}!"
       if user.has_role?(:admin)
-        redirect_to dashboard_path
+        redirect_to admin_dashboard_path
       else
         redirect_to profile_path
       end
