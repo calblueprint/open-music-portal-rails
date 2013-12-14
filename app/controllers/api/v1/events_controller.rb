@@ -1,6 +1,5 @@
 class Api::V1::EventsController < Api::V1::BaseController
   skip_before_filter :verify_authenticity_token
-  respond_to :json
 
   def index
     @events = Event.all
