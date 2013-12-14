@@ -65,6 +65,7 @@ USOMC::Application.routes.draw do
     resources :competitions
     resources :events
     resources :display_events
+    resources :pieces
   end
 
   resources :rooms, except: [:edit, :update, :destroy]
