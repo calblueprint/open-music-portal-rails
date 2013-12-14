@@ -228,7 +228,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
-    sexp_processor (4.4.0)
+    sexp_processor (4.4.1)
     slop (3.4.7)
     spork (1.0.0rc4)
     spork (1.0.0rc4-x86-mingw32)
