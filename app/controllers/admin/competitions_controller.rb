@@ -1,4 +1,4 @@
-class CompetitionsController < ApplicationController
+class Admin::CompetitionsController < Admin::BaseController
 
   def new
     @competition = Competition.new
