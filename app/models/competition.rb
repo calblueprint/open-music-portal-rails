@@ -23,7 +23,11 @@ class Competition < ActiveRecord::Base
   end
 
   def display_events
-    categories.collect{ |category| category.display_events }
+    categories.collect{ |category| category.display_events }.flatten
+  end
+
+  def events
+    display_events.collect{ |display_event| display_event.events }.flatten
   end
 
 end
