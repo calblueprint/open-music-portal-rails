@@ -9,6 +9,7 @@
 #  updated_at  :datetime
 #  max_time    :integer
 #  num_pieces  :integer
+#  price       :integer          default(0), not null
 #
 
 class DisplayEvent < ActiveRecord::Base
