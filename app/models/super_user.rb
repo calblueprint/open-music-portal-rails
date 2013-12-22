@@ -24,5 +24,5 @@
 #  confirmation_token     :string(255)
 #
 
-class Judge < User
+class SuperUser < User
 end

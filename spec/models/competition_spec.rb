@@ -9,6 +9,7 @@
 #  venue      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  is_current :boolean
 #
 
 require 'spec_helper'

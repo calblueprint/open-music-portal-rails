@@ -11,22 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211204724) do
+ActiveRecord::Schema.define(version: 20131222070157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
   create_table "admins", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "admins", ["name", "resource_type", "resource_id"], name: "index_admins_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "admins", ["name"], name: "index_admins_on_name", using: :btree
 
   create_table "announcements", force: true do |t|
     t.text     "description"
@@ -90,15 +84,9 @@ ActiveRecord::Schema.define(version: 20131211204724) do
   end
 
   create_table "contestants", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "contestants", ["name", "resource_type", "resource_id"], name: "index_contestants_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "contestants", ["name"], name: "index_contestants_on_name", using: :btree
 
   create_table "days", force: true do |t|
     t.integer  "competition_id"
@@ -172,15 +160,9 @@ ActiveRecord::Schema.define(version: 20131211204724) do
   add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
 
   create_table "judges", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "judges", ["name", "resource_type", "resource_id"], name: "index_judges_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "judges", ["name"], name: "index_judges_on_name", using: :btree
 
   create_table "levels", force: true do |t|
     t.text     "name"
@@ -240,8 +222,24 @@ ActiveRecord::Schema.define(version: 20131211204724) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
   create_table "rooms", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "super_users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -283,25 +281,21 @@ ActiveRecord::Schema.define(version: 20131211204724) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
-  create_table "users_admins", id: false, force: true do |t|
+  create_table "users_roles", id: false, force: true do |t|
     t.integer "user_id"
-    t.integer "admin_id"
+    t.integer "role_id"
   end
 
-  add_index "users_admins", ["user_id", "admin_id"], name: "index_users_admins_on_user_id_and_admin_id", using: :btree
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
-  create_table "users_contestants", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "contestant_id"
+  create_table "volunteers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users_contestants", ["user_id", "contestant_id"], name: "index_users_contestants_on_user_id_and_contestant_id", using: :btree
-
-  create_table "users_judges", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "judge_id"
+  create_table "website_admins", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "users_judges", ["user_id", "judge_id"], name: "index_users_judges_on_user_id_and_judge_id", using: :btree
 
 end
