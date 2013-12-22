@@ -1,2 +1,2 @@
-class Volunteer < ActiveRecord::Base
+class Volunteer < User
 end

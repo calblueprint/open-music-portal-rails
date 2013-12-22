@@ -1,2 +1,2 @@
-class Contestant < ActiveRecord::Base
+class Contestant < User
 end

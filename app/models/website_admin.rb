@@ -1,2 +1,2 @@
-class WebsiteAdmin < ActiveRecord::Base
+class WebsiteAdmin < User
 end

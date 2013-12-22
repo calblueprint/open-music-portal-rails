@@ -1,2 +1,2 @@
-class SuperUser < ActiveRecord::Base
+class SuperUser < User
 end

@@ -46,17 +46,27 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
 
+  class << self
+    def to_json(users)
+      users.collect { |user| user.to_json }
+    end
+
+    def contestant_to_json(event)
+      # TODO(mark): Find a better way to consolidate these .to_json calls
+      event.contestants.collect { |contestant| contestant.contestant_to_json(event.id) }
+    end
+
+    def all
+      if self.to_s == 'User'
+        super
+      else
+        User.with_role(self.to_s.downcase)
+      end
+    end
+  end
+
   def name
     "#{first_name} #{last_name}"
-  end
-
-  def self.to_json(users)
-    return users.collect{ |user| user.to_json }
-  end
-
-  def self.contestant_to_json(event)
-    # TODO(mark): Find a better way to consolidate these .to_json calls
-    return event.contestants.collect{ |contestant| contestant.contestant_to_json(event.id) }
   end
 
   def to_json
