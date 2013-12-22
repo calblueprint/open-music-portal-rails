@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
     def contestant_to_json(event)
       # TODO(mark): Find a better way to consolidate these .to_json calls
-      event.contestants.collect { |contestant| contestant.contestant_to_json(event.id) }
+      event.contestants.collect { |contestant| contestant.contestant_to_json(event.id) }.sort_by { |contestant| contestant[:rank] || Float::INFINITY }
     end
 
     def all
