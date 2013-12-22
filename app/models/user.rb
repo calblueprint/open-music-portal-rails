@@ -25,7 +25,6 @@
 #
 
 class User < ActiveRecord::Base
-  rolify :role_cname => 'SuperUser'
   rolify
 
   has_many :events_users
