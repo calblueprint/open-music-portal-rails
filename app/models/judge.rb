@@ -10,10 +10,14 @@
 #  updated_at    :datetime
 #
 
-class Judge < ActiveRecord::Base
+class Judge < User
   has_and_belongs_to_many :users, :join_table => :users_judges
   belongs_to :resource, :polymorphic => true
-  has_and_belongs_to_many :events
 
   scopify
+
+  def self.all
+    User.with_role(:judge)
+  end
+
 end

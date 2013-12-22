@@ -25,9 +25,7 @@
 #
 
 class User < ActiveRecord::Base
-  rolify :role_cname => 'Judge'
-  rolify :role_cname => 'Contestant'
-  rolify :role_cname => 'Admin'
+  rolify
 
   has_many :events_users
   has_many :events, :through => :events_users
