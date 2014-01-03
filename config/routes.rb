@@ -53,6 +53,7 @@ USOMC::Application.routes.draw do
       match 'contestants/:contestant_id', to: 'events#show_comments', as: 'show_comments', via: :get
     end
     resources :display_events
+    resources :categories
     resources :pieces
   end
 

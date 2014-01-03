@@ -1,4 +1,4 @@
-class Admin::EventsController < Admin::ApplicationController
+class Admin::EventsController < Admin::BaseController
   before_action :admin_user, only: [:edit, :update, :show_comments]
 
   def new
