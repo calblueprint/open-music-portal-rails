@@ -43,6 +43,15 @@ USOMC::Application.routes.draw do
   match 'checkout', to: 'charges#new', via: :get
   match 'checkout', to: 'charges#create', via: :post
 
+  resources :rooms, except: [:edit, :update, :destroy]
+  resources :competitions, only: [:index, :show] do
+    match 'schedule', to: 'competitions#schedule', as: 'schedule', via: :get
+    match 'schedule/days/:day_id', to: 'competitions#day', as: 'day', via: :get
+    resources :categories, only: [:show] do
+      resources :display_events, path: 'events', only: [:show]
+    end
+  end
+
   # Admin
   namespace :admin do
     match '/', to: redirect('/admin/dashboard'), via: :get
@@ -55,15 +64,6 @@ USOMC::Application.routes.draw do
     resources :display_events
     resources :categories
     resources :pieces
-  end
-
-  resources :rooms, except: [:edit, :update, :destroy]
-  resources :competitions, only: [:index, :show] do
-    match 'schedule', to: 'competitions#schedule', as: 'schedule', via: :get
-    match 'schedule/days/:day_id', to: 'competitions#day', as: 'day', via: :get
-    resources :categories, only: [:show] do
-      resources :display_events, path: 'events', only: [:show]
-    end
   end
 
   # API for the iPad app.
