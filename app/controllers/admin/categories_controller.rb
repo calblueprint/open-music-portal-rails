@@ -6,7 +6,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def create
-    @category = Event.new(category_params)
+    @category = Category.new(category_params)
     if @category.save
       redirect_to admin_category_path(@category)
     else
