@@ -1,34 +1,31 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row" id="user_profile">
+<div class="container">
+  <div class="row" id="user_profile">
 
-      <div class="col-md-12" id="main_user_info">
-        <h1 class="title about_blurb">- <%= @display_event.name.upcase %> -</h1>
-        <div class="col-md-4"></div>
-        <div class="col-md-3">
-          <ul class="list_user_labels">
-            <li class="user_info_label">Number of Pieces:</li>
-            <li class="user_info_label">Max Time (min):</li>
-            <li class="user_info_label">Status:</li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <ul class="list_user_values">
-            <li class="user_info_value"><%= @display_event.num_pieces %></li>
-            <li class="user_info_value"><%= @display_event.max_time %></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-5"></div>
-      <% if @user and not @user.has_display_event(@display_event) %>
+    <div class="col-md-12" id="main_user_info">
+      <h1 class="title about_blurb">- <%= @display_event.name.upcase %> -</h1>
+      <div class="col-md-4"></div>
       <div class="col-md-3">
-        <%= link_to "- ADD EVENT -", { controller: "users", action: "add_display_event", display_event_id: @display_event.id }, class: "event_submit" %>
+        <ul class="list_user_labels">
+          <li class="user_info_label">Number of Pieces:</li>
+          <li class="user_info_label">Max Time (min):</li>
+          <li class="user_info_label">Status:</li>
+        </ul>
       </div>
-      <% end %>
-
+      <div class="col-md-3">
+        <ul class="list_user_values">
+          <li class="user_info_value"><%= @display_event.num_pieces %></li>
+          <li class="user_info_value"><%= @display_event.max_time %></li>
+        </ul>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <% if @user and not @user.has_display_event(@display_event) %>
+    <div class="col-md-3">
+      <%= link_to "- ADD EVENT -", { controller: "users", action: "add_display_event", display_event_id: @display_event.id }, class: "event_submit" %>
+    </div>
+    <% end %>
 
   </div>
 </div>

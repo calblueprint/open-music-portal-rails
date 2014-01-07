@@ -13,7 +13,8 @@
   <body>
     <%= render partial: "partials/header" %>
     <%= render partial: "shared/errors" %>
-    <div class="container" id="main_container">
+    <div class="content_container" id="main_container">
+      <%= render partial: "shared/admin" %>
       <%= yield %>
     </div>
   </body>
