@@ -1,16 +1,4 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="title">Create a Category</h1>
-          </div>
-        </div>
+<% provide(:form_title, "Create a Category") %>
+<% provide(:form_partial, "admin/categories/category_form") %>
 
-        <%= render partial: "admin/categories/category_form" %>
-
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: "shared/form", locals: {errors: @category.errors} %>
