@@ -7,6 +7,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.new(category_params)
+    @category.competition = Competition.find(params[:competition_id])
     if @category.save
       redirect_to admin_category_path(@category)
     else

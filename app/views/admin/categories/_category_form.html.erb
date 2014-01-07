@@ -3,11 +3,13 @@
   <div class="col-md-2">
       <ul class="list_user_labels">
         <li class="user_input_label">Name:</li>
+        <li class="user_input_label">Competition:</li>
       </ul>
   </div>
   <div class="col-md-2">
     <ul class="list_user_values">
       <li class="user_input_value"><%= f.text_field :name, placeholder: "Name" %></li>
+      <li class="user_input_value"><%= select_tag "competition_id", options_from_collection_for_select(Competition.active, "id", "name") %></li>
   </div>
 </div>
 
