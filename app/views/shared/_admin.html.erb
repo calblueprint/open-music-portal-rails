@@ -1,0 +1,9 @@
+<% if params[:controller].start_with?("admin") && params[:action] != "dashboard" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to "< Back to the Admin Dashboard", admin_dashboard_path, class: "admin-back-button" %>
+      </div>
+    </div>
+  </div>
+<% end %>
