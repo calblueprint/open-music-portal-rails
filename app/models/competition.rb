@@ -19,6 +19,8 @@ class Competition < ActiveRecord::Base
 
   scope :active, -> { where(is_current: true) }
 
+  validates_presence_of :name, :year, :location, :venue
+
   def display_name
     "#{name} - #{year}"
   end
