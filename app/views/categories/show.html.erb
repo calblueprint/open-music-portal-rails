@@ -1,20 +1,18 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="title about_blurb">- CHOOSE AN EVENT -</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title about_blurb">- CHOOSE AN EVENT -</h1>
 
-        <% @category.display_events.each do |display_event| %>
-          <div class = "event">
-          <%= link_to display_event.name, competition_category_display_event_path(competition_id: @category.competition.id, category_id: @category.id, id: display_event.id), class: "event_name" %>
-            <br>
-            <% if @user and not @user.has_display_event(display_event) %>
-              <%= link_to "- ADD EVENT -", { controller: "users", action: "add_display_event", display_event_id: display_event.id }, class: "event_submit" %>
-            <% end %>
-          </div>
-        <% end %>
+      <% @category.display_events.each do |display_event| %>
+        <div class = "event">
+        <%= link_to display_event.name, competition_category_display_event_path(competition_id: @category.competition.id, category_id: @category.id, id: display_event.id), class: "event_name" %>
+          <br>
+          <% if @user and not @user.has_display_event(display_event) %>
+            <%= link_to "- ADD EVENT -", { controller: "users", action: "add_display_event", display_event_id: display_event.id }, class: "event_submit" %>
+          <% end %>
+        </div>
+      <% end %>
 
-      </div>
     </div>
   </div>
 </div>

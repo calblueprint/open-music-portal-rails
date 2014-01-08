@@ -1,0 +1,9 @@
+<div class="container">
+  <%= render partial: "shared/form_errors", locals: {errors: errors} %>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title"><%= yield(:form_title) %></h1>
+      <%= render partial: yield(:form_partial) %>
+    </div>
+  </div>
+</div>

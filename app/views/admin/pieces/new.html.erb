@@ -1,88 +1,86 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= form_for @piece, url: admin_pieces_path do |f| %>
-          <% if @piece.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@piece.errors.count, 'error') %> prohibited this piece from being saved:</h2>
-              <ul>
-              <% @piece.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-
-          <%= fields_for :composer, @piece.composer do |composer_fields| %>
-            <%= composer_fields.label :name, 'Composer' %>
-            <%= composer_fields.text_field :name, class: 'typeahead-composers' %>
-          <% end %>
-          <br />
-
-          <%= fields_for :nationality, @piece.nationality do |nationality_fields| %>
-            <%= nationality_fields.label :name, 'Nationality' %>
-            <%= nationality_fields.text_field :name, class: 'typeahead-nationalities' %>
-          <% end %>
-          <br />
-
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-          <br />
-
-          <%= fields_for :book, @piece.book do |book_fields| %>
-            <%= book_fields.label :name, 'Book' %>
-            <%= book_fields.text_field :name, class: 'typeahead-books' %>
-          <% end %>
-          <br />
-
-          <%= fields_for :publisher, @piece.publisher do |publisher_fields| %>
-            <%= publisher_fields.label :name, 'Publisher' %>
-            <%= publisher_fields.text_field :name, class: 'typeahead-publishers' %>
-          <% end %>
-          <br />
-
-          <%= f.label :affiliate_link %>
-          <%= f.text_field :affiliate_link %>
-          <br />
-
-          <%= f.label :length_minutes, 'Length' %>
-          <%= f.text_field :length_minutes %>
-          <%= f.text_field :length_seconds %>
-          <br />
-
-          <%= fields_for :period, @piece.period do |period_fields| %>
-            <%= period_fields.label :name, 'Period' %>
-            <%= period_fields.text_field :name, class: 'typeahead-periods' %>
-          <% end %>
-          <br />
-
-          <%= f.label :pages %>
-          <%= f.text_field :pages %>
-          <br />
-
-          <%= fields_for :level, @piece.level do |level_fields| %>
-            <%= level_fields.label :name, 'Level' %>
-            <%= level_fields.text_field :name, class: 'typeahead-levels' %>
-          <% end %>
-          <br />
-
-          <%= f.label :other_a %>
-          <%= f.text_area :other_a %>
-          <br />
-
-          <%= f.label :other_b %>
-          <%= f.text_area :other_b %>
-          <br />
-
-          <%= f.label :other_c %>
-          <%= f.text_area :other_c %>
-          <br />
-
-          <%= f.submit "Create" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_for @piece, url: admin_pieces_path do |f| %>
+        <% if @piece.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@piece.errors.count, 'error') %> prohibited this piece from being saved:</h2>
+            <ul>
+            <% @piece.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
         <% end %>
 
-      </div>
+        <%= fields_for :composer, @piece.composer do |composer_fields| %>
+          <%= composer_fields.label :name, 'Composer' %>
+          <%= composer_fields.text_field :name, class: 'typeahead-composers' %>
+        <% end %>
+        <br />
+
+        <%= fields_for :nationality, @piece.nationality do |nationality_fields| %>
+          <%= nationality_fields.label :name, 'Nationality' %>
+          <%= nationality_fields.text_field :name, class: 'typeahead-nationalities' %>
+        <% end %>
+        <br />
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <br />
+
+        <%= fields_for :book, @piece.book do |book_fields| %>
+          <%= book_fields.label :name, 'Book' %>
+          <%= book_fields.text_field :name, class: 'typeahead-books' %>
+        <% end %>
+        <br />
+
+        <%= fields_for :publisher, @piece.publisher do |publisher_fields| %>
+          <%= publisher_fields.label :name, 'Publisher' %>
+          <%= publisher_fields.text_field :name, class: 'typeahead-publishers' %>
+        <% end %>
+        <br />
+
+        <%= f.label :affiliate_link %>
+        <%= f.text_field :affiliate_link %>
+        <br />
+
+        <%= f.label :length_minutes, 'Length' %>
+        <%= f.text_field :length_minutes %>
+        <%= f.text_field :length_seconds %>
+        <br />
+
+        <%= fields_for :period, @piece.period do |period_fields| %>
+          <%= period_fields.label :name, 'Period' %>
+          <%= period_fields.text_field :name, class: 'typeahead-periods' %>
+        <% end %>
+        <br />
+
+        <%= f.label :pages %>
+        <%= f.text_field :pages %>
+        <br />
+
+        <%= fields_for :level, @piece.level do |level_fields| %>
+          <%= level_fields.label :name, 'Level' %>
+          <%= level_fields.text_field :name, class: 'typeahead-levels' %>
+        <% end %>
+        <br />
+
+        <%= f.label :other_a %>
+        <%= f.text_area :other_a %>
+        <br />
+
+        <%= f.label :other_b %>
+        <%= f.text_area :other_b %>
+        <br />
+
+        <%= f.label :other_c %>
+        <%= f.text_area :other_c %>
+        <br />
+
+        <%= f.submit "Create" %>
+      <% end %>
+
     </div>
   </div>
 </div>

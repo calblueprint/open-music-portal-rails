@@ -1,17 +1,15 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <% if @payment_succeeded %>
-          <h2 class="title">Thanks, you paid <strong><%= transaction_amount_string @transaction %></strong> for the following events:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if @payment_succeeded %>
+        <h2 class="title">Thanks, you paid <strong><%= transaction_amount_string @transaction %></strong> for the following events:</h2>
 
-          <% @transaction.display_events.includes(:category).each do |display_event| %>
-            <%= link_to display_event.name, competition_category_display_event_path(competition_id: display_event.category.competition.id, category_id: display_event.category.id, id: display_event.id), class: "year_link" %>
-          <% end %>
-        <% else %>
-          Transaction failed. You were not charged.
+        <% @transaction.display_events.includes(:category).each do |display_event| %>
+          <%= link_to display_event.name, competition_category_display_event_path(competition_id: display_event.category.competition.id, category_id: display_event.category.id, id: display_event.id), class: "year_link" %>
         <% end %>
-      </div>
+      <% else %>
+        Transaction failed. You were not charged.
+      <% end %>
     </div>
   </div>
 </div>

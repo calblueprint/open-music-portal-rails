@@ -1,33 +1,4 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row" id="user_profile">
+<% provide(:form_title, @category.name) %>
+<% provide(:form_partial, "admin/categories/category_form") %>
 
-      <div class="col-md-9" id="main_user_info">
-        <h1 class="title"><%= @category.name %></h1>
-
-        <div class="row">
-          <div class="col-md-3">
-            <ul class="list_user_labels">
-               <li class="user_info_label">Name:</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-          <%= form_for(@category, html: {id: "form"}, url: admin_category_path(@category)) do |f| %>
-            <ul class="list_user_values">
-              <li class="user_input_value"><%= f.text_field :name, placeholder: "Name" %></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <%= f.submit "continue", class: "submit" %>
-          </div>
-        </div>
-
-        <% end %>
-
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: "shared/form", locals: {errors: @category.errors} %>

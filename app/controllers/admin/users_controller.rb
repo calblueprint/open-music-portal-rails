@@ -22,7 +22,7 @@ class Admin::UsersController < Admin::BaseController
 
   private
 
-    def  user_params
+    def user_params
       params.require(:user).permit(:first_name, :last_name, :email,
                                      :date_of_birth, :country, :street_address, :city, :state, :zip_code,
                                      :phone_number, :event_ids => [])

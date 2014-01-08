@@ -13,4 +13,6 @@
 class Category < ActiveRecord::Base
   belongs_to :competition
   has_many :display_events
+
+  validates_presence_of :name
 end
