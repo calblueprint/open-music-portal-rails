@@ -7,34 +7,49 @@
 
       <div class="row">
         <div class="col-md-3">
+          <h1 class="title">Manage Competitions</h1>
           <ul class="no-bullets with-buttons no-padding">
-            <li><%= link_to "Manage Users", admin_users_path, class: 'btn btn-primary btn-lg btn-block' %></li>
             <li><%= link_to "Create a new Competition", new_admin_competition_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+            <li><%= link_to "Edit existing Competitions", admin_competitions_path, class: 'btn btn-primary btn-lg btn-block' %></li>
           </ul>
         </div>
 
         <div class="col-md-3">
+          <h1 class="title">Manage Categories</h1>
           <ul class="no-bullets with-buttons no-padding">
-            <li><%= link_to "Manage Categories", admin_categories_path, class: 'btn btn-primary btn-lg btn-block' %></li>
             <li><%= link_to "Create a Category", new_admin_category_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+            <li><%= link_to "Edit existing Categories", admin_categories_path, class: 'btn btn-primary btn-lg btn-block' %></li>
           </ul>
         </div>
 
         <div class="col-md-3">
+          <h1 class="title">Manage Events</h1>
           <ul class="no-bullets with-buttons no-padding">
-            <li><%= link_to "Manage Events", admin_events_path, class: 'btn btn-primary btn-lg btn-block' %></li>
             <li><%= link_to "Create an Event", new_admin_display_event_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+            <li><%= link_to "Edit existing Events", admin_events_path, class: 'btn btn-primary btn-lg btn-block' %></li>
           </ul>
         </div>
-
-        <div class="col-md-3">
-          <ul class="no-bullets with-buttons no-padding">
-            <li><%= link_to "Manage Pieces", admin_pieces_path, class: 'btn btn-primary btn-lg btn-block' %></li>
-            <li><%= link_to "Create a Piece", new_admin_piece_path, class: 'btn btn-primary btn-lg btn-block' %></li>
-          </ul>
-        </div>
-
       </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <h1 class="title">Manage Users</h1>
+          <ul class="no-bullets with-buttons no-padding">
+            <li><%= link_to "Edit Users", admin_users_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <h1 class="title">Manage Pieces</h1>
+          <ul class="no-bullets with-buttons no-padding">
+            <li><%= link_to "Create a Piece", new_admin_piece_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+            <li><%= link_to "Edit existing Pieces", admin_pieces_path, class: 'btn btn-primary btn-lg btn-block' %></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
