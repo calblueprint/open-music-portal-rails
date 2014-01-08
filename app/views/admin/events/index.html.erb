@@ -6,19 +6,31 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Number of Pieces</th>
+            <th>Max Time</th>
+            <th>Price</th>
+            <th>Day</th>
+            <th>Room</th>
+            <th>Number of Contestants</th>
+            <th>Number of Judges</th>
           </tr>
           <% @events.each do |event| %>
           <tr>
             <td><%= event.id %></td>
             <td><%= event.name  %></td>
-            <td class="divider"><%= link_to "Show", admin_event_path(event), class: "admin_link"  %></td>
-            <% if current_user!= nil and current_user.has_role?(:admin) %>
-              <td class="divider"><%= link_to "Edit",  edit_admin_display_event_path(event), class: "admin_link" %></td>
-            <% end %>
+            <td><%= event.num_pieces %></td>
+            <td><%= event.max_time %></td>
+            <td><%= number_to_currency(event.price / 100.0) %></td>
+            <td><%= event.day.name %></td>
+            <td><%= event.room.name %></td>
+            <td><%= "#{event.contestants.count} contestants" %></td>
+            <td><%= "#{event.judges.count} judges" %></td>
+            <td><%= link_to "More Details", admin_event_path(event), class: "admin_link"  %></td>
+            <td><%= link_to "Edit #{event.display_name}", edit_admin_display_event_path(event), class: "admin_link" %></td>
           </tr>
           <% end %>
         </table>
-        <%= will_paginate(@events, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+        <%= will_paginate(@events, renderer: WillPaginate::ActionView::LinkRenderer) %>
       </div>
     </div>
   </div>

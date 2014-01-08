@@ -35,6 +35,10 @@ class Event < ActiveRecord::Base
     "#{name} - #{category.name}"
   end
 
+  def display_name
+    "#{name} from #{category.name}"
+  end
+
   def length
     return 120
   end
@@ -45,6 +49,18 @@ class Event < ActiveRecord::Base
 
   def category
     display_event.category
+  end
+
+  def num_pieces
+    display_event.num_pieces
+  end
+
+  def max_time
+    display_event.max_time
+  end
+
+  def price
+    display_event.price
   end
 
   def self.to_json(events)

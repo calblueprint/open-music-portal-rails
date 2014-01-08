@@ -1,15 +1,15 @@
 USOMC::Application.routes.draw do
+  root to: 'static_pages#home'
+
   get "password_resets/new"
   get "confirmations/new"
   get 'confirmed/:id', to: 'confirmations#update', as: 'confirmed'
 
-  root to: 'static_pages#home'
-
   resources :users, except: [:new, :destroy, :index]
   match 'users/add_display_event/:display_event_id', to: 'users#add_display_event', via: :get
   resources :sessions, only: [:new, :create, :destroy]
-  match '/login',  to: 'sessions#new', via: :get
-  match '/logout', to: 'sessions#destroy', via: [:get, :delete]
+  match 'login',  to: 'sessions#new', via: :get
+  match 'logout', to: 'sessions#destroy', via: [:get, :delete]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   match 'profile', to: 'users#my_profile', via: :get
@@ -43,7 +43,6 @@ USOMC::Application.routes.draw do
   match 'checkout', to: 'charges#new', via: :get
   match 'checkout', to: 'charges#create', via: :post
 
-  resources :rooms, except: [:edit, :update, :destroy]
   resources :competitions, only: [:index, :show] do
     match 'schedule', to: 'competitions#schedule', as: 'schedule', via: :get
     match 'schedule/days/:day_id', to: 'competitions#day', as: 'day', via: :get
@@ -58,10 +57,10 @@ USOMC::Application.routes.draw do
     match 'dashboard', to: 'pages#dashboard', via: :get
     resources :users
     resources :competitions
+    resources :display_events, path: 'events', only: [:new, :edit, :update]
     resources :events, only: [:show, :index] do
       match 'contestants/:contestant_id', to: 'events#show_comments', as: 'show_comments', via: :get
     end
-    resources :display_events
     resources :categories
     resources :pieces
   end

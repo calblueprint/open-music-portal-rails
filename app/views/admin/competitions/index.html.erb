@@ -1,14 +1,27 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="title about_blurb">- COMPETITIONS -</h1>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Location</th>
+          <th>Venue</th>
+        </tr>
         <% @competitions.each do |competition| %>
-          <%= link_to competition.name, competition_path(competition), class: "category_link" %>
+        <tr>
+          <td><%= competition.id %></td>
+          <td><%= competition.name %></td>
+          <td><%= competition.year %></td>
+          <td><%= competition.location %></td>
+          <td><%= competition.venue %></td>
+          <td><%= link_to "More Details", admin_competition_path(competition), class: "admin_link" %></td>
+          <td><%= link_to "Edit #{competition.display_name}",  edit_admin_competition_path(competition), class: "admin_link" %></td>
+        </tr>
         <% end %>
-
-      </div>
+      </table>
+      <%= will_paginate(@competitions, renderer: WillPaginate::ActionView::LinkRenderer) %>
     </div>
   </div>
 </div>

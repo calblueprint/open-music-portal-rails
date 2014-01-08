@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def index
-      @users = User.paginate(:page => params[:page], :per_page => 10).order('id ASC')
+      @users = User.paginate(:page => params[:page], :per_page => 25).order('id ASC')
     end
 
     def edit
