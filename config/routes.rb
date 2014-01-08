@@ -43,7 +43,6 @@ USOMC::Application.routes.draw do
   match 'checkout', to: 'charges#new', via: :get
   match 'checkout', to: 'charges#create', via: :post
 
-  resources :rooms, except: [:edit, :update, :destroy]
   resources :competitions, only: [:index, :show] do
     match 'schedule', to: 'competitions#schedule', as: 'schedule', via: :get
     match 'schedule/days/:day_id', to: 'competitions#day', as: 'day', via: :get
