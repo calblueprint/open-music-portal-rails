@@ -10,9 +10,9 @@
         <tr>
           <td><%= category.id %></td>
           <td><%= category.name  %></td>
-          <td class="divider"><%= link_to "Show", admin_category_path(category), class: "admin_link"  %></td>
+          <td><%= link_to "More Details", admin_category_path(category), class: "admin_link"  %></td>
           <% if current_user != nil and current_user.has_role?(:admin) %>
-            <td class="divider"><%= link_to "Edit",  edit_admin_category_path(category), class: "admin_link" %></td>
+            <td><%= link_to "Edit #{category.display_name}",  edit_admin_category_path(category), class: "admin_link" %></td>
           <% end %>
         </tr>
         <% end %>
