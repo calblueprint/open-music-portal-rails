@@ -15,4 +15,13 @@ class Category < ActiveRecord::Base
   has_many :display_events
 
   validates_presence_of :name
+
+  def display_name
+    if competition
+      "'#{name}' from the #{competition.year} #{competition.name}"
+    else
+      "'#{name}'"
+    end
+  end
+
 end
