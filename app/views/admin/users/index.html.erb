@@ -8,12 +8,12 @@
           <th>First Name</th>
         </tr>
         <% @users.each do |user| %>
-        <tr>
+        <tr class="user-info-row">
           <td><%= user.id %></td>
           <td><%= user.last_name %></td>
           <td><%= user.first_name %></td>
-          <td class="divider"><%= link_to "Show", admin_user_path(user), class: "admin_link" %></td>
-          <td class="divider"><%= link_to "Edit",  edit_admin_user_path(user), class: "admin_link" %></td>
+          <td><%= link_to "More Details", admin_user_path(user), class: "admin_link" %></td>
+          <td><%= link_to "Edit #{user.name}'s info",  edit_admin_user_path(user), class: "admin_link" %></td>
         </tr>
         <% end %>
       </table>
