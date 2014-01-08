@@ -7,6 +7,7 @@ USOMC::Application.load_tasks
 
 desc "Assign the events equally across all days without caring about conflicts"
 task default_scheduler: :environment do
+  puts ENV['RAILS_ENV']
   puts "*" * 50
   puts "Running the default scheduler"
   puts "*" * 50

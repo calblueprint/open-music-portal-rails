@@ -201,4 +201,5 @@ comments.each_with_index do |comment, index|
   puts "Created comment: #{new_comment.body} for contestant: #{contestant.id} by judge: #{judge.id} for event: #{event.id}."
 end
 
+puts ENV['RAILS_ENV']
 Rake::Task["default_scheduler"].invoke
