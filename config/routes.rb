@@ -57,10 +57,10 @@ USOMC::Application.routes.draw do
     match 'dashboard', to: 'pages#dashboard', via: :get
     resources :users
     resources :competitions
+    resources :display_events, path: 'events', only: [:new, :edit, :update]
     resources :events, only: [:show, :index] do
       match 'contestants/:contestant_id', to: 'events#show_comments', as: 'show_comments', via: :get
     end
-    resources :display_events
     resources :categories
     resources :pieces
   end
