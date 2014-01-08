@@ -1,0 +1,4 @@
+<% provide(:form_title, @competition.display_name) %>
+<% provide(:form_partial, "admin/competitions/competition_form") %>
+
+<%= render partial: "shared/form", locals: {errors: @competition.errors} %>
