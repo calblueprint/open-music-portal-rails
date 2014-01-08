@@ -14,8 +14,12 @@ class Admin::CompetitionsController < Admin::BaseController
     end
   end
 
+  def edit
+    @competition = Competition.find(params[:id])
+  end
+
   def index
-    @competitions = Competition.active
+    @competitions = Competition.active.paginate(page: params[:page], per_page: 10)
   end
 
   def show
