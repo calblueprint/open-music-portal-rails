@@ -78,7 +78,7 @@ descriptions.each do |date, description|
 end
 
 # Create a sample competition
-competition = Competition.where(name: "Spring Competition", year: 2014, is_current: true).first_or_create
+competition = Competition.where(name: "Spring Competition", year: 2014, is_current: true).first_or_create!
 puts "Created competition: #{competition.name} - #{competition.year}."
 
 # Make days
