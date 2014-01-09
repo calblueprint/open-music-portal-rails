@@ -89,6 +89,10 @@ class User < ActiveRecord::Base
     has_role?(:admin) || has_role?(:website_admin) || has_role?(:super_user)
   end
 
+  def is_admin?
+    has_role?(:admin) || has_role?(:super_user)
+  end
+
   def roles_list
     roles.collect { |role| role.name.gsub("_", " ").split.map(&:capitalize).join(" ") }.flatten.join(", ")
   end
