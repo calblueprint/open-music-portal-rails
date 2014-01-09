@@ -28,6 +28,14 @@ class DisplayEvent < ActiveRecord::Base
 
   after_create :create_default_event
 
+  def display_name
+    if category
+      "'#{name}' from #{category.display_name}"
+    else
+      "'#{name}'"
+    end
+  end
+
   def add_contestants(contestants)
     contestants.each do |contestant|
       add_contestant(contestant)

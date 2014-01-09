@@ -21,6 +21,16 @@ class Competition < ActiveRecord::Base
 
   validates_presence_of :name, :year, :location, :venue
 
+  class << self
+    def display_events
+      all.collect { |competition| competition.categories.collect { |category| category.display_events }.flatten }.flatten
+    end
+
+    def categories
+      all.collect { |competition| competition.categories }.flatten
+    end
+  end
+
   def display_name
     "#{name} - #{year}"
   end
