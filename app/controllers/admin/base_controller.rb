@@ -1,10 +1,14 @@
 class Admin::BaseController < ApplicationController
-  before_action :is_admin?
+  before_action :admin_user
 
   private
 
     def admin_user
-      redirect_to(root_url) unless current_user and current_user.has_role? :admin
+      redirect_to(root_url) unless current_user && current_user.has_admin_dashboard_access?
+    end
+
+    def is_admin?
+      redirect_to(root_url) unless current_user && current_user.is_admin?
     end
 
 end

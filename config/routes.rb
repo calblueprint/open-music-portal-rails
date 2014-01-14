@@ -7,8 +7,8 @@ USOMC::Application.routes.draw do
 
   resources :users, except: [:new, :destroy, :index]
   match 'users/add_display_event/:display_event_id', to: 'users#add_display_event', via: :get
-  resources :sessions, only: [:new, :create, :destroy]
-  match 'login',  to: 'sessions#new', via: :get
+  match 'login', to: 'sessions#new', via: :get
+  match 'login', to: 'sessions#create', via: :post
   match 'logout', to: 'sessions#destroy', via: [:get, :delete]
   resources :password_resets, only: [:new, :create, :edit, :update]
 

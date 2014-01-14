@@ -110,13 +110,18 @@ users = {
   ],
   "admin" => [
     ["How", "Word", "how@ie.com"],
-    ["Mark", "Mark", "mark@mark.com"],
   ],
   "judge" => [
     ["How", "Word", "how@word.com"],
     ["Judge", "Judy", "judge@judy.com"],
     ["Will", "Tang", "will@will.com"],
-  ]
+  ],
+  "website_admin" => [
+    ["Webstie", "Admin", "website@usomc.com"],
+  ],
+  "super_user" => [
+    ["Mark", "Mark", "mark@mark.com"],
+  ],
 }
 
 users.each do |user_type, list_of_users|

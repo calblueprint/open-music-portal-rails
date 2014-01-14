@@ -85,6 +85,18 @@ class User < ActiveRecord::Base
     return user_to_json
   end
 
+  def has_admin_dashboard_access?
+    has_role?(:admin) || has_role?(:website_admin) || has_role?(:super_user)
+  end
+
+  def is_admin?
+    has_role?(:admin) || has_role?(:super_user)
+  end
+
+  def roles_list
+    roles.collect { |role| role.name.gsub("_", " ").split.map(&:capitalize).join(" ") }.flatten.join(", ")
+  end
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
