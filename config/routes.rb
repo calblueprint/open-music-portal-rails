@@ -55,6 +55,7 @@ USOMC::Application.routes.draw do
   namespace :admin do
     match '/', to: redirect('/admin/dashboard'), via: :get
     match 'dashboard', to: 'pages#dashboard', via: :get
+    match 'users/search', to: 'users#search', via: :get
     resources :users
     resources :competitions
     resources :display_events, path: 'events', only: [:new, :edit, :update]
