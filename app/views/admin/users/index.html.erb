@@ -22,6 +22,12 @@
           <th>Last Name</th>
           <th>First Name</th>
         </tr>
+      <% if @users.empty? %>
+      </table>
+        <p class="table-message">
+          Sorry, there are no users that match the query: "<%= params[:q] %>".
+        </p>
+      <% else %>
         <% @users.each do |user| %>
         <tr class="user-info-row">
           <td><%= user.id %></td>
@@ -32,6 +38,7 @@
         </tr>
         <% end %>
       </table>
+      <% end %>
       <%= will_paginate(@users, :renderer => WillPaginate::ActionView::LinkRenderer) %>
     </div>
   </div>
