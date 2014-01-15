@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       if not user.has_display_event(display_event) and user.confirmed
         user.display_events << display_event
       elsif not user.confirmed
-        flash[:success] = "You must confirm Email before adding evets"
+        flash[:success] = "You must confirm your email address before adding events."
       end
       category = display_event.category
       redirect_to competition_category_url(category.competition, category)
