@@ -16,7 +16,10 @@
 class Event < ActiveRecord::Base
   include PgSearch
 
-  pg_search_scope :search, against: [[:name, 'A']],
+  pg_search_scope :search, associated_against: {
+                             display_event: :name,
+                             room: :name
+                           },
                            using: {tsearch: {prefix: true, normalization: 2}}
 
   belongs_to :day

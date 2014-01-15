@@ -1,37 +1,57 @@
-<div class="content_container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Number of Pieces</th>
-            <th>Max Time</th>
-            <th>Price</th>
-            <th>Day</th>
-            <th>Room</th>
-            <th>Number of Contestants</th>
-            <th>Number of Judges</th>
-          </tr>
-          <% @events.each do |event| %>
-          <tr>
-            <td><%= event.id %></td>
-            <td><%= event.name  %></td>
-            <td><%= event.num_pieces %></td>
-            <td><%= event.max_time %></td>
-            <td><%= number_to_currency(event.price / 100.0) %></td>
-            <td><%= event.day.name %></td>
-            <td><%= event.room.name %></td>
-            <td><%= "#{event.contestants.count} contestants" %></td>
-            <td><%= "#{event.judges.count} judges" %></td>
-            <td><%= link_to "More Details", admin_event_path(event), class: "admin_link"  %></td>
-            <td><%= link_to "Edit #{event.display_name}", edit_admin_display_event_path(event), class: "admin_link" %></td>
-          </tr>
-          <% end %>
-        </table>
-        <%= will_paginate(@events, renderer: WillPaginate::ActionView::LinkRenderer) %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 search-bar-space">
+      <p>
+        Looking for a specific event? Search by the event name or room number!
+      </p>
+      <%= form_tag admin_events_search_path, method: :get do %>
+        <div class="input-group">
+          <%= text_field_tag :q, params[:q], class: "form-control search-field" %>
+          <span class="input-group-btn">
+            <%= submit_tag "Search", class: "btn btn-default", name: nil %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Number of Pieces</th>
+          <th>Max Time</th>
+          <th>Price</th>
+          <th>Day</th>
+          <th>Room</th>
+          <th>Number of Contestants</th>
+          <th>Number of Judges</th>
+        </tr>
+      <% if @events.empty? %>
+      </table>
+        <p class="table-message">
+          Sorry, there are no events that match the query: "<%= params[:q] %>".
+        </p>
+      <% else %>
+        <% @events.each do |event| %>
+        <tr>
+          <td><%= event.id %></td>
+          <td><%= event.name  %></td>
+          <td><%= event.num_pieces %></td>
+          <td><%= event.max_time %></td>
+          <td><%= number_to_currency(event.price / 100.0) %></td>
+          <td><%= event.day.name %></td>
+          <td><%= event.room.name %></td>
+          <td><%= "#{event.contestants.count} contestants" %></td>
+          <td><%= "#{event.judges.count} judges" %></td>
+          <td><%= link_to "More Details", admin_event_path(event), class: "admin_link"  %></td>
+          <td><%= link_to "Edit #{event.display_name}", edit_admin_display_event_path(event), class: "admin_link" %></td>
+        </tr>
+        <% end %>
+      </table>
+      <% end %>
+      <%= will_paginate(@events, renderer: WillPaginate::ActionView::LinkRenderer) %>
     </div>
   </div>
 </div>
