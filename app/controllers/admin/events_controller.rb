@@ -18,6 +18,11 @@ class Admin::EventsController < Admin::BaseController
     @events = Event.paginate(:page => params[:page], :per_page => 10).includes(:display_event).order('id ASC')
   end
 
+  def search
+    @events = Event.search(params[:q]).paginate(page: params[:page], per_page: 10).includes(:display_event)
+    render :index
+  end
+
   def show
     @event = Event.find(params[:id])
   end
