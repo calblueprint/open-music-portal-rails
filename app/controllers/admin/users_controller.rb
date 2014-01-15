@@ -8,6 +8,11 @@ class Admin::UsersController < Admin::BaseController
       @users = User.paginate(:page => params[:page], :per_page => 25).order('id ASC')
     end
 
+    def search
+      @users = User.search(params[:q]).paginate(page: params[:page], per_page: 25)
+      render :index
+    end
+
     def edit
       @events = Event.all
       @user = User.find(params[:id])
