@@ -25,6 +25,7 @@
 #
 
 class User < ActiveRecord::Base
+  include PgSearch
   rolify
 
   has_many :events_users
@@ -45,6 +46,9 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
+
+  pg_search_scope :search, against: [[:last_name, 'A'], [:first_name, 'A'], [:email, 'A'], [:phone_number, 'B'], [:street_address, 'C']],
+                           using: {tsearch: {prefix: true, normalization: 2}}
 
   class << self
     def to_json(users)
