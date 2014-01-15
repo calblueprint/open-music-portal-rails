@@ -3,6 +3,8 @@
     <div class="col-md-12">
       <h1 class="title about_blurb">- CHOOSE AN EVENT -</h1>
 
+      <%= render partial: 'shared/errors' %>
+
       <% @category.display_events.each do |display_event| %>
         <div class = "event">
         <%= link_to display_event.name, competition_category_display_event_path(competition_id: @category.competition.id, category_id: @category.id, id: display_event.id), class: "event_name" %>
