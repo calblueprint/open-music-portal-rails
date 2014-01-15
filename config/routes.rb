@@ -59,6 +59,7 @@ USOMC::Application.routes.draw do
     resources :users
     resources :competitions
     resources :display_events, path: 'events', only: [:new, :edit, :update]
+    match 'events/search', to: 'events#search', via: :get
     resources :events, only: [:show, :index] do
       match 'contestants/:contestant_id', to: 'events#show_comments', as: 'show_comments', via: :get
     end
