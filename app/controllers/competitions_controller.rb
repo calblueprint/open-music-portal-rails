@@ -15,7 +15,12 @@ class CompetitionsController < ApplicationController
   end
 
   def index
-    @competitions = Competition.active
+    @competitions = Competition.paginate(page: params[:page], per_page: 10)
+  end
+
+  def search
+    @competitions = Competition.search(params[:q]).paginate(page: params[:page], per_page: 10)
+    render :index
   end
 
   def show
