@@ -1,3 +1,7 @@
+### 1.5
+
+* Added search to users and events.
+
 ### 1.4
 
 * Moved all admin functionality into a module.
