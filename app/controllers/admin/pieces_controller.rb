@@ -72,9 +72,9 @@ class Admin::PiecesController < Admin::ApplicationController
       other_c: params[:piece][:other_c]
     )
     if @piece.save
-      redirect_to root_url
+      redirect_to edit_admin_piece_url(@piece)
     else
-      render root_url
+      render 'new'
     end
   end
 
