@@ -47,6 +47,37 @@ class Admin::PiecesController < Admin::ApplicationController
     @piece = Piece.find(params[:id])
   end
 
+  def update
+    @piece = Piece.find(params[:id])
+    composer = params[:composer][:name].empty? ? nil : Composer.where(:name => params[:composer][:name]).first_or_create
+    nationality = params[:nationality][:name].empty? ? nil : Nationality.where(:name => params[:nationality][:name]).first_or_create
+    book = params[:book][:name].empty? ? nil : Book.where(:name => params[:book][:name]).first_or_create
+    publisher = params[:publisher][:name].empty? ? nil : Publisher.where(:name => params[:publisher][:name]).first_or_create
+    period = params[:period][:name].empty? ? nil : Period.where(:name => params[:period][:name]).first_or_create
+    level = params[:level][:name].empty? ? nil : Level.where(:name => params[:level][:name]).first_or_create
+    @piece.update_attributes(
+      composer: composer,
+      nationality: nationality,
+      title: params[:piece][:title],
+      book: book,
+      publisher: publisher,
+      affiliate_link: params[:piece][:affiliate_link],
+      length_minutes: params[:piece][:length_minutes],
+      length_seconds: params[:piece][:length_seconds],
+      period: period,
+      pages: params[:piece][:pages],
+      level: level,
+      other_a: params[:piece][:other_a],
+      other_b: params[:piece][:other_b],
+      other_c: params[:piece][:other_c]
+    )
+    if @piece.save
+      redirect_to edit_admin_piece_url(@piece)
+    else
+      render 'new'
+    end
+  end
+
   def typeahead_search
     key_to_class = {
       'composers' => Composer,
@@ -70,4 +101,5 @@ class Admin::PiecesController < Admin::ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user and current_user.has_role? :admin
     end
+
 end
