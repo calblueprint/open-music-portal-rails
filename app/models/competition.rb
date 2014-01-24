@@ -19,6 +19,11 @@ class Competition < ActiveRecord::Base
 
   scope :active, -> { where(is_current: true) }
 
+  include PgSearch
+  pg_search_scope :search, against: [[:name, 'A'], [:year, 'A'], [:location, 'B'], [:venue, 'B']],
+                           using: {tsearch: {prefix: true, normalization: 2}}
+
+
   validates_presence_of :name, :year, :location, :venue
 
   class << self
