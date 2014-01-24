@@ -1,4 +1,4 @@
-<% if params[:controller].start_with?("admin") && (params[:action] != "dashboard" || params[:controller].include?("stats")) %>
+<% if params[:controller].start_with?("admin") && (params[:action] != "dashboard" or params[:controller].include?("stats")) %>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
