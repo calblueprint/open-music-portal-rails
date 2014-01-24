@@ -23,7 +23,6 @@ class Competition < ActiveRecord::Base
   pg_search_scope :search, against: [[:name, 'A'], [:year, 'A'], [:location, 'B'], [:venue, 'B']],
                            using: {tsearch: {prefix: true, normalization: 2}}
 
-
   validates_presence_of :name, :year, :location, :venue
 
   class << self
