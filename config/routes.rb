@@ -65,6 +65,11 @@ USOMC::Application.routes.draw do
     end
     resources :categories
     resources :pieces
+
+    namespace :stats do
+      match '/', to: redirect('/admin/stats/dashboard'), via: :get
+      match 'dashboard', to: 'pages#dashboard', via: :get
+    end
   end
 
   # API for the iPad app.
