@@ -14,6 +14,10 @@ class Category < ActiveRecord::Base
   belongs_to :competition
   has_many :display_events
 
+  include PgSearch
+  pg_search_scope :search, against: [[:name, 'A']],
+                           using: {tsearch: {prefix: true, normalization: 2}}
+
   validates_presence_of :name
 
   def display_name

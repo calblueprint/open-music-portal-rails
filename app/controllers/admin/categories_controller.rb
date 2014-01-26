@@ -19,6 +19,11 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.paginate(page: params[:page], per_page: 10)
   end
 
+  def search
+    @categories = Category.search(params[:q]).paginate(page: params[:page], per_page: 10)
+    render :index
+  end
+
   def show
     @category = Category.find(params[:id])
   end
