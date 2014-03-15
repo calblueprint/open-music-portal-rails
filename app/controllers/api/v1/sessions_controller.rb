@@ -8,7 +8,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
 
     user = User.find_by(email: email.downcase)
     if user && user.authenticate(password)
-      render json: {judge: user.to_json}
+      render json: {user: user.to_json}
     else
       render json: Response.unauthorized(user)
     end
