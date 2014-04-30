@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
     @announcements = Announcement.all
   end
 
+  def error
+  end
+
 end
