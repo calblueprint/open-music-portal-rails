@@ -88,4 +88,6 @@ USOMC::Application.routes.draw do
       match 'events/:event_id/rankings', to: 'events#rankings', via: :get
     end
   end
+
+  match "*path", to: 'static_pages#error', as: 'error_page', via: :get
 end
