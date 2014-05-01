@@ -1,8 +1,8 @@
-## United States Open Music Competition - Rails App
+## Open Music Portal - Rails App
 
 ### Setup
 
-You will need Ruby 2.0.0 and Rails 4.0. Once you have both of those installed, you can run the following:
+You will need Ruby 2.1.1 and Rails 4.1.0. Once you have both of those installed, you can run the following:
 
     bundle install
 
