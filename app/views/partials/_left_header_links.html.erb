@@ -13,7 +13,7 @@
   </ul>
 </li>
 <li class=<%= is_active?(controller: "static_pages", action: "overview") %>><%= link_to "ABOUT", overview_path, class: "tab" %></li>
-<% if signed_in? %>
+<% if signed_in? && current_user.is_contestant? %>
   <li class=<%= is_active?(controller: "competitions", action: "show") %>><%= link_to 'EVENTS', competition_path(current_user.competitions.active.last), class: "tab" %></li>
 <% else %>
   <li class=<%= is_active?(controller: "users", action: "new") %>><%= link_to "REGISTER", registration_path, class: "tab" %></li>

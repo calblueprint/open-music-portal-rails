@@ -97,6 +97,10 @@ class User < ActiveRecord::Base
     has_role?(:admin) || has_role?(:super_user)
   end
 
+  def is_contestant?
+    has_role?(:contestant)
+  end
+
   def roles_list
     roles.collect { |role| role.name.gsub("_", " ").split.map(&:capitalize).join(" ") }.flatten.join(", ")
   end
