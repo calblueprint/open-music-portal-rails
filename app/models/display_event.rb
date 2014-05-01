@@ -17,7 +17,7 @@ class DisplayEvent < ActiveRecord::Base
   has_many :events
 
   has_and_belongs_to_many :pieces
-  has_and_belongs_to_many :transactions
+  has_and_belongs_to_many :purchases
 
   has_many :display_events_users
   has_many :users, through: :display_events_users

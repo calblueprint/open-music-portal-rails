@@ -12,7 +12,7 @@
 #  updated_at       :datetime
 #
 
-class Transaction < ActiveRecord::Base
+class Purchase < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :display_events
 
@@ -29,7 +29,7 @@ class Transaction < ActiveRecord::Base
 
   def self.create_for_user_and_display_events(user, display_events)
     amount = calculate_charge_amount(display_events)
-    t = Transaction.create(user: user, amount: amount)
+    t = Purchase.create(user: user, amount: amount)
     t.display_events.concat(display_events)
     return t
   end

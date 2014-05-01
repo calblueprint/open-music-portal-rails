@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109101228) do
+ActiveRecord::Schema.define(version: 20140430234248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 20140109101228) do
     t.integer "piece_id"
   end
 
-  create_table "display_events_transactions", id: false, force: true do |t|
+  create_table "display_events_purchases", id: false, force: true do |t|
     t.integer "display_event_id"
-    t.integer "transaction_id"
+    t.integer "purchase_id"
   end
 
   create_table "display_events_users", id: false, force: true do |t|
@@ -229,6 +229,18 @@ ActiveRecord::Schema.define(version: 20140109101228) do
     t.datetime "updated_at"
   end
 
+  create_table "purchases", force: true do |t|
+    t.integer  "user_id",                          null: false
+    t.integer  "amount",                           null: false
+    t.boolean  "charged",          default: false
+    t.datetime "charged_at"
+    t.text     "stripe_charge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -250,18 +262,6 @@ ActiveRecord::Schema.define(version: 20140109101228) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "transactions", force: true do |t|
-    t.integer  "user_id",                          null: false
-    t.integer  "amount",                           null: false
-    t.boolean  "charged",          default: false
-    t.datetime "charged_at"
-    t.text     "stripe_charge_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"

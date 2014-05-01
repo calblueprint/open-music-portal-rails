@@ -3,7 +3,7 @@ ruby '2.1.1'
 
 gem 'rails', '4.1.0'
 gem 'bootstrap-sass-rails', '3.0.0.3'
-gem 'bcrypt-ruby', '3.0.0'
+gem 'bcrypt-ruby', '3.1.2'
 gem 'validates_timeliness', '~> 3.0'
 gem 'nokogiri', '1.5.9'
 gem 'faker', '1.1.2'
@@ -22,7 +22,7 @@ gem 'jbuilder', '1.0.2'
 
 gem 'pg', '0.17.0'
 gem 'newrelic_rpm', '~> 3.6.8.168'
-gem 'rolify', '~> 3.2.0'
+gem 'rolify', github: 'EppO/rolify'
 
 gem 'aescrypt', '~> 1.0.0'
 
