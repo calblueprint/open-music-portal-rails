@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-md-12
+      h1 Events
+      table.table.table-striped
+        th Name
+        th Closed?
+        - @events.each do |event|
+          tr
+            td = event.name
+            td = event.closed
