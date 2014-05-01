@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: transactions
+# Table name: purchases
 #
 #  id               :integer          not null, primary key
 #  user_id          :integer          not null
