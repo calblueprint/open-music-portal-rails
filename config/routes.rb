@@ -71,6 +71,7 @@ USOMC::Application.routes.draw do
     namespace :stats do
       match '/', to: redirect('/admin/stats/dashboard'), via: :get
       match 'dashboard', to: 'pages#dashboard', via: :get
+      resources :events, only: [:show, :index]
     end
   end
 
